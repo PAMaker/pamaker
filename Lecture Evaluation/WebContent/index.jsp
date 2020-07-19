@@ -4,74 +4,74 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html"; charset="EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
-<title>°­ÀÇÆò°¡ À¥»çÀÌÆ®</title>
-<!-- ºÎÆ®½ºÆ®·¦ CSSÃß°¡ÇÏ±â -->
+<title>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®</title>
+<!-- ï¿½ï¿½Æ®ï¿½ï¿½Æ®ï¿½ï¿½ CSSï¿½ß°ï¿½ï¿½Ï±ï¿½ -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
-<!-- Ä¿½ºÅÒ  CSSÃß°¡ÇÏ±â -->
+<!-- Ä¿ï¿½ï¿½ï¿½ï¿½  CSSï¿½ß°ï¿½ï¿½Ï±ï¿½ -->
 <link rel="stylesheet" href="./css/custom.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="index.jsp">»çÁø ÈÄ±â À¥»çÀÌÆ®</a>
+		<a class="navbar-brand" href="index.jsp">ï¿½ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
 			<span class="navbar-toggler" type="button" data-toggle="collapse"></span>
 		</button>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active"><a class="nav-link"
-					href="index.jsp">¸ÞÀÎ</a></li>
+					href="index.jsp">ï¿½ï¿½ï¿½ï¿½</a></li>
 				<li class="nav-link dropdown">
 				<a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown"></a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
-						<a class="dropdown-item" href="userLogin.jsp">·Î±×ÀÎ</a> 
-						<a class="dropdown-item" href="userjoin.jsp">È¸¿ø°¡ÀÔ</a> 
-						<a class="dropdown-item" href="userLogout.jsp">·Î±×¾Æ¿ô</a>
+						<a class="dropdown-item" href="userLogin.jsp">ï¿½Î±ï¿½ï¿½ï¿½</a> 
+						<a class="dropdown-item" href="userjoin.jsp">È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a> 
+						<a class="dropdown-item" href="userLogout.jsp">ï¿½Î±×¾Æ¿ï¿½</a>
 					</div></li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">°Ë»ö</button>
+				<input class="form-control mr-sm-2" type="search" placeholder="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">ï¿½Ë»ï¿½</button>
 			</form>
 		</div>
 	</nav>
 	<section class="container">
 		<form method="get" action="./index.jsp" class="form-inline mt-3">
 			<select name="lectureDivide" class="form-contorl mx-1 mt-2">
-				<option value="ÀüÃ¼">ÀüÃ¼</option>
-				<option value="Àü°ø">Àü°ø</option>
-				<option value="±³¾ç">±³¾ç</option>
-				<option value="±âÅ¸">±âÅ¸</option>
+				<option value="ï¿½ï¿½Ã¼">ï¿½ï¿½Ã¼</option>
+				<option value="ï¿½ï¿½ï¿½ï¿½">ï¿½ï¿½ï¿½ï¿½</option>
+				<option value="ï¿½ï¿½ï¿½ï¿½">ï¿½ï¿½ï¿½ï¿½</option>
+				<option value="ï¿½ï¿½Å¸">ï¿½ï¿½Å¸</option>
 			</select> 
-			<input type="text" name="search" class="form-control mx-1 mt-2"placeholder="³»¿ëÀ» ÀÔ·ÂÇÏ¼¼¿ä">
-			<button type="submit" class="btn btn-primary mx-1 mt-2">°Ë»ö</button>
-			<a class="btn btn-primary mx-1 mt-2" data-toggle="modal" href="#registerModal">µî·ÏÇÏ±â</a> 
-			<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportModal">½Å°íÇÏ±â</a>
+			<input type="text" name="search" class="form-control mx-1 mt-2"placeholder="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½">
+			<button type="submit" class="btn btn-primary mx-1 mt-2">ï¿½Ë»ï¿½</button>
+			<a class="btn btn-primary mx-1 mt-2" data-toggle="modal" href="#registerModal">ï¿½ï¿½ï¿½ï¿½Ï±ï¿½</a> 
+			<a class="btn btn-danger mx-1 mt-2" data-toggle="modal" href="#reportModal">ï¿½Å°ï¿½ï¿½Ï±ï¿½</a>
 		</form>
 		
 		<div class="card bh-light mt-3">
 			<div class="card-header bg-light">
 				<div class="row">
-					<div class="col-8 text-left">¾Ð±¸Á¤&nbsp;<small>¼Û¿¹ÀÎ</small></div>
+					<div class="col-8 text-left">ï¿½Ð±ï¿½ï¿½ï¿½&nbsp;<small>ï¿½Û¿ï¿½ï¿½ï¿½</small></div>
 						<div class="col-4 text-right">
-							Á¾ÇÕ<span style="color: red;">A</span>
+							ï¿½ï¿½ï¿½ï¿½<span style="color: red;">A</span>
 						</div>
 					</div>
 				</div>
 			<div class="card-body">
 				<h5 class="card-title">
-					Á¤¸» ÁÁÀº ÀÛ°¡´ÔÀÌ¿¡¿ä.&nbsp;<small>(2020³â 6¿ù)</small>
+					ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û°ï¿½ï¿½ï¿½ï¿½Ì¿ï¿½ï¿½ï¿½.&nbsp;<small>(2020ï¿½ï¿½ 6ï¿½ï¿½)</small>
 				</h5>
-				<p class="card-text">ÃÔ¿µÀÌ ³Ê¹« Àåºñ°¡ ¾ø¾î¼­ ¹®Á¦¿¡¿ä</p>
+				<p class="card-text">ï¿½Ô¿ï¿½ï¿½ï¿½ ï¿½Ê¹ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î¼­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</p>
 				<div class="row">
 					<div class="col-9 text-left">
-						¼ºÀû<span style="color:red">A</span>
-						¼ºÀû<span style="color:red">A</span>
-						¼ºÀû<span style="color:red">A</span>
-						<span style="color: green;">(ÃßÃµ:15)</span>
+						ï¿½ï¿½ï¿½ï¿½<span style="color:red">A</span>
+						ï¿½ï¿½ï¿½ï¿½<span style="color:red">A</span>
+						ï¿½ï¿½ï¿½ï¿½<span style="color:red">A</span>
+						<span style="color: green;">(ï¿½ï¿½Ãµ:15)</span>
 					</div>
 					<div class="col-3 text-right">
-						<a onclick="return confirm('ÃßÃµÇÏ½Ã°Ú½À´Ï±î?')" href="./likeAction.jsp?evaluationID=">ÃßÃµ</a>
-						<a onclick="return confirm('»èÁ¦ÇÏ½Ã°Ú½À´Ï±î?')" href="./deleteAction.jsp?evaluationID=">ÃßÃµ</a>
+						<a onclick="return confirm('ï¿½ï¿½Ãµï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?')" href="./likeAction.jsp?evaluationID=">ï¿½ï¿½Ãµ</a>
+						<a onclick="return confirm('ï¿½ï¿½ï¿½ï¿½ï¿½Ï½Ã°Ú½ï¿½ï¿½Ï±ï¿½?')" href="./deleteAction.jsp?evaluationID=">ï¿½ï¿½Ãµ</a>
 					</div>
 					
 					</div>
@@ -82,12 +82,12 @@
 	
 	
 	
-	<!-- µî·ÏÇÏ±â -->
+	<!-- ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ -->
 	<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="modal">Æò°¡ µî·Ï</h5>
+					<h5 class="modal-title" id="modal">ï¿½ï¿½ ï¿½ï¿½ï¿½</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -96,15 +96,15 @@
 					<form action="./evaluationRegisterAction.jsp" method="post">
 						<div class="form-row">
 							<div class="form-group col-sm-6">
-								<label>ÄÁ¼Á¸í</label> <input type="text" name="lectureName" class="form-control" maxlength="20"></label>
+								<label>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</label> <input type="text" name="lectureName" class="form-control" maxlength="20"></label>
 							</div>
 							<div class="form-group col-sm-6">
-								<label>ÀÛ°¡¸í</label> <input type="text" name="lectureName" class="form-control" maxlength="20"></label>
+								<label>ï¿½Û°ï¿½ï¿½ï¿½</label> <input type="text" name="lectureName" class="form-control" maxlength="20"></label>
 							</div>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-sm-4">
-								<label>³âµµ</label> <select name="lectureYear"
+								<label>ï¿½âµµ</label> <select name="lectureYear"
 									class="form-control">
 									<option value="2011">2011</option>
 									<option value="2012">2012</option>
@@ -122,7 +122,7 @@
 							</div>
 							</div>
 							<div class="form-group col-sm-4">
-								<label> ¿ù</label> <select name="lectureMonth"
+								<label> ï¿½ï¿½</label> <select name="lectureMonth"
 									class="form-control">
 									<option value="1">1</option>
 									<option value="2">2</option>
@@ -139,25 +139,25 @@
 								</select>
 							</div>
 							<div class="form-group col-sm-4">
-								<label>ÄÁ¼Á±¸ºÐ</label> <select name="lectureDivide"
+								<label>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</label> <select name="lectureDivide"
 									class="form-control">
-									<option value="ÇÁ·ÎÇÊ" selected>ÇÁ·ÎÇÊ</option>
-									<option value="°¡Á·">°¡Á·</option>
-									<option value="¿þµù">¿þµù</option>
+									<option value="ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" selected>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</option>
+									<option value="ï¿½ï¿½ï¿½ï¿½">ï¿½ï¿½ï¿½ï¿½</option>
+									<option value="ï¿½ï¿½ï¿½ï¿½">ï¿½ï¿½ï¿½ï¿½</option>
 								</select>
 							</div>
 						<div class="form-group">
-							<label>Á¦¸ñ</label> <input type="text" name="evaluationTime"
+							<label>ï¿½ï¿½ï¿½ï¿½</label> <input type="text" name="evaluationTime"
 								class="form-control" maxlength="40">
 						</div>
 						<div class="form-group">
-							<label>³»¿ë</label>
+							<label>ï¿½ï¿½ï¿½ï¿½</label>
 							<textarea name="evaluationContent" class="form-control"
 								maxlength="200"></textarea>
 						</div>
 						<div class="form-row">
 							<div class="form-group col-sm-3">
-								<label>Ä£ÀýÇÔ</label> <select name="totalScore"
+								<label>Ä£ï¿½ï¿½ï¿½ï¿½</label> <select name="totalScore"
 									class="form-control">
 									<option value="A" selected>A</option>
 									<option value="B">B</option>
@@ -168,7 +168,7 @@
 							</div>
 						</div>
 							<div class="form-group col-sm-3">
-								<label>ÀûÇÕÇÔ</label> <select name="creditScore"
+								<label>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</label> <select name="creditScore"
 									class="form-control">
 									<option value="A" selected>A</option>
 									<option value="B">B</option>
@@ -178,7 +178,7 @@
 								</select>
 							</div>
 							<div class="form-group col-sm-3">
-								<label>Æí¸®ÇÔ</label> <select name="comfortableScore"
+								<label>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</label> <select name="comfortableScore"
 									class="form-control">
 									<option value="A" selected>A</option>
 									<option value="B">B</option>
@@ -188,7 +188,7 @@
 								</select>
 							</div>
 							<div class="form-group col-sm-3">
-								<label>¼­ºñ½º</label> <select name="comfortableScore"
+								<label>ï¿½ï¿½ï¿½ï¿½</label> <select name="comfortableScore"
 									class="form-control">
 									<option value="A" selected>A</option>
 									<option value="B">B</option>
@@ -199,8 +199,8 @@
 							</div>
 						<div class="modal-footer">
 							<button type="button" class="btn btn-secondary"
-								data-dismiss="modal">Ãë¼Ò</button>
-							<button type="submit" class="btn btn-primary">µî·ÏÇÏ±â</button>
+								data-dismiss="modal">ï¿½ï¿½ï¿½</button>
+							<button type="submit" class="btn btn-primary">ï¿½ï¿½ï¿½ï¿½Ï±ï¿½</button>
 						</div>
 				</form>
 			</div>
@@ -208,12 +208,12 @@
 		</div>
 
 	</div>
-	<!-- ½Å°íÇÏ±â -->
+	<!-- ï¿½Å°ï¿½ï¿½Ï±ï¿½ -->
 	<div class="modal fade" id="reportModal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="modal">½Å°í ÇÏ±â</h5>
+					<h5 class="modal-title" id="modal">ï¿½Å°ï¿½ ï¿½Ï±ï¿½</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -221,16 +221,16 @@
 				<div class="modal-body">
 					<form action="./reportAction.jsp" method="post">
 						<div class="form-group">
-							<label>½Å°í Á¦¸ñ</label> 
+							<label>ï¿½Å°ï¿½ ï¿½ï¿½ï¿½ï¿½</label> 
 							<input type="text" name="reportTitle" class="form-control" maxlength="40">
 						</div>
 						<div class="form-group">
-							<label>½Å°í ³»¿ë</label>
+							<label>ï¿½Å°ï¿½ ï¿½ï¿½ï¿½ï¿½</label>
 							<textarea name="evaluationContent" class="reportContent" maxlength="200"></textarea>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Ãë¼Ò</button>
-							<button type="submit" class="btn btn-danger">½Å°íÇÏ±â</button>
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">ï¿½ï¿½ï¿½</button>
+							<button type="submit" class="btn btn-danger">ï¿½Å°ï¿½ï¿½Ï±ï¿½</button>
 						</div>
 				  </form>
 			</div>
@@ -239,15 +239,15 @@
 
 	</div>
 </div>
-<footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFF;">
-	Copyright &copy; 2018¼Û¿¹ÀÎ All Right Reserved.
+<footer class="bg-dark mt-4 p-5 text-center" style="color: #ffffff;">
+	Copyright &copy; 2018ï¿½Û¿ï¿½ï¿½ï¿½ All Right Reserved.
 </footer>
 
-	<!-- Á¦ÀÌÄõ¸® ÀÚ¹Ù½ºÅ©¸³Æ® Ãß°¡ÇÏ±â -->
+	<!-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¹Ù½ï¿½Å©ï¿½ï¿½Æ® ï¿½ß°ï¿½ï¿½Ï±ï¿½ -->
 	<script src="./js/jquery.min.js"></script>
-	<!-- ÆÄÆÛ ÀÚ¹Ù½ºÅ©¸³Æ® Ãß°¡ÇÏ±â -->
+	<!-- ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¹Ù½ï¿½Å©ï¿½ï¿½Æ® ï¿½ß°ï¿½ï¿½Ï±ï¿½ -->
 	<script src="./js/pooper.js"></script>
-	<!-- Á¦ÀÌÄõ¸® ÀÚ¹Ù½ºÅ©¸³Æ® Ãß°¡ÇÏ±â -->
+	<!-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¹Ù½ï¿½Å©ï¿½ï¿½Æ® ï¿½ß°ï¿½ï¿½Ï±ï¿½ -->
 	<script src="./js/bootstrap.min.js"></script>
 
 

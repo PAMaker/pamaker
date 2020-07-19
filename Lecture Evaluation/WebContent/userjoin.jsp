@@ -4,64 +4,64 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html"; charset="EUC-KR">
 <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
-<title>강의평가 웹사이트</title>
-<!-- 부트스트랩 CSS추가하기 -->
+<title>占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙트</title>
+<!-- 占쏙옙트占쏙옙트占쏙옙 CSS占쌩곤옙占싹깍옙 -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
-<!-- 커스텀  CSS추가하기 -->
+<!-- 커占쏙옙占쏙옙  CSS占쌩곤옙占싹깍옙 -->
 <link rel="stylesheet" href="./css/custom.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="index.jsp">사진 후기 웹사이트</a>
+		<a class="navbar-brand" href="index.jsp">占쏙옙占쏙옙 占식깍옙 占쏙옙占쏙옙占쏙옙트</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
 			<span class="navbar-toggler" type="button" data-toggle="collapse"></span>
 		</button>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item active">
-				<a class="nav-link" href="index.jsp">메인</a>
+				<a class="nav-link" href="index.jsp">占쏙옙占쏙옙</a>
 				</li>
 				<li class="nav-link dropdown">
 				<a class="nav-link dropdown-toggle" id="dropdown" data-toggle="dropdown"></a>
 					<div class="dropdown-menu" aria-labelledby="dropdown">
-						<a class="dropdown-item" href="userLogin.jsp">로그인</a> 
-						<a class="dropdown-item" href="userjoin.jsp">회원가입</a> 
-						<a class="dropdown-item" href="userLogout.jsp">로그아웃</a>
+						<a class="dropdown-item" href="userLogin.jsp">占싸깍옙占쏙옙</a> 
+						<a class="dropdown-item" href="userjoin.jsp">회占쏙옙占쏙옙占쏙옙</a> 
+						<a class="dropdown-item" href="userLogout.jsp">占싸그아울옙</a>
 					</div>
 				</li>
 			</ul>
 			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="내용을 입력하세요" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+				<input class="form-control mr-sm-2" type="search" placeholder="占쏙옙占쏙옙占쏙옙 占쌉뤄옙占싹쇽옙占쏙옙" aria-label="Search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">占싯삼옙</button>
 			</form>
 		</div>
 	</nav>
 	<section class="container mt-3" style="max-width: 560px;">
 		<form method="post" action="./userRegisterAction.jsp">
 			<div class="form-group">
-				<label>아이디</label>
+				<label>占쏙옙占싱듸옙</label>
 				<input type="text" name="userID" class="form-control">
 			</div>
 			<div class="form-group">
-				<label>비밀번호</label>
+				<label>占쏙옙橘占싫�</label>
 				<input type="password" name="userPassword" class="form-control">
 			</div>
 			<div class="form-group">
-				<label>이메일</label>
+				<label>占싱몌옙占쏙옙</label>
 				<input type="email" name="userEmail" class="form-control">
 			</div>
-			<button type="submit" class="btn btn-primary">회원가입</button>
+			<button type="submit" class="btn btn-primary">회占쏙옙占쏙옙占쏙옙</button>
 		</form>
 	</section>
-<footer class="bg-dark mt-4 p-5 text-center" style="color: #FFFFF;">
-	Copyright &copy; 2018송예인 All Right Reserved.
+<footer class="bg-dark mt-4 p-5 text-center" style="color: #ffffff;">
+	Copyright &copy; 2018占쌜울옙占쏙옙 All Right Reserved.
 </footer>
 
-	<!-- 제이쿼리 자바스크립트 추가하기 -->
+	<!-- 占쏙옙占쏙옙占쏙옙占쏙옙 占쌘바쏙옙크占쏙옙트 占쌩곤옙占싹깍옙 -->
 	<script src="./js/jquery.min.js"></script>
-	<!-- 파퍼 자바스크립트 추가하기 -->
+	<!-- 占쏙옙占쏙옙 占쌘바쏙옙크占쏙옙트 占쌩곤옙占싹깍옙 -->
 	<script src="./js/pooper.js"></script>
-	<!-- 제이쿼리 자바스크립트 추가하기 -->
+	<!-- 占쏙옙占쏙옙占쏙옙占쏙옙 占쌘바쏙옙크占쏙옙트 占쌩곤옙占싹깍옙 -->
 	<script src="./js/bootstrap.min.js"></script>
 
 
