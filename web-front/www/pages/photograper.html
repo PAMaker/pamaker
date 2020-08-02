@@ -47,10 +47,32 @@ html,body{
           background-color: transparent;
       }
 
+/* 콘텐츠가 위를 뚫고 나오는 오류 발생 - 수정 필요 */
+      header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 </style>
 </head>
 <body>
 
+  <header>
   <nav>
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo"><i class="material-icons">linked_camera</i>22세기사진관</a>
@@ -61,6 +83,7 @@ html,body{
       <li><a href="sass.html"><i class="material-icons">search</i></a></li></ul>
     </div>
   </nav>
+  </header>
 
 
   <!-- navbar -->
