@@ -1,14 +1,27 @@
-const express = require('express');
-
-const app = express();
+const express = require('express');//express 모듈 사용하기 위함
+const compression = require('compression');
+const app = express();//express 모듈 app이라는 변수명으로 사용
 const port = 8080;
 const path = require('path');
+const bodyParser = require('body-parser');
 
+
+
+
+//기본값
 app.use(express.static('css'));
 app.use(express.static('js'));
 app.use(express.static('img'));
 app.use(express.static('Semantic'));
 app.use(express.static('pages'));
+
+
+//
+
+//
+app.get('/index.html',function(request,response){ //요청을 받으면
+    response.sendFile(path.join(__dirname+'/index.html')); //이렇게 응답해준다
+});
 
 app.get('/first.html',function(request,response){ //요청을 받으면
     response.sendFile(path.join(__dirname+'/first.html')); //이렇게 응답해준다
