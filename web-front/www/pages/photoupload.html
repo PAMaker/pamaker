@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="first.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  
+  <title>Node File Uploads</title>
+
+   <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      <ul id="nav-mobile" class="left">
+        <li><a class="material-icons" href="first.html">keyboard_arrow_left</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right">
+      <li><a href="sass.html"><i class="material-icons">search</i></a></li></ul>
+    </div>
+  </nav>
+
+  
+  <div class="container">
+    <h1>File Upload</h1>
+    <div id="main_wrap">
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <div class="file-field input-field">
+        <div class="btn grey">
+          <span>File</span>
+          <input name="myImage" type="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text">
+        </div>
+      </div>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+    <br>
+    <img src="" class="responsive-img">
+  </div>
+</div>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>  
+
+
+  <footer class="page-footer">
+    <nav>
+      <div class="nav-wrapper">
+        <ul id="nav-mobile" class="center">
+          <li><a class="material-icons" href="first.html">home</a></li>
+          <li><a class="material-icons" href="review.html">format_align_justify
+  </a></li>
+          <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
+          <li><a class="material-icons" href="chat/chat.html">chat</a></li>
+        </ul>
+          <ul id="nav-mobile" class="right">
+             <li><a class="material-icons" href="myinfo.html">account_circle</a></li>
+          </ul>
+        </ul>
+      </div>
+      </nav></footer>
+  
+  
+  </body>
+  </html>
