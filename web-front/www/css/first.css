@@ -5,6 +5,21 @@ html,body{
   }
 
 
+.container {
+	margin: 0 auto;
+	max-width: 1280px;
+	width: 90%;
+	text-align: center;
+  }
+  
+#content-box{
+	min-height: 100%;
+	margin:-100px 0 -50px;
+}
+
+#content{
+	padding:100px 0 50px;}
+
 /* 버튼 */
   #main_wrap{
 	width: 100%;
@@ -15,12 +30,12 @@ html,body{
 	
   }
   
-  footer{
+   footer{
 	  position:fixed; 
 	  bottom:0px; 
 	  height:60px; 
 	  width: 100%;
-	  max-width: 1048;
+	  max-height:510px ;
 	  min-width:100px;
 	  margin-bottom: 0px;
 	  z-index: 1;
