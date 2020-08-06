@@ -1,7 +1,7 @@
 const express = require('express');//express 모듈 사용하기 위함
 const compression = require('compression');
 const app = express();//express 모듈 app이라는 변수명으로 사용
-const port = 8080;
+const port = 8088;
 const path = require('path');
 const bodyParser = require('body-parser');
 

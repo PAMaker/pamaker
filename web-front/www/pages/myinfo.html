@@ -15,12 +15,19 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+           
+        $(document).ready(function(){
+          $('.collapsible').collapsible();
+  });
+    </script>
 </head>
+
 <body>
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
       <ul id="nav-mobile" class="left">
         <li><a class="material-icons" href="second.html">keyboard_arrow_left</a></li>
       </ul>
@@ -29,15 +36,46 @@
     </div>
   </nav>
 
-  <div id="main_wrap">
+  <!-- <div id="main_wrap">
     <a href="multiplestepform.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>내정보변경</a>
     <a href="question.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>문의</a>
     <a href="photolist.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>촬영목록</a>
     <a href="cupon.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>쿠폰</a>
- </div>
+ </div> -->
 
-
-
+<div class="container" style="padding:60px">
+  <h5><a href ="login.html" style="color:cadetblue; border-bottom: cadetblue;">로그인하기</a></h5>
+  <ul class="collapsible expandable" >
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">account_box</i>
+        내정보변경
+        <span class="badge">1</span></div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">message</i>
+        문의
+        <span class="badge">1</span></div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">party_mode</i>
+        촬영목록
+        <span class="badge">1</span></div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header">
+        <i class="material-icons">monetization_on</i>
+        쿠폰
+        <span class="new badge">4</span></div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+  </ul>
+</div>
 
   <footer class="page-footer">
   <nav>
@@ -54,7 +92,8 @@
         </ul>
       </ul>
     </div>
-    </nav></footer>
+    </nav>
+  </footer>
 
 
 </body>

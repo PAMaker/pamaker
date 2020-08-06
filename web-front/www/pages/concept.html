@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="first.css">
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -14,12 +15,27 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</head>
+<style>
+
+footer{
+	  position:fixed; 
+	  bottom:0px; 
+	  height:60px; 
+	  width: 100%;
+	  max-height:510px ;
+	  min-width:100px;
+	  margin-bottom: 0px;
+	  z-index: 1;
+	}
+  
+</style>
+
+  </head>
 <body>
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
       <ul id="nav-mobile" class="left">
         <li><a class="material-icons" href="second.html">keyboard_arrow_left</a></li>
       </ul>
@@ -28,15 +44,77 @@
     </div>
   </nav>
 
-  <div id="main_wrap">
-    <a href="snap1.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>개인스냅</a>
-    <a href="snap2.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>커플스냅</a>
-    <a href="snap3.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>가족스냅</a>
-    <a href="snap4.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>행사스냅</a>
- </div>
+  <!-- <div class ="container" style="padding:50px;">
+    <div id="main_wrap">
+      <a href="snap1.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>개인스냅</a>
+      <a href="snap2.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>커플스냅</a>
+      <a href="snap3.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>가족스냅</a>
+      <a href="snap4.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>행사스냅</a>
+  </div>
+</div> -->
 
+<div class ="container" style="padding-top:30px; ">
+  <div class="row" style="float:left; width:50%; max-width: 540px;" >
+    <div class="col" >
+      <div class="card small">
+        <div class="card-image">
+          <img src="">
+          <span class="card-title" style="color: black;">개인스냅</span>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small</p>
+        </div>
+        <div class="card-action">
+          <a href="snap1.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>개인스냅</a>
+        </div>
+      </div>
+    </div>
 
+    <div class="col" >
+      <div class="card small">
+        <div class="card-image">
+          <span class="card-title" style="color: black;">가족스냅</span>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small</p>
+        </div>
+        <div class="card-action">
+          <a href="snap3.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>가족스냅</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="row" style="float:left; width:50%; max-width: 540px; padding-bottom: 60px;" >
+    <div class="col" >
+      <div class="card small">
+        <div class="card-image">
+          <span class="card-title" style="color: black;">커플스냅</span>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small</p>
+        </div>
+        <div class="card-action">
+          <a href="snap2.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>커플스냅</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col" >
+      <div class="card small">
+        <div class="card-image">
+          <span class="card-title" style="color: black;">행사스냅</span>
+        </div>
+        <div class="card-content">
+          <p>I am a very simple card. I am good at containing small</p>
+        </div>
+        <div class="card-action">
+          <a href="snap4.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>행사스냅</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   <footer class="page-footer">
   <nav>
