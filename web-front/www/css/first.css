@@ -6,10 +6,12 @@ html,body{
 
 
 .container {
+	margin-bottom: 70px;
 	margin: 0 auto;
 	max-width: 1280px;
 	width: 90%;
 	text-align: center;
+
   }
   
 #content-box{

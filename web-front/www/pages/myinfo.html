@@ -19,8 +19,26 @@
            
         $(document).ready(function(){
           $('.collapsible').collapsible();
+          M.updateTextFields();
   });
+
     </script>
+
+  <style>
+        .box {
+      width: 150px;
+      height: 150px; 
+      border-radius: 70%;
+      overflow: hidden;
+  }
+  .profile {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
+
+
+</style>
 </head>
 
 <body>
@@ -36,43 +54,123 @@
     </div>
   </nav>
 
-  <!-- <div id="main_wrap">
-    <a href="multiplestepform.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>내정보변경</a>
-    <a href="question.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>문의</a>
-    <a href="photolist.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>촬영목록</a>
-    <a href="cupon.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>쿠폰</a>
- </div> -->
-
 <div class="container" style="padding:60px">
-  <h5><a href ="login.html" style="color:cadetblue; border-bottom: cadetblue;">로그인하기</a></h5>
+  <h6>반갑습니다!</h6>
+  <h5><a href ="loginpage.html" style="color:cadetblue; border-bottom: cadetblue;">로그인하기</a></h5>
   <ul class="collapsible expandable" >
     <li>
       <div class="collapsible-header">
         <i class="material-icons">account_box</i>
         내정보변경
         <span class="badge">1</span></div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="collapsible-body">
+        <div class="box" style="background: #BDBDBD; float:left;"  ">
+          <img class="profile" src="/images/tistory.JPG">
+        </div>
+      <div>
+        <ul>
+          <li class="id" style="padding:5px">ID : 아이디</li>
+          <li class="id"style="padding:5px">생년월일 : 아이디</li>
+          <li class="id"style="padding:5px">이용건수 : 아이디</li>
+          <li class="id"style="padding:5px">포인트 : 아이디</li>
+          <li class="id"style="padding:5px">포인트 : 아이디</li>
+          <br>
+        </ul>
+    </div>
+    <a class="waves-effect waves-light btn-small" href="photographer2.html" style=" float:right; "><i class="material-icons right">add</i>정보 수정</a><br>
+      </div>
     </li>
     <li>
       <div class="collapsible-header">
         <i class="material-icons">message</i>
         문의
         <span class="badge">1</span></div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="collapsible-body">
+        <p>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s6">
+                  <input id="inquirytitle" type="text" data-length="10">
+                  <label for="inquirytitle">제목</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-text col s12"  style="overflow-y:scroll;">
+                  <textarea name="inquiry" cols="35" row="10" >내용을 입력하세요</textarea>
+                  
+                </div>
+              </div>
+              <button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="material-icons right">send</i></button>
+            </form>
+          </div>
+        <div class="row">
+          <table class="list" style="border:1px;">
+            <thead style="margin:10px;"><h5>문의 내역</h5></thead>
+
+            <tr>
+              <th>날짜</th>
+              <th>문의제목</th>
+              <th>접수</th>
+            </tr>
+            <tr>
+              <td>2020-08-06</td>
+              <td><a href ="ww.html">환불해주세요</a></td>
+              <td>승인</td>
+            </tr>
+            <tr>
+              <td>2020-08-06</td>
+              <td><a href ="ww.html">환불해주세요</a></td>
+              <td>미승인</td>
+            </tr>
+          </table>
+        </div>
+      </p>
+      </div>
     </li>
+
     <li>
       <div class="collapsible-header">
         <i class="material-icons">party_mode</i>
         촬영목록
         <span class="badge">1</span></div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+      <div class="collapsible-body">
+        <table class="list" style="border:1px;">
+          <tr>
+            <th>날짜</th>
+            <th>작가</th>
+            <th>결제금액</th>
+            <th>장소</th>
+            <th>후기</th>
+          </tr>
+          <tr>
+            <td>2020-08-06</td>
+            <td>현근창</td>
+            <td>50000원</td>
+            <td>서울 한강공원</td>
+            <th><a href ="wirtereview.html">후기작성하기</a></th>
+          </tr>
+          <tr>
+            <td>2020-08-06</td>
+            <td>현근창</td>
+            <td>50000원</td>
+            <td>서울 한강공원</td>
+            <th><a href="review.html">너무 좋아요</a></th>
+          </tr>
+        </table>
+        
+      </div>
     </li>
     <li>
       <div class="collapsible-header">
         <i class="material-icons">monetization_on</i>
         쿠폰
         <span class="new badge">4</span></div>
-      <div class="collapsible-body"><p>Lorem ipsum doldfsfskjkdkjkdslr sit amet.</p></div>
+      <div class="collapsible-body">
+        
+        <p>Lorem ipsum doldfsfskjkdkjkdslr sit amet.</p>
+      
+      </div>
     </li>
   </ul>
 </div>
