@@ -2,9 +2,10 @@
 <html>
 <head>
 	<title></title>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
 
 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7b7d69e0dde7c2a5ba408a12a0f2f659"></script>
+
 <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function() {
         function getLocation(position) {
@@ -45,7 +46,7 @@
   
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/nav.css">
-
+    <link rel="stylesheet" type="text/css" href="css/first.css">
  		<link rel="stylesheet" type="text/css" href="css/index.css">
 	<!--Import Google Icon Font-->
         <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -53,10 +54,9 @@
         <!--Import materialize.css-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
-        
-
 
 </head>
+
 <body>
 	<!--Import jQuery before materialize.js-->
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -66,7 +66,7 @@
 
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
       <ul id="nav-mobile" class="left">
         <li><a class="material-icons" href="first.html">keyboard_arrow_left</a></li>
       </ul>
@@ -75,11 +75,12 @@
     </div>
   </nav>
 
+<div class="container">
   <div id="map" style="width:800px;height:800px;"></div>
   
 
   <div class="col s12 m7">
-  	<h2><a>현재 활동중인 작가님</a></h2>
+  	<h3><a>현재 활동중인 작가님</a></h3>
     <div class="card horizontal">
       <div class="card-image">
         <img src="https://lorempixel.com/100/190/nature/6">
@@ -130,26 +131,21 @@
       </div>
     </div>
   </div>
+</div>
 
   <footer class="page-footer">
-  <nav>
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="center">
-        <li><a class="material-icons" href="first.html">home</a></li>
-        <li><a class="material-icons" href="review.html">format_align_justify
-</a></li>
-        <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
-        <li><a class="material-icons" href="chat/chat.html">chat</a></li>
-      </ul>
-        <ul id="nav-mobile" class="right">
-           <li><a class="material-icons" href="myinfo.html">account_circle</a></li>
+    <nav>
+      <div class="nav-wrapper">
+        <ul id="nav-mobile" class="center">
+          <li><a class="material-icons" href="first.html">home</a></li>
+          <li><a class="material-icons" href="review.html">format_align_justify</a></li>
+          <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
+          <li><a class="material-icons" href="chat/chat.html">chat</a></li>
+          <li><a class="material-icons" href="myinfo.html">account_circle</a></li>
         </ul>
-      </ul>
-    </div>
-    </nav></footer>
-
+      </div>
+    </nav>
+  </footer>
 
 </body>
-
-<script type>
 </html>
