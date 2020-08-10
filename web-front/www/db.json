@@ -1,4 +1,16 @@
 {
-  "users": [],
-  "topics": []
+  "users": [
+    {
+      "id": "vNKM-h3V8",
+      "email": "egoing7777@gmail.com",
+      "password": "111111",
+      "displayName": "egoing"
+    },
+    {
+      "id": "oX-e6eHpP",
+      "email": "egoing7777@gmail.com",
+      "password": "111111",
+      "displayName": "egoing"
+    }
+  ]
 }
