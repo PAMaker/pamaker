@@ -19,26 +19,90 @@ module.exports=function(passport){
       feedback = fmsg.error[0];
     }
   var title = '로그인';
- 
   var html = `
-  <html>
-  <head>
-    <title></title>
-    <meta charset="utf-8">
-  </head>
-  <body>
-    <a href="/auth/login">로그인하시오</a>
-    <div style="color:red;">${feedback}</div>
+  <!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset = "utf-8">
+  <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="first.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<style>
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      
+        <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      
+      <ul id="nav-mobile" class="left">
+        <li><a class="material-icons" href="/mypage">keyboard_arrow_left</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right">
+      <li><a href="page/sass.html"><i class="material-icons">search</i></a></li></ul>
+    </div>
+  </nav>
+
+<div class ="container" style="margin-bottom: 70px;">
+    <h3>로그인</h3>
+
     <form action="/auth/login_process" method="post">
-    <p><input type="text" name="email" placeholder="email" value="egoing7777@gmail.com"></p>
-    <p><input type="password" name="pwd" placeholder="password" value="111111"></p>
-      <p>
-        <input type="submit" value="login">
-      </p>
-    </form>
-    </body>
-    </html>
-  `
+    <div class="login-form">
+        <div class="row">
+            <div class="input-field col s12">
+            <p><input type="text" name="email" placeholder="email" value=""></p>
+             
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+            <p><input type="password" name="pwd" placeholder="password" value=""></p>
+                
+                
+            </div>
+        </div>
+        <p>
+<input type="submit" value="LOGIN">
+
+</p>
+    </div></form>
+    
+
+</div>
+
+  <footer class ="page-footer">
+  <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="center">
+        <li><a class="material-icons" href="first.html">home</a></li>
+        <li><a class="material-icons" href="hugi.html">format_align_justify</a></li>
+        <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
+        <li><a class="material-icons" href="chat/chat.html">chat</a></li>
+        <li><a class="material-icons" href="myinfo.html">account_circle</a></li>
+      </ul>
+    </div>
+    </nav>
+  </footer>
+
+ 
+</body>
+</html>`
   
   ;
   response.send(html);
@@ -47,7 +111,7 @@ module.exports=function(passport){
 //로그인버튼을 눌렀을때 /auth/login_process로 라우팅되면서
 router.post('/login_process',
   passport.authenticate('local', {
-    successRedirect: '/',//성공하면 /
+    successRedirect: '/mypage',//성공하면 /
     failureRedirect: '/auth/login',//실패하면 다시로그인페이지로
     failureFlash:true,
     successFlash:true
@@ -63,25 +127,80 @@ router.get('/register', function(request, response){
   var title = '로그인';
  
   var html = `
+  <!DOCTYPE html>
   <html>
   <head>
     <title></title>
-    <meta charset="utf-8">
+    <meta charset = "utf-8">
+    <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link rel="stylesheet" type="text/css" href="first.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  
+  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <style>
+  
+  </style>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
-    <a href="/auth/login">로그인하시오</a>
-    <div style="color:red;">${feedback}</div>
+  
+    <nav>
+      <div class="nav-wrapper">
+        
+          <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
+        
+        <ul id="nav-mobile" class="left">
+          <li><a class="material-icons" href="first.html">keyboard_arrow_left</a></li>
+        </ul>
+        <ul id="nav-mobile" class="right">
+        <li><a href="page/sass.html"><i class="material-icons">search</i></a></li></ul>
+      </div>
+    </nav>
+  
+  <div class ="container" style="margin-bottom: 70px;">
+      <h3>회원가입</h3>
+
     <form action="/auth/register_process" method="post">
-    <p><input type="text" name="email" placeholder="email" value="egoing7777@gmail.com"></p>
-    <p><input type="password" name="pwd" placeholder="password" value="111111"></p>
-    <p><input type="password" name="pwd2" placeholder="password" value="111111"></p>
-    <p><input type="text" name="displayName" placeholder="display name" value="egoing"></p>
+
+    <p><input type="text" name="email" placeholder="email" value="email"></p>
+    <p><input type="password" name="pwd" placeholder="password" value="password"></p>
+    <p><input type="password" name="pwd2" placeholder="password" value="password"></p>
+    <p><input type="text" name="displayName" placeholder="display name" value="name"></p>
     <p>
       <input type="submit" value="register">
     </p>
+
   </form>
-    </body>
-    </html>
+  </div>
+    
+
+
+  <footer class ="page-footer">
+  <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="center">
+        <li><a class="material-icons" href="first.html">home</a></li>
+        <li><a class="material-icons" href="hugi.html">format_align_justify</a></li>
+        <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
+        <li><a class="material-icons" href="chat/chat.html">chat</a></li>
+        <li><a class="material-icons" href="myinfo.html">account_circle</a></li>
+      </ul>
+    </div>
+    </nav>
+  </footer>
+
+ 
+</body>
+</html>
   `
   
   ;
@@ -109,7 +228,7 @@ router.get('/register', function(request, response){
       db.get('users').push(user).write();
       request.login(user, function(err){
         console.log('redirect');
-        return response.redirect('/');
+        return response.redirect('/mypage');
       })
     
     }
@@ -123,7 +242,7 @@ router.get('/logout',function(request,response){
     request.logout();
     
     request.session.save(function(){
-        response.redirect('/');
+        response.redirect('/mypage');
     });
 });
   return router;

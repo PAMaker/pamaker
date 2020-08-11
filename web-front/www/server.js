@@ -8,6 +8,9 @@ const app = express();//express 모듈 app이라는 변수명으로 사용
 //const port = 8080;
 
 const path = require('path');
+const qs = require('querystring');
+var sanitizeHtml = require('sanitize-html');
+var template2 = require('./lib/template2.js');
 const multer = require("multer");
 const ejs = require("ejs");
 const bodyParser = require('body-parser');
@@ -45,12 +48,19 @@ app.use(flash());
 var passport = require('./lib/passport')(app);
 
 
-//마이페이지로 만들기
+//라우팅
+//로그인기능
 var authRouter = require('./routes/auth')(passport);
 app.use('/auth',authRouter);
-var myinfoRouter = require('./routes/myinfo');
-app.use('/',myinfoRouter);
-///////////
+var myinfoRouter = require('./routes/mypage');
+app.use('/mypage',myinfoRouter);
+//후기작성기능
+var favoriteRouter = require('./routes/favorite');
+app.use('/favorite',favoriteRouter);
+
+
+
+
 
 const connection = mysql.createConnection({
   host: conf.host,
@@ -139,66 +149,66 @@ const storage = multer.diskStorage({
   app.use(express.static("./public"));
 
 //
-//app.get('/',function(request,response){ //요청을 받으면
+//app.get('/',function(req,response){ //요청을 받으면
 //    response.sendFile(path.join(__dirname+'/index.html')); //이렇게 응답해준다
 //});
 
-app.get('/',function(request,response){ //요청을 받으면
+app.get('/',function(req,response){ //요청을 받으면
     response.sendFile(path.join(__dirname+'/first.html')); //이렇게 응답해준다
 });
 
-app.get('/first.html',function(request,response){ //요청을 받으면
+app.get('/first.html',function(req,response){ //요청을 받으면
   response.sendFile(path.join(__dirname+'/first.html')); //이렇게 응답해준다
 });
 
-app.get('/second.html',function(request,response){
+app.get('/second.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/second.html'));
 });
 
 
-app.get('/concept.html',function(request,response){
+app.get('/concept.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/concept.html'));
 });
 
-app.get('/snap1.html',function(request,response){
+app.get('/snap1.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/snap1.html'));
 });
 
-app.get('/photograper.html',function(request,response){
+app.get('/photograper.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/photograper.html'));
 });
 
-app.get('/photographer2.html',function(request,response){
+app.get('/photographer2.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/photographer2.html'));
 });
 
-app.get('/myinfo.html',function(request,response){
+app.get('/myinfo.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/myinfo.html'));
 });
 
-app.get('/favorite.html',function(request,response){
+app.get('/favorite.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/favorite.html'));
 });
 
-app.get('/multiplestepform.html',function(request,response){
+app.get('/multiplestepform.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/multiplestepform.html'));
 });
 
-app.get('/signin.html',function(request,response){
+app.get('/signin.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/signin.html'));
 });
 
-app.get('/photolist.html',function(request,response){
+app.get('/photolist.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/signin.html'));
 });
 
-app.get('/1.html',function(request,response){
+app.get('/1.html',function(req,response){
     response.sendFile(path.join(__dirname+'pages/1.html'));
 });
 
-app.get('/login.html',function(request,response){
-  response.sendFile(path.join(__dirname+'pages/login.html'));
-});
+
+
+
 
 
 
