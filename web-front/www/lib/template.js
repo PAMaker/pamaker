@@ -56,10 +56,11 @@ module.exports = {
   <h5><a href ="login" style="color:cadetblue; border-bottom: cadetblue;">${authStatusUI}</a></h5>
   <ul class="collapsible expandable" >
     <li>
+    <a href="/auth/changemyinfo">
       <div class="collapsible-header">
         <i class="material-icons">account_box</i>
         내정보변경
-        <span class="badge">1</span></div>
+        <span class="badge">1</span></div></a>
       <div class="collapsible-body">
         <div class="box" style="background: #BDBDBD; float:left;"  ">
           <img class="profile" src="/images/tistory.JPG">
@@ -78,10 +79,11 @@ module.exports = {
       </div>
     </li>
     <li>
+    <a href="/qna/question">
       <div class="collapsible-header">
         <i class="material-icons">message</i>
         문의
-        <span class="badge">1</span></div>
+        <span class="badge">1</span></div></a>
       <div class="collapsible-body">
         <p>
           <div class="row">

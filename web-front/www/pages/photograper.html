@@ -17,7 +17,24 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <style>
+html,body{
+  width:100%;
+  height:100%;
+}
+#main_wrap{
+  width: 100%;
+  height:100%;
+  padding-top:200px;
+}
 
+.main_btn{
+  display: block !important;
+  width:150px;
+  height:40px;
+  line-height: 40px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
 .section{
           padding-top: 4vw;
           padding-bottom: 4vw;
@@ -28,14 +45,32 @@
       .tabs .tab a:focus, .tabs .tab a:focus.active{
           background-color: transparent;
       }
+      header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 </style>
 </head>
 <body>
-
+<header>
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      <a href="#!" class="brand-logo"><i class="material-icons">linked_camera</i>22세기사진관</a>
       <ul id="nav-mobile" class="left">
         <li><a class="material-icons" href="first.html">keyboard_arrow_left</a></li>
       </ul>
@@ -43,8 +78,10 @@
       <li><a href="sass.html"><i class="material-icons">search</i></a></li></ul>
     </div>
   </nav>
+</header>
 
   <!-- navbar -->
+  
 
   <div class="col s12 l6 offset-l1 center-align">
     <h4 style="margin-top: 70px; color: grey;">Welcome!</h4>
@@ -285,22 +322,21 @@
 
 
 
-  <footer class="page-footer">
+<footer class="page-footer">
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="center">
         <li><a class="material-icons" href="first.html">home</a></li>
-        <li><a class="material-icons" href="review.html">format_align_justify
-</a></li>
         <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
         <li><a class="material-icons" href="chat/chat.html">chat</a></li>
       </ul>
         <ul id="nav-mobile" class="right">
-           <li><a class="material-icons" href="myinfo.html">account_circle</a></li>
+           <li><a class="material-icons" href="mypage">account_circle</a></li>
         </ul>
       </ul>
     </div>
     </nav></footer>
+
 
     <script language="javascript">
       function showChatPopup() { window.open("chat.html", "a", "width=300, height=380, left=30%, top=10%"); }
