@@ -18,7 +18,7 @@ connection.connect()
 // start_chat_btn.addEventListener(load_chat)
 
 function load_chat() {
-  console.log('함수 실행1')
+  console.log('함수 실행1!!')
   //   const jsonFile = fs.readFileSync('./user_db.json', 'utf-8')
   //   const jsonData = JSON.parse(jsonFile)
 
