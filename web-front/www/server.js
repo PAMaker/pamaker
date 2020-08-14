@@ -14,8 +14,8 @@ const bodyParser = require('body-parser');
 const mysql = require('mysql');
 var helmet = require('helmet');
 app.use(helmet());
-const data = fs.readFileSync('database.json');
-const conf = JSON.parse(data);
+//const data = fs.readFileSync('database.json');
+//const conf = JSON.parse(data);
 var router = express.Router();
 var flash = require('connect-flash');
 
@@ -54,8 +54,8 @@ app.use('/mypage',myinfoRouter);
 
 //후기작성기능
 
-// var favoriteRouter = require('./routes/favorite');
-// app.use('/favorite',favoriteRouter);
+var favRouter = require('./routes/fav');
+app.use('/fav',favRouter);
 
 //문의 기능
 var qnaRouter = require('./routes/qna');
@@ -174,7 +174,10 @@ app.get('/1.html',function(request ,response){
     response.sendFile(path.join(__dirname+'pages/1.html'));
 
   });
+  app.get('/myinfo.html',function(request ,response){
+    response.sendFile(path.join(__dirname+'/myinfo.html'));
 
+  });
 
 
 app.post("/upload", (request, response) => {

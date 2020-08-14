@@ -1,5 +1,5 @@
 var express = require('express');
-//var app = express(); 
+var app = express(); 
 var router = express.Router();
 var path = require('path');
 var fs = require('fs');
@@ -9,6 +9,8 @@ var db = require('../lib/db');
 var auth = require('../lib/auth');
 var qs = require('querystring');
 var url = require('url');
+var flash    = require('connect-flash');
+var session  = require('express-session');
 
 
 module.exports=function(passport){
@@ -248,9 +250,10 @@ router.get('/logout',function(request,response){
 }
 
 //정보변경//작성자만 접근할 수 있도록
+
 router.get('/changemyinfo', function(request, response){
   if (!auth.isOwner(request, response)) {
-    response.redirect('/');
+    response.redirect('/mypage');
     return false;
   }
   var fmsg = request.flash();
@@ -305,10 +308,10 @@ var html = `
 
   <form action="/auth/changemyinfo_process" method="post">
 
-  <p><input type="text" name="email" placeholder="email" value="email"></p>
-  <p><input type="password" name="pwd" placeholder="password" value="password"></p>
-  <p><input type="password" name="pwd2" placeholder="password" value="password"></p>
-  <p><input type="text" name="displayName" placeholder="display name" value="name"></p>
+  <p><input type="text" name="email" placeholder="email" value=""></p>
+  <p><input type="password" name="pwd" placeholder="password" value=""></p>
+  <p><input type="password" name="pwd2" placeholder="password" value=""></p>
+  <p><input type="text" name="nickname" placeholder="display name" value=""></p>
   <p>
     <input type="submit" value="변경">
   </p>
@@ -322,10 +325,7 @@ var html = `
 <nav>
   <div class="nav-wrapper">
     <ul id="nav-mobile" class="center">
-      <li><a class="material-icons" href="first.html">home</a></li>
-      <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
-      <li><a class="material-icons" href="chat/chat.html">chat</a></li>
-      <li><a class="material-icons" href="mypage">account_circle</a></li>
+      
     </ul>
   </div>
   </nav>
