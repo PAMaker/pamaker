@@ -1,4 +1,5 @@
 var db = require('../lib/db');
+var flash = require('connect-flash');
 
 module.exports = function (app){
 
@@ -8,6 +9,21 @@ module.exports = function (app){
     //passport 를 express에 설치하기
     app.use(passport.initialize());
     app.use(passport.session());
+//flash 메시지 띄우기
+    app.use(flash());
+    app.get('/flash',function(req,res){
+    req.flash('msg','Flash is back!!!');
+    res.send('flash');    
+  });
+
+app.get('/flash-display',function(req,res){
+  var fmsg = req.flash();
+  console.log(fmsg);
+
+  res.send(fmsg);
+});
+
+
     
     //로그인 성공시 세션안에 passport 안에 user 에 식별자 저장하는 역활
     passport.serializeUser(function(user,done){
@@ -25,7 +41,6 @@ module.exports = function (app){
     });
     
     //db에 저장되어 있는 아이디,비번과 비교
-    
     
     passport.use(new LocalStrategy(
     {
