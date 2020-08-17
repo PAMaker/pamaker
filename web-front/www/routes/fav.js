@@ -6,7 +6,7 @@ var template2 = require('../lib/template2.js');
 var topic = require('../lib/topic');
 var express = require('express');
 var router = express.Router();
-
+var auth = require('../lib/auth');
 var db2 = require('../lib/db2');//heidy db
 
 
@@ -40,7 +40,7 @@ router.get('/',function(request,response){
       var description = topic[0].description; //topic 테이블에서 가져옴
       var list = template2.list(topic);
       var html = template2.HTML(title,list,
-        `<h2>${title}</h2>${description}
+        `
         <br>by ${topic[0].name}</br>`,
         `<a href="/fav/create">쓰기</a>
         <a href="/fav/update?id=${queryData.id}">수정</a>
@@ -66,7 +66,11 @@ router.get('/',function(request,response){
 
 //localhost:8080/fav/create
 router.get('/create',function(request,response){
-    db2.query(`SELECT * FROM topic`,function(error,topics){         
+  if (!auth.isOwner(request, response)) {
+    response.redirect('/mypage');
+    return false;
+  }
+          
         var title = '작성하기';
         var html = template2.HTML(title, '',
           `<form action="/fav/create_process" method="post">
@@ -83,39 +87,27 @@ router.get('/create',function(request,response){
 
         //response.writeHead(200);//서버가 정상 처리하여 응답한 경우
         response.send(html);
-      });
+    
       
 });
 
 router.post('/create_process',function(request,response){
-    var body = '';
-    request.on('data', function(data){
-        body += data;
-        // if(body.length>6){
-        //   request.connection.destroy();//접속 끊기
-        // }
-    });
-    console.log(body);
-    //request.on('end', function(){ 
-        var post = qs.parse(body);
-   
-      //글작성후 db에 삽입해주는 처리
-        db2.query(`INSERT INTO topic (title, description, created)
-          VALUES(?,?,NOW())
-        `,
-        [post.title, post.description], 
-        function(error, result){
-          if(error){
-            throw error;
-          }
-
-           //response.writeHead(302, {Location: `fav?id=${result.insertId}`});
-           //response.end();
-           //return response.redirect('/fav');
-        }
-        )
-     // });
-      return response.redirect(`/fav`);//후기 제출시 경로
+  if (!auth.isOwner(request, response)) {
+    response.redirect('/');
+    return false;
+  }
+  var post = request.body;
+  db2.query(`
+  INSERT INTO topic (title,description,created) 
+    VALUES(?,?,NOW())`,
+  [post.title,post.description], 
+  function(error, result){
+    if(error){
+      throw error;
+    }
+  response.redirect(`/fav`);//질문 제출시 어디경로로??
+  
+});
 });
 
 router.get('/update',function(request,response){

@@ -5,21 +5,20 @@ var fs = require('fs');
 var sanitizeHtml = require('sanitize-html');
 var template2 = require('../lib/template2.js');
 var auth = require('../lib/auth');
-var db = require('../lib/db');
+var db2 = require('../lib/db2');
 var shortid = require('shortid');
 
 router.get('/question', function (request, response) {
   if (!auth.isOwner(request, response)) {
-    response.redirect('/');
+    response.redirect('/mypage');
     return false;
   }
   var title = '문의';
   //var list = template2.list(request.list);
   var html = template2.HTML(title, '', `
       <form action="/qna/question_process" method="post">
-        <p><input type="text" name="title" placeholder="title"></p>
         <p>
-          <textarea name="description" placeholder="description"></textarea>
+          <textarea name="question" placeholder="question"></textarea>
         </p>
         <p>
           <input type="submit">
@@ -35,16 +34,17 @@ router.post('/question_process', function (request, response) {
     return false;
   }
   var post = request.body;
-  var title = post.title;
-  var description = post.description;
-  var id = shortid.generate();
-  db.get('topics').push({
-    id: id,
-    title: title,
-    description: description,
-    user_id: request.user.id
-  }).write();
+  db2.query(`
+  INSERT INTO topic (question) 
+    VALUES(?)`,
+  [post.question], 
+  function(error, result){
+    if(error){
+      throw error;
+    }
   response.redirect(`/mypage`);//질문 제출시 어디경로로??
+  
+});
 });
   
   router.post('/delete_process', function (request, response) {
