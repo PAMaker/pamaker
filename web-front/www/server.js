@@ -45,15 +45,17 @@ app.use(flash());
 var passport = require('./lib/passport')(app);
 
 
+
 //라우팅
-//로그인기능
+//<고객>
+//로그인기능(고객)
 var authRouter = require('./routes/auth')(passport);
 app.use('/auth',authRouter);
 var myinfoRouter = require('./routes/mypage');
 app.use('/mypage',myinfoRouter);
 
-//후기작성기능
 
+//후기작성기능
 var favRouter = require('./routes/fav');
 app.use('/fav',favRouter);
 
@@ -61,6 +63,14 @@ app.use('/fav',favRouter);
 var qnaRouter = require('./routes/qna');
 app.use('/qna',qnaRouter);
 
+//<작가>
+
+var pmyinfoRouter = require('./routes/pmypage');
+app.use('/pmypage',pmyinfoRouter);
+
+//서비스 등록 기능
+var serviceRouter = require('./routes/ser');
+app.use('/ser',serviceRouter);
 
 ////////////
 
@@ -174,10 +184,7 @@ app.get('/1.html',function(request ,response){
     response.sendFile(path.join(__dirname+'pages/1.html'));
 
   });
-  app.get('/myinfo.html',function(request ,response){
-    response.sendFile(path.join(__dirname+'/myinfo.html'));
 
-  });
 
 
 app.post("/upload", (request, response) => {

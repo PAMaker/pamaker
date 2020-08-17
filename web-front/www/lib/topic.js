@@ -8,7 +8,7 @@ exports.home = function(request,response){
         var description = '';
         var list = template2.list(topics);//회원정보 리스트로 나열
         var html = template2.HTML(title, list,
-          `<h2>${title}</h2>${description}`,
+          `<h2></h2>${description}`,
           `<a href="/fav/create">쓰기</a>`
           );
     
