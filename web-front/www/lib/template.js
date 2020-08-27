@@ -182,7 +182,7 @@ module.exports = {
         <li><a class="material-icons" href="first.html">home</a></li>
         <li><a class="material-icons" href="review.html">format_align_justify
 </a></li>
-        <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
+        <li><a class="material-icons" href="fav">favorite_border</a></li>
         <li><a class="material-icons" href="chat/chat.html">chat</a></li>
       </ul>
         <ul id="nav-mobile" class="right">

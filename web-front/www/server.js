@@ -40,21 +40,34 @@ app.use(flash())
 //passport 구현한 부분
 var passport = require('./lib/passport')(app)
 
+
 //라우팅
+
 //로그인기능
 var authRouter = require('./routes/auth')(passport)
 app.use('/auth', authRouter)
 var myinfoRouter = require('./routes/mypage')
 app.use('/mypage', myinfoRouter)
 
-//후기작성기능
 
-var favRouter = require('./routes/fav')
-app.use('/fav', favRouter)
+
+//후기작성기능
+var favRouter = require('./routes/fav');
+app.use('/fav',favRouter);
 
 //문의 기능
-var qnaRouter = require('./routes/qna')
-app.use('/qna', qnaRouter)
+var qnaRouter = require('./routes/qna');
+app.use('/qna',qnaRouter);
+
+//<작가>
+
+var pmyinfoRouter = require('./routes/pmypage');
+app.use('/pmypage',pmyinfoRouter);
+
+//서비스 등록 기능
+var serviceRouter = require('./routes/ser');
+app.use('/ser',serviceRouter);
+
 
 ////////////
 
@@ -100,78 +113,76 @@ function checkFileType(file, cb) {
   } else {
     cb('Error: Images Only!')
   }
-}
 
-// EJS
-app.set('view engine', 'ejs')
+  
 
-// Public Folder
-app.use(express.static('./public'))
+  
+  // EJS
+  app.set("view engine", "ejs");
+  
+  // Public Folder
+  app.use(express.static("./public"));
 
-app.get('/', function (request, response) {
-  //요청을 받으면
-  response.sendFile(path.join(__dirname + '/first.html')) //이렇게 응답해준다
-})
 
-app.get('/first.html', function (request, response) {
-  //요청을 받으면
-  response.sendFile(path.join(__dirname + '/first.html')) //이렇게 응답해준다
-})
 
-app.get('/second.html', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/second.html'))
-})
 
-app.get('/concept.html', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/concept.html'))
-})
+app.get('/',function(request,response){ //요청을 받으면
+    response.sendFile(path.join(__dirname+'/first.html')); //이렇게 응답해준다
+});
 
-app.get('/snap1.html', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/snap1.html'))
-})
+app.get('/first.html',function(request,response){ //요청을 받으면
+  response.sendFile(path.join(__dirname+'/first.html')); //이렇게 응답해준다
+});
 
-app.get('/photograper.html', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/photograper.html'))
-})
+app.get('/second.html',function(request,response){
+    response.sendFile(path.join(__dirname+'pages/second.html'));
+});
 
-app.get('/photographer2.html', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/photographer2.html'))
-})
 
-app.get('/multiplestepform.html', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/multiplestepform.html'))
-})
+app.get('/concept.html',function(request,response){
+    response.sendFile(path.join(__dirname+'pages/concept.html'));
+});
 
-app.get('/signin.html', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/signin.html'))
-})
+app.get('/snap1.html',function(request,response){
+    response.sendFile(path.join(__dirname+'pages/snap1.html'));
+});
 
-app.get('/photolist.html', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/signin.html'))
-})
+app.get('/photograper.html',function(request
+  ,response){
+    response.sendFile(path.join(__dirname+'pages/photograper.html'));
+});
 
-app.get('/1.html', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/1.html'))
-})
-app.get('/myinfo.html', function (request, response) {
-  response.sendFile(path.join(__dirname + '/myinfo.html'))
-})
+app.get('/photographer2.html',function(request ,response){
+    response.sendFile(path.join(__dirname+'pages/photographer2.html'));
+});
 
-app.get('/chat_test.html', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/chat_test.html'))
-})
 
-app.post('/upload', (request, response) => {
-  upload(request, response, (err) => {
-    if (err) {
-      res.render('index', {
-        msg: err,
-      })
-    } else {
-      if (request.file == undefined) {
-        res.render('index', {
-          msg: 'Error: No File Selected!',
-        })
+app.get('/multiplestepform.html',function(request ,response){
+    response.sendFile(path.join(__dirname+'pages/multiplestepform.html'));
+});
+
+app.get('/signin.html',function(request,response){
+    response.sendFile(path.join(__dirname+'pages/signin.html'));
+});
+
+app.get('/photolist.html',function(request ,response){
+    response.sendFile(path.join(__dirname+'pages/signin.html'));
+});
+
+app.get('/1.html',function(request ,response){
+    response.sendFile(path.join(__dirname+'pages/1.html'));
+
+  });
+
+
+
+app.post("/upload", (request, response) => {
+    upload(request,response, (err) => {
+      if (err) {
+        res.render("index", {
+          msg: err,
+        });
+
       } else {
         res.render('index', {
           msg: 'File Uploaded!',
