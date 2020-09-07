@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Example</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      /* 지도 크기 */
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo center"
+          ><i class="material-icons">linked_camera</i>22세기사진관</a
+        >
+
+        <ul id="nav-mobile" class="left">
+          <li>
+            <a class="material-icons" href="first.html">keyboard_arrow_left</a>
+          </li>
+        </ul>
+        <ul id="nav-mobile" class="right">
+          <li>
+            <a href="page/sass.html"><i class="material-icons">search</i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h4>실시간 위치 수집 중...</h4>
+      <p id="geolocation"></p>
+      <div id="map"></div>
+    </div>
+
+    <footer class="page-footer">
+      <nav>
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="center">
+            <li><a class="material-icons" href="">home</a></li>
+            <li><a class="material-icons" href="">favorite_border</a></li>
+            <li><a class="material-icons" href="">chat</a></li>
+          </ul>
+          <ul id="nav-mobile" class="right">
+            <li><a class="material-icons" href="mypage">account_circle</a></li>
+          </ul>
+        </div>
+      </nav>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var markers = [[36.6312504, 127.45745780000001]];
+      $(function () {
+        // socket.io 서버 접속
+        var socket = io();
+
+        // 서버로 자신의 정보 전송
+        socket.emit("user", {
+          name: "",
+          userid: "1", // 임의로 설정한 id -> db연동 필요
+        });
+
+        // 서버로부터의 메시지가 수신되면
+        socket.on("login", function (data) {});
+
+        // 서버로부터의 markers 배열이 수신되면 클라이언트의 markers에 대입
+        socket.on("markers", function (markers) {
+          this.markers = markers;
+          // 모든 사용자의 위치 (markers) 출력
+          // $("#geolocation").append("<p>" + this.markers + "</p>");
+          // initMap(); 이거 다시 재실행해야하는지는 모르겠다.
+        });
+
+        var x = document.getElementById("geolocation");
+
+        function showPosition(position) {
+          x.innerHTML =
+            "Latitude: " +
+            position.coords.latitude +
+            "<br>Longitude: " +
+            position.coords.longitude;
+
+          // 서버로 위치 정보 전달
+          socket.emit("location", {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+        }
+
+        // 에러 표시
+        function showError(error) {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              x.innerHTML = "User denied the request for Geolocation.";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              x.innerHTML = "Location information is unavailable.";
+              break;
+            case error.TIMEOUT:
+              x.innerHTML = "The request to get user location timed out.";
+              break;
+            case error.UNKNOWN_ERROR:
+              x.innerHTML = "An unknown error occurred.";
+              break;
+          }
+        }
+
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition, showError);
+        } else {
+          x.innerHTML = "Geolocation is not supported by this browser.";
+        }
+      });
+    </script>
+
+    <script>
+      // google map & marker
+      function initMap() {
+        var cbnu = { lat: 36.629695, lng: 127.456253 }; //일단 지도 중심은 학교로 설정
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 15,
+          center: cbnu,
+        });
+
+        // markers 배열
+        var marker, i;
+        for (i = 0; i < markers.length; i++) {
+          marker = new google.maps.Marker({
+            id: i,
+            position: new google.maps.LatLng(markers[i][0], markers[i][1]),
+            map: map,
+          });
+        }
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2MkxTkYDQdwq_8eSa4RXikN_s_Yra02s&callback=initMap"
+    ></script>
+  </body>
+</html>
