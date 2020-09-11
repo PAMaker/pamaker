@@ -23,6 +23,7 @@ const http = require('http')
 const server = http.createServer(app)
 // const io = socketio(server)
 var io = require('socket.io')(server)
+const db2 = require('./lib/db2')
 
 ///세션 인증
 var session = require('express-session')
@@ -156,16 +157,17 @@ const markers = []
 io.on('connection', function (socket) {
   // 접속한 클라이언트의 정보가 수신되면
   socket.on('user', function (data) {
-    db.query(`SELECT * FROM photographer WHERE _id=?`, [data.userid], function (
-      error,
-      user
-    ) {
-      if (error) {
-        throw error
+    db2.query(
+      `SELECT * FROM photographer WHERE _id=?`,
+      [data.userid],
+      function (error, user) {
+        if (error) {
+          throw error
+        }
+        uname = user[0].name
+        console.log(uname)
       }
-      uname = user[0].name
-      console.log(uname)
-    })
+    )
 
     // socket에 클라이언트 정보 저장
     socket.name = data.name
@@ -181,7 +183,6 @@ io.on('connection', function (socket) {
     console.log('add: ' + location.latitude + ', ' + location.longitude)
     markers.push([location.latitude, location.longitude])
     console.log(markers)
-
     // markers 전송
     io.emit('markers', markers)
   })
