@@ -1,6 +1,6 @@
 module.exports = {
-    HTML:function(title, list, body, control){
-      return `
+  HTML: function (title, list, body, control) {
+    return `
       <!DOCTYPE html>
       <html>
       <head>
@@ -80,16 +80,17 @@ module.exports = {
   
   </body>
   </html>
-      `;
-    },list:function(topics){
-      var list = '<ul>';
-      var i = 0;
-      while(i < topics.length){
-        list = list + `<li><a href="?id=${topics[i].id}">${topics[i].title}</a></li>`;
-        i = i + 1;
-      }
-      list = list+'</ul>';
-      return list;
+      `
+  },
+  list: function (topics) {
+    var list = '<ul>'
+    var i = 0
+    while (i < topics.length) {
+      list =
+        list + `<li><a href="?id=${topics[i].id}">${topics[i].title}</a></li>`
+      i = i + 1
     }
-  }
-  
+    list = list + '</ul>'
+    return list
+  },
+}

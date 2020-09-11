@@ -1,28 +1,26 @@
-var express = require('express');
-var app = express(); 
-var router = express.Router();
-var path = require('path');
-var fs = require('fs');
-var sanitizeHtml = require('sanitize-html');
-var shortid = require('shortid');
-var db2 = require('../lib/db2');
-var pauth = require('../lib/pauth');
-var qs = require('querystring');
-var url = require('url');
-var flash    = require('connect-flash');
-var session  = require('express-session');
+var express = require('express')
+var app = express()
+var router = express.Router()
+var path = require('path')
+var fs = require('fs')
+var sanitizeHtml = require('sanitize-html')
+var shortid = require('shortid')
+var db2 = require('../lib/db2')
+var pauth = require('../lib/pauth')
+var qs = require('querystring')
+var url = require('url')
+var flash = require('connect-flash')
+var session = require('express-session')
 
-
-module.exports=function(ppassport){
-
-  router.get('/login', function(request, response){
-    var fmsg = request.flash();
-    var feedb2ack = '';
-    if(fmsg.error){
-      feedb2ack = fmsg.error[0];
-    }
-  var title = '로그인';
-  var html = `
+module.exports = function (ppassport) {
+  router.get('/login', function (request, response) {
+    // var fmsg = request.flash();
+    // var feedb2ack = '';
+    // if(fmsg.error){
+    //   feedb2ack = fmsg.error[0];
+    // }
+    var title = '로그인'
+    var html = `
   <!DOCTYPE html>
 <html>
 <head>
@@ -32,17 +30,42 @@ module.exports=function(ppassport){
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="first.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <style>
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+	
+html {
+  height: 100%;
+}
 
+body {
+    width:100%;
+    height:100%;
+    margin: 0;
+    font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+    background-repeat: no-repeat;
+}
+
+  .card {
+      margin: 0 auto; /* Added */
+      float: none; /* Added */
+      margin-bottom: 10px; /* Added */
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-signin .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+         box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -62,32 +85,21 @@ module.exports=function(ppassport){
     </div>
   </nav>
 
-<div class ="container" style="margin-bottom: 70px;">
-    <h3>로그인</h3>
-
-    <form action="/pauth/login_process" method="post">
-    <div class="login-form">
-        <div class="row">
-            <div class="input-field col s12">
-            <p><input type="text" name="name" placeholder="name" value=""></p>
-             
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s12">
-            <p><input type="password" name="email" placeholder="email" value=""></p>
-                
-                
-            </div>
-        </div>
-        <p>
-<input type="submit" value="LOGIN">
-
-</p>
-    </div></form>
-    
-
+<div class ="container" style="margin-bottom: 70px;" align="center">
+<h2 class="card-title text-center" style="color:#113366;">로그인</h2>
+  <div class="card align-middle" style="width:20rem; border-radius:20px;">
+    <div class="card-body">
+      <form action="/pauth/login_process" class="form-signin" method="post" onSubmit="logincall();return false">
+        <h6 class="form-signin-heading">로그인 정보를 입력하세요</h6>
+        <input type="text" name="email" id="uid" class="form-control" placeholder="ID" required autofocus><BR>
+        <input type="password" name="password" id="upw" class="form-control" placeholder="Password" required><br>
+        <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" value="LOGIN">로 그 인</button>
+      </form>
+    </div>
+  </div>
 </div>
+
+<div class="modal"></div>
 
   <footer class ="page-footer">
   <nav>
@@ -101,34 +113,35 @@ module.exports=function(ppassport){
     </div>
     </nav>
   </footer>
-
- 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
 </body>
 </html>`
-  
-  ;
-  response.send(html);
-});
 
-//로그인버튼을 눌렀을때 /pauth/login_process로 라우팅되면서
-router.post('/login_process',
-  ppassport.authenticate('local', {
-    successRedirect: '/pmypage',//성공하면 /
-    failureRedirect: '/pauth/login',//실패하면 다시로그인페이지로
-    failureFlash:true,
-    successFlash:true
-  }));
+    response.send(html)
+  })
 
+  //로그인버튼을 눌렀을때 /pauth/login_process로 라우팅되면서
+  router.post(
+    '/login_process',
+    ppassport.authenticate('local', {
+      successRedirect: '/pmypage', //성공하면 /
+      failureRedirect: '/pauth/login', //실패하면 다시로그인페이지로
+      failureFlash: true,
+      successFlash: true,
+    })
+  )
 
-router.get('/register', function(request, response){
-    var fmsg = request.flash();
-    var feedb2ack = '';
-    if(fmsg.error){
-      feedb2ack = fmsg.error[0];
+  router.get('/register', function (request, response) {
+    var fmsg = request.flash()
+    var feedb2ack = ''
+    if (fmsg.error) {
+      feedb2ack = fmsg.error[0]
     }
-  var title = '로그인';
- 
-  var html = `
+    var title = '회원가입'
+
+    var html = `
   <!DOCTYPE html>
   <html>
   <head>
@@ -183,9 +196,6 @@ router.get('/register', function(request, response){
 
   </form>
   </div>
-    
-
-
   <footer class ="page-footer">
   <nav>
     <div class="nav-wrapper">
@@ -203,77 +213,63 @@ router.get('/register', function(request, response){
 </body>
 </html>
   `
-  
-  ;
-  response.send(html);
-});
 
+    response.send(html)
+  })
 
+  //파라메터값 받아서 heidy sql db에 저장
+  router.post('/register_process', function (request, response) {
+    var post = request.body
 
+    var email1 = post.email1
+    var email2 = post.email2
 
-//파라메터값 받아서 heidy sql db에 저장
-  router.post('/register_process',function (request, response){
-    var post = request.body;
-   
-    var email1 = post.email1;
-    var email2 = post.email2;
-   
-    if(email1 !== email2){
-      request.flash('error', 'Email must same!');
-      response.redirect('/pauth/register');
-    } else{
-
-  //db에 삽입해주는 쿼리
-  db2.query(`INSERT INTO photographer (name,email, phone)
-  VALUES(?,?,?)
+    if (email1 !== email2) {
+      request.flash('error', 'Email must same!')
+      response.redirect('/pauth/register')
+    } else {
+      //db에 삽입해주는 쿼리
+      db2.query(
+        `INSERT INTO photographer (name,email, phone)  VALUES(?,?,?)
 `,
-[post.name, post.email,post.phone], 
-function(error, result){
-  if(error){
-    throw error;
-  }
-
-  
-}
-)
-
+        [post.name, post.email, post.phone],
+        function (error, result) {
+          if (error) {
+            throw error
+          }
+        }
+      )
     }
 
-      
-        return response.redirect('/pmypage');
-     
-  });
+    return response.redirect('/pmypage')
+  })
 
+  router.get('/logout', function (request, response) {
+    request.logout()
 
-
-
-
-router.get('/logout',function(request,response){
-    request.logout();
-    
-    request.session.save(function(){
-        response.redirect('/pmypage');
-    });
-});
-  return router;
+    request.session.save(function () {
+      response.redirect('/pmypage')
+    })
+  })
+  return router
 }
 
 //정보변경//작성자만 접근할 수 있도록
 
-router.get('/changemyinfo', function(request, response){
-  if (!pauth.isOwner(request, response)) {
-    response.redirect('/pmypage');
-    return false;
+router.get('/changemyinfo', function (request, response) {
+  // if (!pauth.isOwner(request, response)) {
+  //   response.redirect('/pmypage')
+  //   return false
+  // }
+  var fmsg = request.flash()
+  var feedb2ack = ''
+  if (fmsg.error) {
+    feedb2ack = fmsg.error[0]
   }
-  var fmsg = request.flash();
-  var feedb2ack = '';
-  if(fmsg.error){
-    feedb2ack = fmsg.error[0];
-  }
-  
-var title = '정보변경';
 
-var html = `
+  var title = '정보변경'
+
+  var html = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -285,16 +281,42 @@ var html = `
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  
+  <style>
+  @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+  html {
+    height: 100%;
+  }
 
+  body {
+      width:100%;
+      height:100%;
+      margin: 0;
+      padding-top: 80px;
+      padding-bottom: 40px;
+      font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+      background-repeat: no-repeat;
+  }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-<style>
-
-</style>
+  .form-signin .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+          box-sizing: border-box;
+      padding: 10px;
+      font-size: 16px;
+  }
+  </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -328,8 +350,6 @@ var html = `
 
 </form>
 </div>
-  
-
 
 <footer class ="page-footer">
 <nav>
@@ -340,41 +360,34 @@ var html = `
   </div>
   </nav>
 </footer>
-
-
+    script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
 </body>
 </html>
 `
 
-;
-response.send(html);
-});
+  response.send(html)
+})
 
 //heidysql 에 있는 정보변경
 router.post('/changemyinfo_process', function (request, response) {
-  var post = request.body;
-  var email1 = post.email1;
-  var email2 = post.email2;
-  if(email1 !== email2){
-    request.flash('error', 'Email must same!');
-    response.redirect('/pauth/changemyinfo');
-  } else{
+  var post = request.body
+  var email1 = post.email1
+  var email2 = post.email2
+  if (email1 !== email2) {
+    request.flash('error', 'Email must same!')
+    response.redirect('/pauth/changemyinfo')
+  } else {
+    //db에 변경해주는 쿼리
+    var sql =
+      'UPDATE photographer SET name=?,email=?,phone=? WHERE id = ' +
+      db2.escape(post.name)
 
-//db에 변경해주는 쿼리
-var sql = 'UPDATE photographer SET name=?,email=?,phone=? WHERE id = '+db2.escape(post.name);
-
-db2.query(sql,[post.name,post.email,post.phone],function(err,rows){
-  if(err) console.log("err : "+err);
-  console.log(rows);
-  return response.redirect('/pmypage');
-});
-  
-}
-
-
-  });
-
-
-
-
-
+    db2.query(sql, [post.name, post.email, post.phone], function (err, rows) {
+      if (err) console.log('err : ' + err)
+      console.log(rows)
+      return response.redirect('/pmypage')
+    })
+  }
+})
