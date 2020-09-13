@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="first.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- <script src="concept.js"></script> -->
+<style>
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+footer{
+	  position:fixed; 
+	  bottom:0px; 
+	  height:60px; 
+	  width: 100%;
+	  max-height:510px ;
+	  min-width:100px;
+	  margin-bottom: 0px;
+	  z-index: 1;
+	}
+
+  
+</style>
+
+  </head>
+
+
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      <ul id="nav-mobile" class="left">
+        <li><a class="material-icons" href="second.html">keyboard_arrow_left</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right">
+      <li><a href="sass.html"><i class="material-icons">search</i></a></li></ul>
+    </div>
+  </nav>
+
+  
+
+  <h5 style="text-align: center; margin-top: 100px;">어떤 사진을 찍고 싶으세요?</h5>
+<p style="text-align: center;">아래 메뉴를 클릭하시면 상세 정보를 볼 수 있습니다. </p>
+
+<div class="row" style="max-width: 800px; margin-top: 100px;">
+  <div
+    class="col s12 m12 center"
+    style="
+      border: 1px solid lightgrey;
+      background-color: #ffffff;
+      height: 60px;
+      float: left;
+    "
+  >
+
+    <h6>
+      ※ 촬영이 처음이신가요?       <a
+      href="" 
+      >이 곳을 클릭</a
+    >
+
+      <!-- 도움말 페이지 링크 넣기 -->
+
+    </h6>
+  </div>
+  </div>
+</div>
+
+<div class="row" style="max-width: 800px;">
+<div class="tab">
+  <button class="tablinks" id="tab1">개인 스냅</button>
+  <button class="tablinks" id="tab2">커플 스냅</button>
+  <button class="tablinks" id="tab3">가족 스냅</button>
+  <button class="tablinks" id="tab4">행사 스냅</button>
+
+  <!-- <button class="tablinks" onclick="openCity(event, 'London')">개인 스냅</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">커플 스냅</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">가족 스냅</button>
+  <button class="tablinks" onclick="openCity(event, 'Event')">행사 스냅</button> -->
+</div>
+
+<div id="London" class="tabcontent">
+  <h4>개인 스냅</h4>
+<p>개인 프로필과 증명사진 등 촬영 가능</p>
+<p>꿈꾸던 사진 스타일로 자신의 모습을 담아보세요!</p>
+<a href="snap1" class="waves-effect waves-light btn-large">예약하러 가기</a>
+  <div class="row">
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+</div>
+  
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h4>커플 스냅</h4>
+<p>커플 프로필과 증명사진 등 촬영 가능</p>
+<p>꿈꾸던 사진 스타일로 연인과의 추억을 남겨보세요!</p>
+<a href="snap2.html" class="waves-effect waves-light btn-large">예약하러 가기</a>
+<div class="row">
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h4>가족 스냅</h4>
+<p>가족 프로필과 증명사진 등 촬영 가능</p>
+<p>꿈꾸던 사진 스타일로 우리 가족의 모습을 담아보세요!</p>
+<a href="snap3.html" class="waves-effect waves-light btn-large">예약하러 가기</a>
+
+<div class="row">
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="Event" class="tabcontent">
+  <h4>행사 스냅</h4>
+<p>행사 기념사진 등 촬영 가능</p>
+<p>꿈꾸던 사진 스타일로 특별한 날의 추억을 담아보세요!</p>
+<a href="snap4.html" class="waves-effect waves-light btn-large">예약하러 가기</a>
+
+<div class="row">
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+
+  <div class="card small col s12 m6">
+    <div class="card-image">
+      <img src="sample_image.jpg">
+    </div>
+    <div class="card-action">
+      <p>#프로필 #개인사진 #풍경 #자연</p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<footer class="page-footer">
+  <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="center">
+        <li><a class="material-icons" href="first.html">home</a></li>
+        <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
+        <li><a class="material-icons" href="chat/chat.html">chat</a></li>
+      </ul>
+        <ul id="nav-mobile" class="right">
+           <li><a class="material-icons" href="mypage">account_circle</a></li>
+        </ul>
+      </ul>
+    </div>
+    </nav></footer>
+
+
+    <!-- <script>
+      function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+      }
+      </script> -->
+
+      <script src="concept.js" ></script>
+</body>
+</html>
