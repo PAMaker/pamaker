@@ -334,6 +334,10 @@ app.get('/realtime-map.html', function (reqest, response) {
   response.sendFile(__dirname + '/realtime-map.html')
 })
 
+app.get('/conceptEx.html', function (reqest, response) {
+  response.sendFile(__dirname + '/conceptEx.html')
+})
+
 var port = process.env.PORT || 8080 // 1
 // const server = app.listen(port, function(){
 //  console.log('server on! http://localhost:'+port);
