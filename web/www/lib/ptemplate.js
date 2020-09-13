@@ -1,6 +1,6 @@
 module.exports = {
-    HTML:function(authStatusUI){
-      return `
+  HTML: function (authStatusUI) {
+    return `
         <!DOCTYPE html>
         <html>
         <head>
@@ -29,7 +29,6 @@ module.exports = {
         height:100%;
         padding-top:200px;
       }
-      
     
       </style>
 </head>
@@ -61,10 +60,6 @@ module.exports = {
 </div>
 </header>
 
-
-
-
-
   <footer class="page-footer">
   <nav>
     <div class="nav-wrapper">
@@ -84,6 +79,6 @@ module.exports = {
 
 </body>
 </html>
-      `;
-    }
-  }
+      `
+  },
+}

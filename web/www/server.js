@@ -57,8 +57,8 @@ app.use('/mypage',myinfoRouter);
 
 
 //후기작성기능
-var favRouter = require('./routes/fav');
-app.use('/fav',favRouter);
+// var favRouter = require('./routes/fav');
+// app.use('/fav',favRouter);
 
 //문의 기능
 var qnaRouter = require('./routes/qna');
@@ -285,9 +285,6 @@ app.post("/upload", (req, res) => {
 
 
 
-app.get('/',function(request,response){ //요청을 받으면
-    response.sendFile(path.join(__dirname+'/first.html')); //이렇게 응답해준다
-});
 
 app.get('/first.html',function(request,response){ //요청을 받으면
   response.sendFile(path.join(__dirname+'/first.html')); //이렇게 응답해준다
@@ -347,6 +344,11 @@ app.get('/1.html',function(request ,response){
 
   app.get('/index.html',function(request ,response){
     response.sendFile(path.join(__dirname+'views/index.html'));
+
+  });
+
+  app.get('/',function(request ,response){
+    response.sendFile(path.join(__dirname+'/intro.html'));
 
   });
 

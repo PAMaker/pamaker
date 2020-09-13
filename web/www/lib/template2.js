@@ -1,5 +1,5 @@
 module.exports = {
-    HTML:function(title, list,list2, body, control){
+    HTML:function(title, list,list2, body){
       return `
       <!DOCTYPE html>
       <html>
@@ -59,8 +59,6 @@ module.exports = {
         ${list}
         ${list2}
         ${body}
-        ${control}
-    
   </div>
       
     <footer class="page-footer">
@@ -72,7 +70,7 @@ module.exports = {
           <li><a class="material-icons" href="chat/chat.html">chat</a></li>
         </ul>
           <ul id="nav-mobile" class="right">
-             <li><a class="material-icons" href="mypage">account_circle</a></li>
+             <li><a class="material-icons" href="/mypage">account_circle</a></li>
           </ul>
         </ul>
       </div>
