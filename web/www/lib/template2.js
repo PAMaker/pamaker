@@ -1,5 +1,5 @@
 module.exports = {
-    HTML:function(title, list,list2, body){
+    HTML:function(title, list,plist,list2, body){
       return `
       <!DOCTYPE html>
       <html>
@@ -36,6 +36,37 @@ module.exports = {
 }
 
 
+table, tr, td {
+
+  border : 2px solid #FF0000;
+  
+  border-collapse: collapse;
+  
+  }
+  
+  
+  
+  .cell_padding {
+  
+  padding : 1em;
+  
+  }
+  
+  
+  
+  .table_center {
+  
+  display : table;
+  
+  margin-left : auto;
+  
+  margin-right : auto;
+  
+  }
+  
+  
+
+
 </style>
 </head>
 
@@ -57,6 +88,7 @@ module.exports = {
       <div class="container">
         <h2>${title}</h2>
         ${list}
+        ${plist}
         ${list2}
         ${body}
   </div>
@@ -70,7 +102,7 @@ module.exports = {
           <li><a class="material-icons" href="chat/chat.html">chat</a></li>
         </ul>
           <ul id="nav-mobile" class="right">
-             <li><a class="material-icons" href="/mypage">account_circle</a></li>
+             <li><a class="material-icons" href="/pmypage">account_circle</a></li>
           </ul>
         </ul>
       </div>
@@ -89,7 +121,16 @@ module.exports = {
       }
       list = list+'</ul>';
       return list;
-    },list2:function(topics){
+    },plist:function(topic){
+      var plist = '<ul>';
+      var i = 0;
+      while(i < topic.length){
+        plist = plist + `<li><a href="?id=${topic[i].id}">${topic[i].maindesc}</a></li>`;
+        i = i + 1;
+      }
+      plist = plist+'</ul>';
+      return plist;
+     },list2:function(topics){
       var list2 = '<ul>';
     
 

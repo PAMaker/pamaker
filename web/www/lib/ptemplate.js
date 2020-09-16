@@ -38,7 +38,7 @@ module.exports = {
     <div class="nav-wrapper">
       <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
       <ul id="nav-mobile" class="left">
-        <li><a class="material-icons" href="pmypage">keyboard_arrow_left</a></li>
+        <li><a class="material-icons" href="/first.html">keyboard_arrow_left</a></li>
       </ul>
       <ul id="nav-mobile" class="right">
       <li><a href="sass.html"><i class="material-icons">search</i></a></li></ul>

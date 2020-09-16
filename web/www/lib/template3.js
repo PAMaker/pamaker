@@ -123,6 +123,7 @@ module.exports = {
           <br><br>
           <a href="/chat?id=${photographer}${customer}&user=${customer}" class="waves-effect waves-light btn main_btn">대화하기</a>
           <a class="waves-effect waves-light btn main_btn" style="color: papayawhip" href="photograper.html#gallery">포트폴리오</a>
+          <a class="waves-effect waves-light btn main_btn" style="color: papayawhip" href="/pay.html">결제진행</a>
   				<h2>작가님 한줄</h2>
           <p>${maindesc}</p>
           

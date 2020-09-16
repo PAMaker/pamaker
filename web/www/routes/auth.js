@@ -325,6 +325,8 @@ router.get('/changemyinfo', function (request, response) {
     feedb2ack = fmsg.error[0]
   }
 
+
+
   var title = '정보변경'
 
   var html = `
@@ -405,27 +407,49 @@ router.get('/changemyinfo', function (request, response) {
 
 //heidysql 에 있는 정보변경
 router.post('/changemyinfo_process', function (request, response) {
-  var post = request.body
-  var name = request.name
-  var email = request.email
+  var post = request.body;
+  var email = post.email;
   var pwd = post.pwd
   var pwd2 = post.pwd2
+  mail = request.user.email;
+  //var displayName = post.displayName;
   if (pwd !== pwd2) {
     request.flash('error', 'Password must same!')
-    response.redirect('/auth/changemyinfo')
+    response.redirect('/auth/register')
   } else {
-    //db에 변경해주는 쿼리
-    var sql =
-      'UPDATE customer SET name=?,email=?,password=? WHERE id = ' +
-      db2.escape(post.name)
-
-    db2.query(sql, [post.name, post.email, post.password], function (
-      err,
-      rows
-    ) {
-      if (err) console.log('err : ' + err)
-      console.log(rows)
-      return response.redirect('/mypage')
-    })
+    
+    //db에 삽입해주는 쿼리
+    db2.query('UPDATE customer SET name=?, email=?, password=? WHERE email=?', [post.name, post.email, post.password, request.user.email], function(error, result){
+     
+      response.end();
+    });
   }
+
+  return response.redirect('/mypage')
 })
+
+
+// router.post('/changemyinfo_process', function (request, response) {
+//   var post = request.body
+//   var name = post.name;
+//   var email = post.email;
+//   var pwd = post.pwd
+//   var pwd2 = post.pwd2
+//   if (pwd !== pwd2) {
+//     request.flash('error', 'Password must same!')
+//     response.redirect('/auth/changemyinfo')
+//   } else {
+//     //db에 변경해주는 쿼리
+//     var sql =
+//        db.query(`SELECT * FROM topic LEFT JOIN author ON topic.author_id=author.id WHERE topic.id=?`,[queryData.id], function(error2, topic){
+
+//     db2.query(sql, [name,email,pwd], function (
+//       err,
+//       rows
+//     ) {
+//       if (err) console.log('err : ' + err)
+//       console.log(rows)
+//       return response.redirect('/mypage')
+//     })
+//   }
+// })

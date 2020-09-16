@@ -95,18 +95,13 @@ function outputMessage(message) {
   console.log(2);
 
   
-  //1.과거에 작성한 대화내용
+  
   div.innerHTML = `
   <p class="meta">${message.username} <span>${message.time}</span></p>
   <p class="text">
     ${message.text}
   </p>`;
-  //2.현재 작성한 대화내용
-  // div.innerHTML = `
-  // <p class="meta">${message.username} <span>${message.time}</span></p>
-  // <p class="text">
-  //   ${message.text}
-  // </p>`;
+
   document.querySelector('.chat-messages').appendChild(div);
 }
 

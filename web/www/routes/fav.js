@@ -18,21 +18,14 @@ router.get('/', function (request, response) {
 
   //var id = parseUrl.substring(parseUrl.lastIndexOf("=")+1);
   //console.log(id);
-<<<<<<< HEAD:web/www/routes/fav.js
-  if(pathname === '/'){
-    if(queryData.id === undefined){
-      topic.home(request,response);
-    }else{
-      db2.query(`SELECT * FROM topic`, function(error,topics){
-        console.log(topics); //topic 테이블 다 나옴
-=======
+
   if (pathname === '/') {
     if (queryData.id === undefined) {
       topic.home(request, response)
     } else {
       db2.query(`SELECT * FROM topic`, function (error, topics) {
         console.log(topics)
->>>>>>> 1a11c5b3aed64aa0e0d1784e5be305b647787755:web-front/www/routes/fav.js
+
         //console.log(topic);
         if (error) {
           throw error
@@ -87,74 +80,15 @@ router.get('/', function (request, response) {
             )
             response.send(html)
           }
-<<<<<<< HEAD:web/www/routes/fav.js
-     console.log(topic); //해당 테이블만 나옴
-      var title =topic[0].title; //topic 테이블에서 가져옴
-      console.log(title);
-      var description = topic[0].description; //topic 테이블에서 가져옴
-      var list = template2.list(topic);
-      var html = template2.HTML(title,list,
-        `
-        <br>by ${topic[0].name}</br>`,
-        `<a href="/fav/create">쓰기</a>
-        <a href="/fav/update?id=${queryData.id}">수정</a>
-                <form action="/fav/delete_process" method="post">
-                  <input type="hidden" name="id" value="${queryData.id}">
-                  <input type="submit" value="삭제">
-                </form>`
-        );
-      
-        response.send(html);
-      });
-      
-      });
 
-
-=======
         )
       })
->>>>>>> 1a11c5b3aed64aa0e0d1784e5be305b647787755:web-front/www/routes/fav.js
     }
   }
 })
 
 //localhost:8080/fav/create
-<<<<<<< HEAD:web/www/routes/fav.js
-router.get('/create',function(request,response){
-  // if (!auth.isOwner(request, response)) {
-  //   response.redirect('/mypage');
-  //   return false;
-  // }
-          
-        var title = '작성하기';
-        var html = template2.HTML(title, '',
-          `<form action="/fav/create_process" method="post">
-          <p><input type="text" name="title" placeholder="title"></p>
-          <p>
-            <textarea name="description" placeholder="description"></textarea>
-          </p>
-          <p>
-            <input type="submit">
-          </p>
-        </form>`,
-          ``
-          );
 
-        //response.writeHead(200);//서버가 정상 처리하여 응답한 경우
-        response.send(html);
-    
-      
-});
-
-router.post('/create_process',function(request,response){
-  // if (!auth.isOwner(request, response)) {
-  //   response.redirect('/');
-  //   return false;
-  // }
-  var post = request.body;
-  db2.query(`
-  INSERT INTO topic (title,description,created) 
-=======
 router.get('/create', function (request, response) {
   // if (!auth.isOwner(request, response)) {
   //   response.redirect('/fav/create')
@@ -179,7 +113,7 @@ router.get('/create', function (request, response) {
   //response.writeHead(200);//서버가 정상 처리하여 응답한 경우
   response.send(html)
 })
-router.post('/create', function (request, response) {
+router.post('/create_process', function (request, response) {
   // if (!auth.isOwner(request, response)) {
   //   response.redirect('/')
   //   return false
@@ -188,8 +122,8 @@ router.post('/create', function (request, response) {
   db2.query(
     `
   INSERT INTO topic (title,author,description,created) 
->>>>>>> 1a11c5b3aed64aa0e0d1784e5be305b647787755:web-front/www/routes/fav.js
-    VALUES(?,?,NOW())`,
+
+    VALUES(?,?,?,NOW())`,
     [post.title, post.author, post.description],
     function (error, result) {
       if (error) {
@@ -222,7 +156,7 @@ router.get('/update', function (request, response) {
     console.log(topic)
     var html = template2.HTML(
       `후기 수정하기`,
-      ``,
+      ``,``,
       `
             <form action="/fav/update_process" method="post">
               <input type="hidden" name="id" value="${topic[0].id}">

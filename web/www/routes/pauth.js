@@ -257,10 +257,10 @@ body {
 //정보변경//작성자만 접근할 수 있도록
 
 router.get('/changemyinfo', function (request, response) {
-  // if (!pauth.isOwner(request, response)) {
-  //   response.redirect('/pmypage')
-  //   return false
-  // }
+  if (!pauth.isOwner(request, response)) {
+    response.redirect('/pmypage')
+    return false
+  }
   var fmsg = request.flash()
   var feedb2ack = ''
   if (fmsg.error) {

@@ -53,12 +53,17 @@ var authRouter = require('./routes/auth')(passport);
 app.use('/auth',authRouter);
 var myinfoRouter = require('./routes/mypage');
 app.use('/mypage',myinfoRouter);
+//작가
+var pauthRouter = require('./routes/pauth')(passport);
+app.use('/pauth',pauthRouter);
+var pmyinfoRouter = require('./routes/pmypage');
+app.use('/pmypage',pmyinfoRouter);
 
 
 
 //후기작성기능
-// var favRouter = require('./routes/fav');
-// app.use('/fav',favRouter);
+var favRouter = require('./routes/fav');
+app.use('/fav',favRouter);
 
 //문의 기능
 var qnaRouter = require('./routes/qna');
@@ -68,10 +73,7 @@ app.use('/qna',qnaRouter);
 var snapRouter = require('./routes/snap1');
 app.use('/snap1',snapRouter);
 
-//<작가>
 
-var pmyinfoRouter = require('./routes/pmypage');
-app.use('/pmypage',pmyinfoRouter);
 
 //서비스 등록 기능
 var serviceRouter = require('./routes/ser');
@@ -96,7 +98,50 @@ const {
 
 
 
+//지도
+// 실시간 지도 (realtime-map.html)
+const markers = []
+io.on('connection', function (socket) {
+  // 접속한 클라이언트의 정보가 수신되면
+  socket.on('user', function (data) {
+    db2.query(
+      `SELECT * FROM photographer WHERE _id=?`,
+      [data.userid],
+      function (error, user) {
+        if (error) {
+          throw error
+        }
+        uname = user[0].name
+        console.log(uname)
+      }
+    )
 
+    // socket에 클라이언트 정보 저장
+    socket.name = data.name
+    socket.userid = data.userid
+
+    // 접속된 모든 클라이언트에게 메시지를 전송
+    io.emit('login', data.name)
+  })
+
+  //클라이언트의 위치 정보를 받으면
+  socket.on('location', function (location) {
+    // 좌표 확인하고 markers 배열에 추가
+    console.log('add: ' + location.latitude + ', ' + location.longitude)
+    markers.push([location.latitude, location.longitude])
+    console.log(markers)
+    // markers 전송
+    io.emit('markers', markers)
+  })
+
+  socket.on('forceDisconnect', function () {
+    socket.disconnect()
+  })
+
+  socket.on('disconnect', function () {
+    console.log('user disconnected: ' + socket.name)
+  })
+})
 
 
 
@@ -176,17 +221,6 @@ io.on("connection", (socket) => {
     }
   });
 });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -349,6 +383,11 @@ app.get('/1.html',function(request ,response){
 
   app.get('/',function(request ,response){
     response.sendFile(path.join(__dirname+'/intro.html'));
+
+  });
+
+  app.get('/pay',function(request ,response){
+    response.sendFile(path.join(__dirname+'pages/pay.html'));
 
   });
 

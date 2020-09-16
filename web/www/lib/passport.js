@@ -5,6 +5,7 @@ const { connect } = require('../lib/db2');
 var bcrypt = require('bcrypt');
 var salt = bcrypt.genSaltSync(10);
 
+
 module.exports = function (app){
 
     var passport = require('passport'),
@@ -43,28 +44,13 @@ app.get('/flash-display',function(req,res){
   });
 
 
-// passport.use('local-join',new LocalStrategy({
-//   usernameField:'email',
-//   passwordField:'password',
-//   passReqToCallback: true
-// },function(req,email,password,done){
-//   var query = db2.query('select * from customer where email=?',[email], function(err,rows){
-    
-//     if(err) return done(err);
-//     if(rows.length){
-//       return done(null,{'email':email,'password':password})
-//     }else{
-//       return done(null, false, {'message':'your login info is not found'});
-//     }
-//   })
-  
-// }
-// ))
 passport.use(new LocalStrategy({
   usernameField:'email',
   passwordField:'password',
   passReqToCallback: true
 },function(req,email,password,done){
+
+  
   var query = db2.query('select * from customer where email=?',[email], function(err,rows){
     
     if(err) return done(err);
@@ -74,9 +60,14 @@ passport.use(new LocalStrategy({
       return done(null, false, {'message':'your login info is not found'});
     }
   })
+
+
   
 }
+
+
 ))
+
 
     return passport;
 }

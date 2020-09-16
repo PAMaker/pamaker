@@ -11,7 +11,7 @@ module.exports = {
     statusUI:function(request, response) {
         
             var authStatusUI = '<a href="/auth/login">login</a> | <a href="/auth/register">Register</a>';
-       
+        
             
 
             if (this.isOwner(request, response)) {
