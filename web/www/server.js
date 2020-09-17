@@ -58,7 +58,7 @@ var pauthRouter = require('./routes/pauth')(passport);
 app.use('/pauth',pauthRouter);
 var pmyinfoRouter = require('./routes/pmypage');
 app.use('/pmypage',pmyinfoRouter);
-
+//사진업로드
 
 
 //후기작성기능
@@ -72,6 +72,7 @@ app.use('/qna',qnaRouter);
 //사진작가리스트 보여주기
 var snapRouter = require('./routes/snap1');
 app.use('/snap1',snapRouter);
+
 
 
 
@@ -244,72 +245,111 @@ app.use(express.static(path.join(__dirname, "pages")));
 
 
 // Set The Storage Engine
-const storage = multer.diskStorage({
-  destination: "./public/uploads/",
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: "./public/uploads/",
+//   filename: function (req, file, cb) {
+//     cb(
+//       null,
+//       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+//     );
+//   },
+// });
 
-//Init Upload
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 1000000 },
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb);
-  },
-}).single("myImage");
+// //Init Upload
+// const upload = multer({
+//   storage: storage,
+//   limits: { fileSize: 1000000 },
+//   fileFilter: function (req, file, cb) {
+//     checkFileType(file, cb);
+//   },
+// }).single("myImage");
 
-// Check File Type
-function checkFileType(file, cb) {
-  // Allowed ext
-  const filetypes = /jpeg|jpg|png|gif/;
-  // Check ext
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  // Check mime
-  const mimetype = filetypes.test(file.mimetype);
+// // Check File Type
+// function checkFileType(file, cb) {
+//   // Allowed ext
+//   const filetypes = /jpeg|jpg|png|gif/;
+//   // Check ext
+//   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+//   // Check mime
+//   const mimetype = filetypes.test(file.mimetype);
 
-  if (mimetype && extname) {
-    return cb(null, true);
-  } else {
-    cb("Error: Images Only!");
-  }
-}
+//   if (mimetype && extname) {
+//     return cb(null, true);
+//   } else {
+//     cb("Error: Images Only!");
+//   }
+// }
 
 
 
 // EJS
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
 
-// Public Folder
+// // Public Folder
+// app.use(express.static("./public"));
+
+// app.get("/index", (req, res) => res.render("index"));
+
+// //파일 제출누르면 
+// app.post("/upload", (req, res) => {
+//   upload(req, res, (err) => {
+//     if (err) {
+//       res.render("index", {
+//         msg: err,
+//       });
+//     } else {
+//       if (req.file == undefined) {
+//         res.render("index", {
+//           msg: "Error: No File Selected!",
+//         });
+//       } else {
+//         res.render("index", {
+//           msg: "File Uploaded!",
+//           file: `uploads/${req.file.filename}`,
+          
+//         });
+//       }
+//     }
+//   });
+// });
+
+
+
+const multerS3 = require('multer-s3');
+const AWS = require("aws-sdk");
+AWS.config.loadFromPath(__dirname + "/config/awsconfig.json");//sdk 환경설정 파일경로
+
+let s3 = new AWS.S3();
+
 app.use(express.static("./public"));
 
-app.get("/index", (req, res) => res.render("index"));
+app.get("/upload", (req, res) => res.render("upload"));
 
-//파일 제출누르면 
-app.post("/upload", (req, res) => {
-  upload(req, res, (err) => {
-    if (err) {
-      res.render("index", {
-        msg: err,
-      });
-    } else {
-      if (req.file == undefined) {
-        res.render("index", {
-          msg: "Error: No File Selected!",
-        });
-      } else {
-        res.render("index", {
-          msg: "File Uploaded!",
-          file: `uploads/${req.file.filename}`,
-          
-        });
-      }
-    }
-  });
+//파일이 저장될 upload 객체
+//속성들 key 값 size,bucket,acl....
+let upload = multer({
+    storage: multerS3({
+        s3:s3,
+        bucket: "photoobucket",
+        key: function(req,file,cb){
+            let extension = path.extname(file.originalname);
+            cb(null, Date.now().toString()+extension)
+        },
+        acl:'public-read-write',
+    })
+})
+
+//파일을 업로드 해주고
+app.post('/upload', upload.single("imgFile"), function(req, res, next){
+    //let imgFile = req.file;
+    //res.json(imgFile);//업로드한 객체 전달
+    res.send('업로드 성공!');
+  })
+
+
+
+app.get('/upload', function(req,res,next){
+    res.render('upload');
 });
 
 
@@ -391,6 +431,8 @@ app.get('/1.html',function(request ,response){
 
   });
 
+
+ 
 
 
 
