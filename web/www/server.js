@@ -23,6 +23,7 @@ const http = require("http");
 const server = http.createServer(app);
 const io = socketio(server);
 const db2 = require('./lib/db2');
+var formidable = require('formidable');
 ///세션 인증
 var session = require('express-session');
 var FileStore = require('session-file-store')(session)
@@ -88,6 +89,10 @@ app.use('/chat',chatRouter);
 //작가채팅기능
 var chatRouter = require('./routes/pchat');
 app.use('/pchat',chatRouter);
+
+
+var pbRouter = require('./routes/photoobucket');
+app.use('/photoobucket',pbRouter);
 
 const formatMessage = require("./util/messages");
 const {
@@ -319,12 +324,12 @@ const multerS3 = require('multer-s3');
 const AWS = require("aws-sdk");
 AWS.config.loadFromPath(__dirname + "/config/awsconfig.json");//sdk 환경설정 파일경로
 
-let s3 = new AWS.S3();
+
 
 app.use(express.static("./public"));
 
 app.get("/upload", (req, res) => res.render("upload"));
-
+var s3 = new AWS.S3();
 //파일이 저장될 upload 객체
 //속성들 key 값 size,bucket,acl....
 let upload = multer({
@@ -340,17 +345,34 @@ let upload = multer({
 })
 
 //파일을 업로드 해주고
-app.post('/upload', upload.single("imgFile"), function(req, res, next){
-    //let imgFile = req.file;
-    //res.json(imgFile);//업로드한 객체 전달
-    res.send('업로드 성공!');
-  })
+// app.post('/upload_process', upload.single("imgFile"), function(req, res, next){
+//     // let imgFile = req.file;
+//     // res.json(imgFile);//업로드한 객체 전달
+//     var form = new formidable.IncomingForm();//s3에서 전달해줌
+//     form.parse(req,function(err, fields, file){
+      
+//       var params = {
+//         Bucket:'photoobucket',
+//         Key:file.imgFile.name,
+//         ACL:'public-read',
+//         Body: require('fs').createReadStream(file.imgFile.path)
+//       }
+//       var s3 = new AWS.S3();
+//       s3.upload(params, function(err,data){
+//         var result='';
+//         if(err)
+//             result = 'Fail';
+//         else
+//             result = `<img src="${data.Location}">`;
+//         res.send(`<html><body>${result}</body></html>`);
+//       });
+        
+//     });
+//     //res.send('업로드 성공!');
+//   });
 
 
 
-app.get('/upload', function(req,res,next){
-    res.render('upload');
-});
 
 
 
@@ -430,6 +452,7 @@ app.get('/1.html',function(request ,response){
     response.sendFile(path.join(__dirname+'pages/pay.html'));
 
   });
+
 
 
  
