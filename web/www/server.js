@@ -23,6 +23,7 @@ const http = require("http");
 const server = http.createServer(app);
 const io = socketio(server);
 const db2 = require('./lib/db2');
+var formidable = require('formidable');
 ///세션 인증
 var session = require('express-session');
 var FileStore = require('session-file-store')(session)
@@ -58,7 +59,7 @@ var pauthRouter = require('./routes/pauth')(passport);
 app.use('/pauth',pauthRouter);
 var pmyinfoRouter = require('./routes/pmypage');
 app.use('/pmypage',pmyinfoRouter);
-
+//사진업로드
 
 
 //후기작성기능
@@ -75,6 +76,7 @@ app.use('/snap1',snapRouter);
 
 
 
+
 //서비스 등록 기능
 var serviceRouter = require('./routes/ser');
 const { until } = require('async');
@@ -87,6 +89,10 @@ app.use('/chat',chatRouter);
 //작가채팅기능
 var chatRouter = require('./routes/pchat');
 app.use('/pchat',chatRouter);
+
+
+var pbRouter = require('./routes/photoobucket');
+app.use('/photoobucket',pbRouter);
 
 const formatMessage = require("./util/messages");
 const {
@@ -244,73 +250,129 @@ app.use(express.static(path.join(__dirname, "pages")));
 
 
 // Set The Storage Engine
-const storage = multer.diskStorage({
-  destination: "./public/uploads/",
-  filename: function (req, file, cb) {
-    cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: "./public/uploads/",
+//   filename: function (req, file, cb) {
+//     cb(
+//       null,
+//       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+//     );
+//   },
+// });
 
-//Init Upload
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 1000000 },
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb);
-  },
-}).single("myImage");
+// //Init Upload
+// const upload = multer({
+//   storage: storage,
+//   limits: { fileSize: 1000000 },
+//   fileFilter: function (req, file, cb) {
+//     checkFileType(file, cb);
+//   },
+// }).single("myImage");
 
-// Check File Type
-function checkFileType(file, cb) {
-  // Allowed ext
-  const filetypes = /jpeg|jpg|png|gif/;
-  // Check ext
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-  // Check mime
-  const mimetype = filetypes.test(file.mimetype);
+// // Check File Type
+// function checkFileType(file, cb) {
+//   // Allowed ext
+//   const filetypes = /jpeg|jpg|png|gif/;
+//   // Check ext
+//   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+//   // Check mime
+//   const mimetype = filetypes.test(file.mimetype);
 
-  if (mimetype && extname) {
-    return cb(null, true);
-  } else {
-    cb("Error: Images Only!");
-  }
-}
+//   if (mimetype && extname) {
+//     return cb(null, true);
+//   } else {
+//     cb("Error: Images Only!");
+//   }
+// }
 
 
 
 // EJS
-app.set("view engine", "ejs");
+// app.set("view engine", "ejs");
 
-// Public Folder
+// // Public Folder
+// app.use(express.static("./public"));
+
+// app.get("/index", (req, res) => res.render("index"));
+
+// //파일 제출누르면 
+// app.post("/upload", (req, res) => {
+//   upload(req, res, (err) => {
+//     if (err) {
+//       res.render("index", {
+//         msg: err,
+//       });
+//     } else {
+//       if (req.file == undefined) {
+//         res.render("index", {
+//           msg: "Error: No File Selected!",
+//         });
+//       } else {
+//         res.render("index", {
+//           msg: "File Uploaded!",
+//           file: `uploads/${req.file.filename}`,
+          
+//         });
+//       }
+//     }
+//   });
+// });
+
+
+
+const multerS3 = require('multer-s3');
+const AWS = require("aws-sdk");
+AWS.config.loadFromPath(__dirname + "/config/awsconfig.json");//sdk 환경설정 파일경로
+
+
+
 app.use(express.static("./public"));
 
-app.get("/index", (req, res) => res.render("index"));
+app.get("/upload", (req, res) => res.render("upload"));
+var s3 = new AWS.S3();
+//파일이 저장될 upload 객체
+//속성들 key 값 size,bucket,acl....
+let upload = multer({
+    storage: multerS3({
+        s3:s3,
+        bucket: "photoobucket",
+        key: function(req,file,cb){
+            let extension = path.extname(file.originalname);
+            cb(null, Date.now().toString()+extension)
+        },
+        acl:'public-read-write',
+    })
+})
 
-//파일 제출누르면 
-app.post("/upload", (req, res) => {
-  upload(req, res, (err) => {
-    if (err) {
-      res.render("index", {
-        msg: err,
-      });
-    } else {
-      if (req.file == undefined) {
-        res.render("index", {
-          msg: "Error: No File Selected!",
-        });
-      } else {
-        res.render("index", {
-          msg: "File Uploaded!",
-          file: `uploads/${req.file.filename}`,
-          
-        });
-      }
-    }
-  });
-});
+//파일을 업로드 해주고
+// app.post('/upload_process', upload.single("imgFile"), function(req, res, next){
+//     // let imgFile = req.file;
+//     // res.json(imgFile);//업로드한 객체 전달
+//     var form = new formidable.IncomingForm();//s3에서 전달해줌
+//     form.parse(req,function(err, fields, file){
+      
+//       var params = {
+//         Bucket:'photoobucket',
+//         Key:file.imgFile.name,
+//         ACL:'public-read',
+//         Body: require('fs').createReadStream(file.imgFile.path)
+//       }
+//       var s3 = new AWS.S3();
+//       s3.upload(params, function(err,data){
+//         var result='';
+//         if(err)
+//             result = 'Fail';
+//         else
+//             result = `<img src="${data.Location}">`;
+//         res.send(`<html><body>${result}</body></html>`);
+//       });
+        
+//     });
+//     //res.send('업로드 성공!');
+//   });
+
+
+
 
 
 
@@ -391,6 +453,9 @@ app.get('/1.html',function(request ,response){
 
   });
 
+
+
+ 
 
 
 

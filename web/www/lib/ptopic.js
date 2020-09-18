@@ -1,6 +1,8 @@
 var db2 = require('./db2');
+const express = require('express');//express 모듈 사용하기 위함
+const app = express();
 var template2 = require('./template2.js');
-
+var formidable = require('formidable');
 exports.home = function(request,response){
     var email = request.user.email;
     db2.query(`SELECT * FROM photographer WHERE photographer.email=?`,[email],function(error2,topic){         
@@ -26,15 +28,26 @@ exports.home = function(request,response){
         var html = template2.HTML(title,``,plist,
           `<hr><p>${description}</p><br>`,
           `<a class="waves-effect waves-light btn main_btn" href="/ser/create" style="margin-bottom:80px ;">등록하기</a>
-          <a class="waves-effect waves-light btn main_btn" href="" style="margin-bottom:80px ;">사진업로드</a>
+          </br></br>
+          <a class="waves-effect waves-light btn main_btn" href="/photoobucket/upload" style="margin-bottom:80px ;">사진등록하기</a>
+     
           `
           )
-    
         
+
+
+
+    
+      
           //response.writeHead(200);
           response.send(html)
+
        
          })
+
+
+
         
         }
+
 
