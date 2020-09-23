@@ -233,9 +233,7 @@ io.on("connection", (socket) => {
 
 
 
-
-
-////////////
+console.log()
 
 //기본값
 app.use(express.static('css'));
@@ -452,10 +450,6 @@ app.get('/1.html',function(request ,response){
     response.sendFile(path.join(__dirname+'pages/pay.html'));
 
   });
-
-
-
- 
 
 
 
