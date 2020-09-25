@@ -35,7 +35,7 @@ git merge brchA
 git push origin master
 ```
 
-<u>master 브랜치는 local이든 remote 이든 관리만 한다는 것이 핵심!!</u>
+** master 브랜치는 local이든 remote 이든 관리만 한다는 것이 핵심!!
 
 
 
