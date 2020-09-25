@@ -2,7 +2,7 @@ pull request 를 위해 해야할것
 ------------------------------
 
 
-0. local 저장소 = 내pc에 파일이 저장되는 개인 저장소//remote repository = github에서 관리되는 본인 원격 저장소//중앙 remote ropository = 팀의 원격 저장소
+용어정리: local 저장소 = 내pc에 파일이 저장되는 개인 저장소 / remote repository = github에서 관리되는 본인 원격 저장소 / 중앙 remote ropository = 팀의 원격 저장소
 
 
 1. pull request 를 하기위해서는 중앙 remote repo 에서 forked 해서 본인 remote repo를 만들어야함
