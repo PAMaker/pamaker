@@ -1,9 +1,11 @@
 pull request 를 위해 해야할것
 ------------------------------
 
-##### 본인의 repo 를 = local repo / 팀의 repo 를 = remote repo 
-> pull request 를 하기위해서는 remote repo 에서 forked 해서 local repo를 만들어야함
-> forked 한 local repo 를 다시 프로젝트에 등록시키기
+#### local 저장소 = 내pc에 파일이 저장되는 개인 저장소
+#### remote repository = github에서 관리되는 본인 원격 저장소
+#### 중앙 remote ropository = 팀의 원격 저장소
+> pull request 를 하기위해서는 중앙 remote repo 에서 forked 해서 본인 remote repo를 만들어야함
+> forked 한 본인 remote repo 를 다시 프로젝트에 등록시키기
 
 ``` 
 git remote remove origin
