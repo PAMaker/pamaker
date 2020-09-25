@@ -35,14 +35,15 @@ git merge brchA
 git push origin master
 ```
 
-`<u>master 브랜치는 local이든 remote 이든 관리만 한다는 것이 핵심!!</u>`
+<u>master 브랜치는 local이든 remote 이든 관리만 한다는 것이 핵심!!</u>
 
 
 
 
-##### merge conflict 피하기 위해서 작업전 로컬의 소스를 늘 최신으로 갖춰야함!
-> git pull --rebase upstream master
-
+> merge conflict 피하기 위해서 작업전 로컬의 소스를 늘 최신으로 갖춰야함!
+```
+git pull --rebase upstream master
+```
 
 
 
