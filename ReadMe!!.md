@@ -8,3 +8,5 @@ merge conflict 피하기 위해서 로컬의 소스를 늘 최신으로 갖춰�
 
  복구하기
 > git revert(전단계 commit 번호) 
+
+>큼큼
