@@ -430,6 +430,10 @@ app.get('/pay', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/pay.html'))
 })
 
+app.get('/googlemap', function (request, response) {
+  response.sendFile(path.join(__dirname + 'pages/googlemap.html'))
+})
+
 app.get('/event-calendar.html', function (request, response) {
   //요청을 받으면
   response.sendFile(path.join(__dirname + 'pages/event-calendar.html')) //이렇게 응답해준다

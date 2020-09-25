@@ -32,7 +32,7 @@ function toggleState3() {
   }
 }
 
-let imgOp1 = [
+let imgObject = [
   'https://placeimg.com/450/450/any',
   'https://placeimg.com/450/450/animals',
   'https://placeimg.com/450/450/architecture',
@@ -45,50 +45,6 @@ let imgOp1 = [
   'https://picsum.photos/id/15/450/450',
   'https://picsum.photos/id/5/450/450',
 ]
-
-let imgOp2 = [
-  'https://placeimg.com/450/450/any',
-  'https://placeimg.com/450/450/animals',
-  'https://placeimg.com/450/450/architecture',
-  'https://placeimg.com/450/450/nature',
-  'https://placeimg.com/450/450/people',
-  'https://placeimg.com/450/450/tech',
-  'https://picsum.photos/id/1/450/450',
-  'https://picsum.photos/id/8/450/450',
-  'https://picsum.photos/id/12/450/450',
-  'https://picsum.photos/id/15/450/450',
-  'https://picsum.photos/id/5/450/450',
-]
-
-let imgOp3 = [
-  'https://placeimg.com/450/450/any',
-  'https://placeimg.com/450/450/animals',
-  'https://placeimg.com/450/450/architecture',
-  'https://placeimg.com/450/450/nature',
-  'https://placeimg.com/450/450/people',
-  'https://placeimg.com/450/450/tech',
-  'https://picsum.photos/id/1/450/450',
-  'https://picsum.photos/id/8/450/450',
-  'https://picsum.photos/id/12/450/450',
-  'https://picsum.photos/id/15/450/450',
-  'https://picsum.photos/id/5/450/450',
-]
-
-let imgOp4 = [
-  'https://placeimg.com/450/450/any',
-  'https://placeimg.com/450/450/animals',
-  'https://placeimg.com/450/450/architecture',
-  'https://placeimg.com/450/450/nature',
-  'https://placeimg.com/450/450/people',
-  'https://placeimg.com/450/450/tech',
-  'https://picsum.photos/id/1/450/450',
-  'https://picsum.photos/id/8/450/450',
-  'https://picsum.photos/id/12/450/450',
-  'https://picsum.photos/id/15/450/450',
-  'https://picsum.photos/id/5/450/450',
-]
-
-let imgObject = []
 
 let mainImg = 0
 let prevImg = imgObject.length - 1
@@ -138,11 +94,6 @@ function scrollLeft() {
   }
   loadGallery()
 }
-
-document.getElementById('option1').addEventListener('click', setImgObject())
-document.getElementById('option2').addEventListener('click', setImgObject())
-document.getElementById('option3').addEventListener('click', setImgObject())
-document.getElementById('option4').addEventListener('click', setImgObject())
 
 document.getElementById('navRight').addEventListener('click', scrollRight)
 document.getElementById('navLeft').addEventListener('click', scrollLeft)
