@@ -237,10 +237,12 @@ io.on('connection', (socket) => {
         users: getRoomUsers(user.room),
       })
     }
+
   })
 })
 
 ////////////
+
 
 //기본값
 app.use(express.static('css'))
@@ -414,6 +416,7 @@ app.get('/policy.html', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/policy.html'))
 })
 
+
 app.get('/photoregister.html', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/photoregister.html'))
 })
@@ -425,6 +428,7 @@ app.get('/index.html', function (request, response) {
 app.get('/', function (request, response) {
   response.sendFile(path.join(__dirname + '/intro.html'))
 })
+
 
 app.get('/pay', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/pay.html'))
