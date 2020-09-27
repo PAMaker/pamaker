@@ -210,7 +210,7 @@ $(function () {
     if (storedEvents != null) {
       storedEvents = storedEvents.filter((ev) => ev.id != id)
       localStorage.setItem('events', JSON.stringify(storedEvents))
-      $('.toast-body').html('Your event have been removed')
+      $('.toast-body').html('일정이 삭제되었습니다.')
       $('.toast').toast('show')
     }
   }
@@ -256,7 +256,9 @@ $(function () {
     $('#eventTxt').removeClass('data-invalid')
     $('.error').remove()
     if (eventText == '') {
-      $('.events-input').append(`<span class="error">Please enter event</span>`)
+      $('.events-input').append(
+        `<span class="error">일정을 입력해주세요.</span>`
+      )
       $('#eventTxt').addClass('data-invalid')
       $('#eventTxt').trigger('focus')
     } else if (eventText.length < 3) {

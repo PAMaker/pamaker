@@ -1,32 +1,76 @@
-var checkbox = document
-  .getElementById('checkbox')
-  .addEventListener('click', askForCoords)
+$(function () {
+  var checkbox = document
+    .getElementById('checkbox')
+    .addEventListener('click', askForCoords)
 
-function handleGeoSucces(position) {
-  const latitude = position.coords.latitude
-  const longitude = position.coords.longitude
-  const coordsObj = {
-    latitude,
-    longitude,
+  // socket.io 서버 접속
+  var socket = io()
+
+  console.log(request.user.id)
+  console.log(request.user.email)
+
+  // 서버로 자신의 정보 전송
+  socket.emit('photographerInfo', {
+    name: '',
+    userid: '1', // 임의로 설정한 id -> db연동 필요
+  })
+
+  function handleGeoSucces(position) {
+    const latitude = position.coords.latitude
+    const longitude = position.coords.longitude
+    const coordsObj = {
+      latitude,
+      longitude,
+    }
+
+    document.getElementById('position').innerHTML =
+      '현재 위치 확인 ' +
+      position.coords.latitude +
+      '&nbsp' +
+      position.coords.longitude
+
+    console.log(coordsObj)
+
+    // 서버로 위치 정보 전달
+    socket.emit('location', {
+      latitude: position.coords.latitude,
+      longitude: position.coords.longitude,
+    })
   }
 
-  document.getElementById('position').innerHTML =
-    '현재 위치 : ' +
-    position.coords.latitude +
-    '&nbsp' +
-    position.coords.longitude
+  function handleGeoError() {
+    console.log(`Can't access geo location`)
+  }
 
-  console.log(coordsObj)
-  //   initMap(coordsObj)
-}
+  function askForCoords() {
+    navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError)
+  }
+})
 
-function handleGeoError() {
-  console.log(`Can't access geo location`)
-}
+// function handleGeoSucces(position) {
+//   const latitude = position.coords.latitude
+//   const longitude = position.coords.longitude
+//   const coordsObj = {
+//     latitude,
+//     longitude,
+//   }
 
-function askForCoords() {
-  navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError)
-}
+//   document.getElementById('position').innerHTML =
+//     '현재 위치 : ' +
+//     position.coords.latitude +
+//     '&nbsp' +
+//     position.coords.longitude
+
+//   console.log(coordsObj)
+// }
+
+// function handleGeoError() {
+//   console.log(`Can't access geo location`)
+// }
+
+// function askForCoords() {
+//   navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError)
+// }
 
 // askForCoords()
 

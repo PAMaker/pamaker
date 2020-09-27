@@ -115,56 +115,15 @@
       </nav>
     </footer>
 
-    <!-- <script>
-      // 구글 지도를 초기화 하고 마커를 추가한다.
-      function initMap() {
-        var cbnu = { lat: 36.629695, lng: 127.456253 }
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: cbnu,
-        })
-        var marker = new google.maps.Marker({ position: cbnu, map: map })
-      }
-     </script> -->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
     <script src="googlemap.js"></script>
     <script
       async
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2MkxTkYDQdwq_8eSa4RXikN_s_Yra02s&callback=initMap"
     ></script>
-
-    <script src="jquery-3.5.1.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="materialize.min.js"></script>
-    <!-- <script>
-      $(document).ready(function () {
-        $('.sidenav').sidenav()
-      })
-    </script> -->
-    <!-- <script>
-      let latitude = ''
-      let longitude = ''
-      function handleGeoSucces(position) {
-        latitude = position.coords.latitude
-        longitude = position.coords.longitude
-        // const coordsObj = {
-        //   latitude,
-        //   longitude,
-        // }
-      }
-
-      function handleGeoError() {
-        console.log(`Can't access geo location`)
-      }
-
-      function askForCoords() {
-        navigator.geolocation.getCurrentPosition(
-          handleGeoSucces,
-          handleGeoError
-        )
-      }
-      askForCoords()
-      console.log(latitude, longitude)
-    </script> -->
   </body>
 </html>

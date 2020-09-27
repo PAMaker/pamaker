@@ -1,39 +1,42 @@
-var markers = [[36.6312504, 127.45745780000001]]
+var markers = []
 $(function () {
   // socket.io 서버 접속
   var socket = io()
 
   // 서버로 자신의 정보 전송
-  socket.emit('user', {
+  socket.emit('customerInfo', {
     name: '',
-    userid: '1', // 임의로 설정한 id -> db연동 필요
+    userid: '3', // 임의로 설정한 id -> db연동 필요
   })
 
   // 서버로부터의 메시지가 수신되면
   socket.on('login', function (data) {})
 
+  var x = document.getElementById('geolocation')
+
   // 서버로부터의 markers 배열이 수신되면 클라이언트의 markers에 대입
   socket.on('markers', function (markers) {
     this.markers = markers
     // 모든 사용자의 위치 (markers) 출력
-    // $("#geolocation").append("<p>" + this.markers + "</p>");
+    $('#geolocation').append(
+      '<br><br>작가들의 위치 : <p>' + this.markers + '</p>'
+    )
     // initMap(); 이거 다시 재실행해야하는지는 모르겠다.
+    // console.log('from realtime-map : ' + markers)
   })
-
-  var x = document.getElementById('geolocation')
 
   function showPosition(position) {
     x.innerHTML =
-      'Latitude: ' +
+      '<br>회원 현재 위치 : ' +
       position.coords.latitude +
-      '<br>Longitude: ' +
+      ' / ' +
       position.coords.longitude
 
     // 서버로 위치 정보 전달
-    socket.emit('location', {
-      latitude: position.coords.latitude,
-      longitude: position.coords.longitude,
-    })
+    //   socket.emit('location', {
+    //     latitude: position.coords.latitude,
+    //     longitude: position.coords.longitude,
+    //   })
   }
 
   // 에러 표시
