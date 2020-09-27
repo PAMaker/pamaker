@@ -1,6 +1,6 @@
 module.exports = {
-    HTML:function(title, list,plist,list2, body){
-      return `
+  HTML: function (title, list, plist, list2, body) {
+    return `
       <!DOCTYPE html>
       <html>
       <head>
@@ -10,7 +10,7 @@ module.exports = {
         <link rel="stylesheet" type="text/css" href="reset.css">
         <link rel="stylesheet" type="text/css" href="first.css">
         <link rel="stylesheet" href="style2.css">
-      	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     
@@ -35,38 +35,26 @@ module.exports = {
   height: 100%;
   object-fit: cover;
 }
-
-
-table, tr, td {
-
-  border : 2px solid #FF0000;
-  
-  border-collapse: collapse;
-  
-  }
-  
-  
   
   .cell_padding {
-  
   padding : 1em;
-  
   }
   
   
   
   .table_center {
-  
   display : table;
-  
   margin-left : auto;
-  
   margin-right : auto;
-  
   }
-  
-  
 
+  .css-serial {
+    counter-reset: serial-number; /* Set the serial number counter to 0 */
+   }
+   .css-serial td:first-child:before {
+    counter-increment: serial-number; /* Increment the serial number counter */
+    content: counter(serial-number); /* Display the counter */
+   }
 
 </style>
 </head>
@@ -112,32 +100,40 @@ table, tr, td {
   
   </body>
   </html>
-      `;
-    },list:function(topics){
-      var list = '<ul>';
-      var i = 0;
-      while(i < topics.length){
-        list = list + `<li><a href="?id=${topics[i].id}">${topics[i].title}</a></li>`;
-        i = i + 1;
-      }
-      list = list+'</ul>';
-      return list;
-    },plist:function(topic){
-      var plist = '<ul>';
-      var i = 0;
-      while(i < topic.length){
-        plist = plist + `<li><a href="?id=${topic[i].id}">${topic[i].maindesc}</a></li>`;
-        i = i + 1;
-      }
-      plist = plist+'</ul>';
-      return plist;
-     },list2:function(topics){
-      var list2 = '<ul>';
-    
+      `
+  },
+  list: function (topics) {
+    var list =
+      '<table class="css-serial"><thead><th>no.</th><th>제목</th></thead><tbody>'
+    var i = 0
+    while (i < topics.length) {
+      list =
+        list +
+        `<tr><td>&nbsp;</td><td><a href="?id=${topics[i].id}">${topics[i].title}</a></td></tr>`
+      i = i + 1
+    }
+    list = list + '</tbody></table>'
+    return list
+  },
+  plist: function (topic) {
+    var plist =
+      '<table class="css-serial"><thead><tr><th>No.</th><th>제목</th></tr></thead><tbody>'
+    var i = 0
+    while (i < topic.length) {
+      plist =
+        plist +
+        `<tr><td>&nbsp;</td><td><a href="?id=${topic[i].id}">${topic[i].maindesc}</a></td></tr>`
+      i = i + 1
+    }
+    plist = plist + '</tbody></table>'
+    return plist
+  },
+  list2: function (topics) {
+    var list2 = '<ul>'
 
-      list2 = `
+    list2 = `
       <div class="col s12 m7">
-  	
+     
     <div class="card horizontal">
       <div class="card-image">
         <img src="photograper1.jpg" width="200px" height="200px"> 
@@ -289,9 +285,8 @@ table, tr, td {
   
 </div>
      
-      `;
-      list2 = list2+'</ul>';
-      return list2;
-    }
-  }
-  
+      `
+    list2 = list2 + '</ul>'
+    return list2
+  },
+}
