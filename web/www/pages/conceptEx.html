@@ -49,6 +49,8 @@
         </div>
       </nav>
     </header>
+
+
     <div class="row">
       <div>
         <ul class="tabs">
@@ -71,8 +73,7 @@
               <span class="red-text text-lighten-2 textLink"
                 ><p>예약하러 가기</p></span
               >
-            </div></a
-          >
+            </div></a>
         </div>
         <div id="concept2" class="row">
           <a href="/snap1"
@@ -108,7 +109,7 @@
               <label>Tiles</label>
             </div>
           </div>
-          <div id="galleryView">
+         <div id="galleryView">
             <div id="galleryContainer">
               <div id="leftView"></div>
               <button id="navLeft" class="navBtns">
@@ -122,13 +123,17 @@
                 <i class="fas fa-arrow-right fa-3x"></i>
               </button>
             </div>
-          </div>
+          </div> 
           <div id="tilesView">
-            <div id="tilesContainer"></div>
+            <div id="tilesContainer">
+              <button class='clickButton' onclick="clickButtonFunction()" >&#x2764;</button>
+              <div id='clickCounter'></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+
 
     <footer class="page-footer">
       <nav>
@@ -141,6 +146,8 @@
             <li><a class="material-icons" href="chat/chat.html">chat</a></li>
           </ul>
         </div>
+     
+      
       </nav>
     </footer>
 
@@ -153,7 +160,10 @@
       $(document).ready(function () {
         $('.tabs').tabs()
       })
+      
     </script>
     <!-- <script src="conceptEx.js"></script> -->
+
+
   </body>
 </html>

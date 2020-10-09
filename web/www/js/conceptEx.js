@@ -1,5 +1,17 @@
 document.getElementById('outer3').addEventListener('click', toggleState3)
 
+function clickButtonFunction() {
+  if (localStorage.getItem('clickCounter') === null) {
+    localStorage.setItem('clickCounter', '0')
+  }
+
+  var value = parseInt(localStorage.getItem('clickCounter'))
+  console.log(value)
+  var newValue = value + 1
+  localStorage.setItem('clickCounter', newValue)
+  document.getElementById('clickCounter').innerHTML = '좋아요 ' + newValue
+}
+
 function toggleState3() {
   let galleryView = document.getElementById('galleryView')
   let tilesView = document.getElementById('tilesView')
@@ -28,6 +40,24 @@ function toggleState3() {
       tileItem.style.background = 'url(' + imgObject[i] + ')'
       tileItem.style.backgroundSize = 'contain'
       tilesContainer.appendChild(tileItem)
+
+      let likeIcon = document.createElement('button')
+      likeIcon.innerHTML = '&#x2764;'
+      likeIcon.classList.add('clickButton')
+      mainView.append(likeIcon)
+
+      let clickButton = document.getElementsByClassName('clickButton')
+      console.log(clickButton)
+      //clickButton.onclick = clickButtonFunction()
+      clickButton.innerHTML =
+        '<button class=" onclick="clickButtonFunction()" >&#x2764;</button>'
+      //clickButton.classList.add('clickButton')
+      //add 오류,,
+      tileItem.append(clickButton)
+
+      let clickCounter = document.getElementById('clickCounter')
+      clickCounter.innerHTML = '<div id="clickCounter"></div>'
+      tileItem.append(clickCounter)
     }
   }
 }
@@ -61,6 +91,11 @@ function setImgObject() {
 function loadGallery() {
   let mainView = document.getElementById('mainView')
   mainView.style.background = 'url(' + imgObject[mainImg] + ')'
+
+  // let likeIcon = document.createElement('button')
+  // likeIcon.innerHTML = '&#x2764;'
+  // likeIcon.classList.add('bottom-right')
+  // mainView.append(likeIcon)
 
   let leftView = document.getElementById('leftView')
   leftView.style.background = 'url(' + imgObject[prevImg] + ')'

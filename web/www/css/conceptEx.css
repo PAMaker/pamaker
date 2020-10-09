@@ -236,3 +236,34 @@ span {
   text-align: center;
   width: 20%;
 }
+
+/* new */
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 300px;
+  height: 300px;
+}
+
+div.gallery:hover {
+  border: 1px solid #777;
+}
+
+div.gallery img {
+  width: 100%;
+  height: 300px;
+}
+
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+.clickButton {
+  color: red;
+  border-radius: value;
+  border: 0;
+  outline: 0;
+  padding: 3px;
+}
