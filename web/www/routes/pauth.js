@@ -230,7 +230,7 @@ body {
     } else {
       //db에 삽입해주는 쿼리
       db2.query(
-        `INSERT INTO photographer (name,email, phone)  VALUES(?,?,?)
+        `INSERT INTO customer (name,email, phonenum)  VALUES(?,?,?)
 `,
         [post.name, post.email, post.phone],
         function (error, result) {
