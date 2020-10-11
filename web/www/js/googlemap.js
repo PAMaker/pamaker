@@ -6,14 +6,14 @@ $(function () {
   // socket.io 서버 접속
   var socket = io()
 
-  console.log(request.user.id)
-  console.log(request.user.email)
+  // console.log(request.user.id)
+  // console.log(request.user.email)
 
   // 서버로 자신의 정보 전송
-  socket.emit('photographerInfo', {
-    name: '',
-    userid: '1', // 임의로 설정한 id -> db연동 필요
-  })
+  // socket.emit('photographerInfo', {
+  //   name: '',
+  //   userid: '1', // 임의로 설정한 id -> db연동 필요
+  // })
 
   function handleGeoSucces(position) {
     const latitude = position.coords.latitude
@@ -43,7 +43,14 @@ $(function () {
   }
 
   function askForCoords() {
-    navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError)
+    alert('위치 정보 수집이 허용되었습니다.')
+    // navigator.geolocation.getCurrentPosition(handleGeoSucces, handleGeoError)
+    var options = { timeout: 30000 } // 30초 간격으로 위치 추적
+    navigator.geolocation.watchPosition(
+      handleGeoSucces,
+      handleGeoError,
+      options
+    )
   }
 })
 

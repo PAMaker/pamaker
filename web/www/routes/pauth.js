@@ -270,7 +270,9 @@ body {
     } else {
       //db에 삽입해주는 쿼리
       db2.query(
+
         `INSERT INTO customer (name, email, password)  VALUES(?,?,?)
+
 `,
         [post.name, post.email, post.pwd],
         function (error, result) {
