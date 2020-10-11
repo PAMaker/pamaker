@@ -56,15 +56,15 @@ router.get('/',function(request,response){
           </td>   
       </tr>  
       <tr style="border-top: solid 1px ;">     
-          <th style="border-bottom: solid 1px ;">세부설명</th>     
-          <td style="border-bottom: 1px solid;">       
-              <p>${sevdesc}</p>
-          </td>   
-      </tr> 
-      <tr style="border-top: solid 1px; height:300px;">     
           <th style="border-bottom: solid 1px ;">가격</th>     
           <td style="border-bottom: 1px solid;">       
               <p>${price}</p>
+          </td>   
+      </tr> 
+      <tr style="border-top: solid 1px; height:300px;">     
+          <th style="border-bottom: solid 1px ;">세부설명</th>     
+          <td style="border-bottom: 1px solid;">       
+              <p>${sevdesc}</p>
           </td>   
       </tr> 
    </table><br>`,
@@ -108,6 +108,7 @@ router.get('/create',function(request,response){
         var html = template2.HTML(title, '',
           ` <form action="/ser/create_process" method="post">
           <p>제목<input type="text" name="maindesc" placeholder="maindesc"></p>
+          <p>컨셉(개인,커플,가족,애견 중 택1)<input type="text" name="concept" placeholder="concept"></p>
           <p>가격정보<input type="text" name="price" placeholder="price"></p>
           <p>
             세부 내용(20자 이상)<textarea name="sevdesc" placeholder="sevdesc" style="height: 200px;"></textarea>
@@ -137,9 +138,9 @@ router.post('/create_process',function(request,response){
   console.log(post.maindesc);
   console.log(email);
   db2.query(`
-  INSERT INTO photographer (email,maindesc,sevdesc,price) 
-    VALUES(?,?,?,?)`,
-  [email,post.maindesc,post.sevdesc,post.price], 
+  INSERT INTO photographer (email,maindesc,sevdesc,price,concept) 
+    VALUES(?,?,?,?,?)`,
+  [email,post.maindesc,post.sevdesc,post.price,post.concept], 
   function(error, result){
     if(error){
       throw error;

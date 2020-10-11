@@ -1,7 +1,6 @@
 module.exports = {
   HTML: function (title, list, plist, list2, body) {
-    return `
-      <!DOCTYPE html>
+    return `<!DOCTYPE html>
       <html>
       <head>
         <title></title>
@@ -13,6 +12,8 @@ module.exports = {
          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        
+            
     
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <script>
@@ -49,11 +50,11 @@ module.exports = {
   }
 
   .css-serial {
-    counter-reset: serial-number; /* Set the serial number counter to 0 */
+    counter-reset: serial-number; 
    }
    .css-serial td:first-child:before {
-    counter-increment: serial-number; /* Increment the serial number counter */
-    content: counter(serial-number); /* Display the counter */
+    counter-increment: serial-number; 
+    content: counter(serial-number); 
    }
 
 </style>
@@ -88,7 +89,7 @@ module.exports = {
         <ul id="nav-mobile" class="center">
           <li><a class="material-icons" href="first.html">home</a></li>
           <li><a class="material-icons" href="fav">favorite_border</a></li>
-          <li><a class="material-icons" href="chat/chat.html">chat</a></li>
+          <li><a class="material-icons" href="chat">chat</a></li>
         </ul>
           <ul id="nav-mobile" class="right">
              <li><a class="material-icons" href="/pmypage">account_circle</a></li>
