@@ -224,10 +224,10 @@ body {
             <div class="card-body">
               <form action="/pauth/register_process" class="form-signin" method="post" onSubmit="logincall();return false">
                 <h6 class="form-signin-heading">회원가입 정보를 입력하세요</h6>
-                <p><input type="text" name="email" placeholder="email" value=""></p>
+                <p><input type="text" name="name" placeholder="name" value=""></p>
+                <p><input type="email" name="email" placeholder="email" value=""></p>
                 <p><input type="password" name="pwd" placeholder="password" value=""></p>
                 <p><input type="password" name="pwd2" placeholder="password" value=""></p>
-                <p><input type="text" name="name" placeholder="name" value=""></p>
                 <p>
                   <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" value="LOGIN">회원가입하기 </button>
                 </p>
@@ -325,8 +325,6 @@ router.get('/changemyinfo', function (request, response) {
     feedb2ack = fmsg.error[0]
   }
 
-
-
   var title = '정보변경'
 
   var html = `
@@ -373,11 +371,10 @@ router.get('/changemyinfo', function (request, response) {
     <h3>정보변경</h3>
 
   <form action="/auth/changemyinfo_process" method="post">
-
-  <p><input type="text" name="email" placeholder="email" value=""></p>
+  <p><input type="text" name="name" placeholder="name" value=""></p>
+  <p><input type="email" name="email" placeholder="email" value=""></p>
   <p><input type="password" name="pwd" placeholder="pwd" value=""></p>
   <p><input type="password" name="pwd2" placeholder="pwd2" value=""></p>
-  <p><input type="text" name="name" placeholder="name" value=""></p>
   <p>
     <input type="submit" value="변경">
   </p>
@@ -407,27 +404,28 @@ router.get('/changemyinfo', function (request, response) {
 
 //heidysql 에 있는 정보변경
 router.post('/changemyinfo_process', function (request, response) {
-  var post = request.body;
-  var email = post.email;
+  var post = request.body
+  var email = post.email
   var pwd = post.pwd
   var pwd2 = post.pwd2
-  mail = request.user.email;
+  mail = request.user.email
   //var displayName = post.displayName;
   if (pwd !== pwd2) {
     request.flash('error', 'Password must same!')
     response.redirect('/auth/register')
   } else {
-    
     //db에 삽입해주는 쿼리
-    db2.query('UPDATE customer SET name=?, email=?, password=? WHERE email=?', [post.name, post.email, post.password, request.user.email], function(error, result){
-     
-      response.end();
-    });
+    db2.query(
+      'UPDATE customer SET name=?, email=?, password=? WHERE email=?',
+      [post.name, post.email, post.password, request.user.email],
+      function (error, result) {
+        response.end()
+      }
+    )
   }
 
   return response.redirect('/mypage')
 })
-
 
 // router.post('/changemyinfo_process', function (request, response) {
 //   var post = request.body
