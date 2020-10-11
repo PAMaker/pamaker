@@ -1,4 +1,4 @@
-node_modules
+./web/node_modules
 .config
 awsconfig.json
 .db2.js
