@@ -222,7 +222,7 @@ body {
           <h2 class="card-title text-center" style="color: #113366">회원가입</h2>
           <div class="card align-middle" style="width: 100%; border-radius: 20px">
             <div class="card-body">
-              <form action="/pauth/register_process" class="form-signin" method="post" onSubmit="logincall();return false">
+              <form action="/auth/register_process" class="form-signin" method="post" onSubmit="logincall();return false">
                 <h6 class="form-signin-heading">회원가입 정보를 입력하세요</h6>
                 <p><input type="text" name="email" placeholder="email" value=""></p>
                 <p><input type="password" name="pwd" placeholder="password" value=""></p>

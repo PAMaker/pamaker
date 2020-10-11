@@ -31,7 +31,7 @@ router.get('/',function(request,response){
             if(error){
               throw error;
             }
-            db2.query(`SELECT * FROM photographer WHERE name=?`,[queryData.id],function(error2,topic){
+            db2.query(`SELECT * FROM photographer WHERE email=?`,[queryData.id],function(error2,topic){
               if(error2){
                 throw error2;
               }
