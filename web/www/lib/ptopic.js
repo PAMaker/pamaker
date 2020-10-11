@@ -32,7 +32,7 @@ exports.home = function (request, response) {
         plist,
         `<hr><p>${description}</p><br>`,
         `<a class="waves-effect waves-light btn main_btn" href="/ser/create" style="margin-bottom:80px ;">등록하기</a>
-          <a class="waves-effect waves-light btn main_btn" href="" style="margin-bottom:80px ;">사진업로드</a>
+          <a class="waves-effect waves-light btn main_btn" href="photoobucket/upload" style="margin-bottom:80px ;">사진업로드</a>
           `
       )
 
