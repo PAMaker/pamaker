@@ -7,6 +7,7 @@ function clickButtonFunction() {
 
   var value = parseInt(localStorage.getItem('clickCounter'))
   console.log(value)
+  
   var newValue = value + 1
   localStorage.setItem('clickCounter', newValue)
   document.getElementById('clickCounter').innerHTML = '좋아요 ' + newValue
@@ -52,7 +53,6 @@ function toggleState3() {
       clickButton.innerHTML =
         '<button class=" onclick="clickButtonFunction()" >&#x2764;</button>'
       //clickButton.classList.add('clickButton')
-      //add 오류,,
       tileItem.append(clickButton)
 
       let clickCounter = document.getElementById('clickCounter')
