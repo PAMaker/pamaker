@@ -23,11 +23,14 @@ const http = require('http')
 const server = http.createServer(app)
 const io = socketio(server)
 const db2 = require('./lib/db2')
+const pauth = require('./lib/pauth')
 var formidable = require('formidable')
 ///세션 인증
-var session = require('express-session')
+const session = require('express-session')
 var FileStore = require('session-file-store')(session)
 app.use(bodyParser.urlencoded({ extended: false }))
+
+let currentUser = ''
 
 app.use(
   session({
@@ -87,6 +90,9 @@ app.use('/pchat', chatRouter)
 var pbRouter = require('./routes/photoobucket')
 app.use('/photoobucket', pbRouter)
 
+// var googlemapRouter = require('./routes/map')
+// app.use('/map', googlemapRouter)
+
 const formatMessage = require('./util/messages')
 const {
   userJoin,
@@ -96,58 +102,80 @@ const {
 } = require('./util/users')
 
 // 실시간 지도 (realtime-map.html)
-const markers = []
+let markers = []
+let userName = ''
+let idx = -1
+
 io.on('connection', function (socket) {
-  // 접속한 포토그래퍼의 정보가 수신되면
-  socket.on('photographerInfo', function (data) {
-    db2.query(`SELECT * FROM photographer WHERE id=?`, [data.userid], function (
-      error,
-      user
-    ) {
-      if (error) {
-        throw error
-      }
-      uname = user[0].name
-      console.log(uname)
-    })
-
-    // socket에 클라이언트 정보 저장
-    socket.name = data.name
-    socket.userid = data.userid
-
-    // 접속된 모든 클라이언트에게 메시지를 전송
-    io.emit('login', data.name)
-  })
-
-  // 접속한 고객의 정보가 수신되면
-  socket.on('customerInfo', function (data) {
-    db2.query(`SELECT * FROM customer WHERE id=?`, [data.userid], function (
-      error,
-      user
-    ) {
-      if (error) {
-        throw error
-      }
-      uname = user[0].name
-      console.log(uname)
-    })
-
-    // socket에 클라이언트 정보 저장
-    socket.name = data.name
-    socket.userid = data.userid
-
-    // 접속된 모든 클라이언트에게 메시지를 전송
-    io.emit('login', data.name)
-  })
-
   //클라이언트의 위치 정보를 받으면
   socket.on('location', function (location) {
-    // 좌표 확인하고 markers 배열에 추가
-    console.log('add: ' + location.latitude + ', ' + location.longitude)
-    markers.push([location.latitude, location.longitude])
-    console.log('from server : ' + markers)
+    // addMarker(currentUser, location)
+    // db2.query(
+    //   `SELECT name FROM photographer WHERE email=?`,
+    //   [currentUser.email],
+    //   function (error, name) {
+    //     if (error) {
+    //       throw error
+    //     }
+    //     userName = name
+    //   }
+    // )
+
+    // idx = markers.indexOf([
+    //   currentUser.email,
+    //   location.latitude,
+    //   location.longitude,
+    // ])
+
+    // email 정보로 DB에서 name 검색
+    if (currentUser != '') {
+      db2.query(
+        `SELECT name FROM photographer WHERE email=?`,
+        [currentUser.email],
+        function (error, name) {
+          if (error) {
+            throw error
+          }
+          console.log(name[0].name)
+          userName = name[0].name
+        }
+      )
+    }
+
+    console.log('length : ', markers.length)
+    if (
+      markers.includes([
+        currentUser.email,
+        userName,
+        location.latitude,
+        location.longitude,
+      ])
+    ) {
+      // 이미 위치가 저장되고 있는 사용자라면 위치 정보를 갱신
+      console.log('already exists!')
+      markers[idx] = [
+        currentUser.email,
+        userName,
+        location.latitude,
+        location.longitude,
+      ]
+    } else {
+      // 새로운 사용자라면 위치 정보 추가
+      console.log('new!')
+      console.log('add: ' + location.latitude + ', ' + location.longitude)
+      markers.push([
+        currentUser.email,
+        userName,
+        location.latitude,
+        location.longitude,
+      ])
+    }
+
+    // markers.push(['currentUser.email', location.latitude, location.longitude])
+
     // markers 전송
     io.emit('markers', markers)
+    // io.emit('currentUser', currentUser.email)
   })
 
   socket.on('forceDisconnect', function () {
@@ -159,6 +187,30 @@ io.on('connection', function (socket) {
     markers.pop()
   })
 })
+
+function addMarker(currentUser, location) {
+  // db2.query(
+  //   `SELECT name FROM photographer WHERE email=?`,
+  //   [currentUser.email],
+  //   function (error, name) {
+  //     if (error) {
+  //       throw error
+  //     }
+  //     userName = name
+  //     console.log(currentUser)
+  //   }
+  // )
+  // 좌표 확인하고 markers 배열에 추가
+  console.log('add: ' + location.latitude + ', ' + location.longitude)
+  markers.push([
+    // userName,
+    currentUser.email,
+    userName,
+    location.latitude,
+    location.longitude,
+  ])
+  // console.log(userName)
+}
 
 // Set static folder
 
@@ -237,12 +289,10 @@ io.on('connection', (socket) => {
         users: getRoomUsers(user.room),
       })
     }
-
   })
 })
 
 ////////////
-
 
 //기본값
 app.use(express.static('css'))
@@ -416,7 +466,6 @@ app.get('/policy.html', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/policy.html'))
 })
 
-
 app.get('/photoregister.html', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/photoregister.html'))
 })
@@ -429,13 +478,13 @@ app.get('/', function (request, response) {
   response.sendFile(path.join(__dirname + '/intro.html'))
 })
 
-
 app.get('/pay', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/pay.html'))
 })
 
 app.get('/googlemap', function (request, response) {
-  response.sendFile(path.join(__dirname + 'pages/googlemap.html'))
+  currentUser = request.user
+  response.sendFile(path.join(__dirname + '/pages/googlemap.html'))
 })
 
 app.get('/event-calendar.html', function (request, response) {

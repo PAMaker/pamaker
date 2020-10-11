@@ -1,33 +1,67 @@
-var markers = []
+let markers = []
+
 $(function () {
   // socket.io 서버 접속
-  var socket = io()
+  const socket = io()
 
-  // 서버로 자신의 정보 전송
-  socket.emit('customerInfo', {
-    name: '',
-    userid: '3', // 임의로 설정한 id -> db연동 필요
-  })
+  // socket.on('login', function (data) {})
 
-  // 서버로부터의 메시지가 수신되면
-  socket.on('login', function (data) {})
+  let cLocation = document.getElementById('cLocation')
+  let pLocation = document.getElementById('pLocation')
 
-  var x = document.getElementById('geolocation')
-
-  // 서버로부터의 markers 배열이 수신되면 클라이언트의 markers에 대입
+  // 서버로부터의 markers 배열이 수신되면 작가들의 정보를 목록으로 생성
   socket.on('markers', function (markers) {
     this.markers = markers
-    // 모든 사용자의 위치 (markers) 출력
-    $('#geolocation').append(
-      '<br><br>작가들의 위치 : <p>' + this.markers + '</p>'
-    )
+
+    createPhotographerList(markers)
+
     // initMap(); 이거 다시 재실행해야하는지는 모르겠다.
     // console.log('from realtime-map : ' + markers)
   })
 
+  function createPhotographerList(markers) {
+    pLocation.innerHTML = '' // 기존 목록을 초기화하고 다시 생성
+
+    pLocation.classList.add('collection')
+    document.getElementById('listHead').innerHTML = '<br>내 주변 작가 목록<br>'
+
+    // markers 길이(작가 수)만큼 실행
+    let i
+    for (i = 0; i < markers.length; i++) {
+      let pInfo = document.createElement('li')
+
+      pInfo.classList.add('collection-item')
+      pInfo.classList.add('avatar')
+
+      let pImage = document.createElement('img') // 이미지
+      let pName = document.createElement('p') // 이름
+      let pPosition = document.createElement('span') // 위치
+      let pChatLink = document.createElement('a') // 채팅
+
+      pImage.setAttribute('src', 'stars.jpg')
+      pImage.classList.add('circle')
+
+      pName.innerText = markers[i][1]
+      pPosition.innerHTML =
+        '<p>' + markers[i][2] + ', ' + markers[i][3] + '</p>'
+
+      pChatLink.classList.add('secondary-content')
+      pChatLink.setAttribute('href', '#')
+      pChatLink.setAttribute('title', '채팅하기')
+      pChatLink.innerHTML = '<i class="material-icons">chat</i>'
+
+      pInfo.appendChild(pImage)
+      pInfo.appendChild(pName)
+      pInfo.appendChild(pPosition)
+      pInfo.appendChild(pChatLink)
+
+      pLocation.appendChild(pInfo)
+    }
+  }
+
   function showPosition(position) {
-    x.innerHTML =
-      '<br>회원 현재 위치 : ' +
+    cLocation.innerHTML =
+      '<br>회원님의 현재 위치 : ' +
       position.coords.latitude +
       ' / ' +
       position.coords.longitude
@@ -66,14 +100,14 @@ $(function () {
 
 // google map & marker
 function initMap() {
-  var cbnu = { lat: 36.629695, lng: 127.456253 } //일단 지도 중심은 학교로 설정
-  var map = new google.maps.Map(document.getElementById('map'), {
+  let cbnu = { lat: 36.629695, lng: 127.456253 } //일단 지도 중심은 학교로 설정
+  let map = new google.maps.Map(document.getElementById('map'), {
     zoom: 15,
     center: cbnu,
   })
 
   // markers 배열
-  var marker, i
+  let marker, i
   for (i = 0; i < markers.length; i++) {
     marker = new google.maps.Marker({
       id: i,
@@ -83,7 +117,7 @@ function initMap() {
   }
 
   // 마커 클릭하면 정보 표시
-  var infowindow = new google.maps.InfoWindow()
+  let infowindow = new google.maps.InfoWindow()
   google.maps.event.addListener(
     marker,
     'click',
