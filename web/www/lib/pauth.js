@@ -10,7 +10,7 @@ module.exports = {
   },
   statusUI:function(request, response) {
       
-          var authStatusUI = '<a href="/pauth/login">login</a> | <a href="/pauth/register">Register</a>';
+          var authStatusUI = '<a href="/pauth/login">login</a> | <a href="photoregister.html">Register</a>';
       
           
 
