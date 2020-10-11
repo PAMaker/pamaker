@@ -1,4 +1,8 @@
-node_modules
+node_modules/
 config/
 db2.js
+
+git rm --cached node_modules/ -r
+git rm --cached config/ -r
+git rm --cached db2.js
 
