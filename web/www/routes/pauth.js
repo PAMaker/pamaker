@@ -221,10 +221,17 @@ body {
 
     <form action="/pauth/register_process" class="form-signin" method="post" onSubmit="logincall();return false">
     <h6 class="form-signin-heading">회원가입 정보를 입력하세요</h6>
-    <p><input type="text" name="name" placeholder="name" value=""></p>
-    <p><input type="email" name="email" placeholder="email" value=""></p>
-    <p><input type="password" name="pwd" placeholder="password" value=""></p>
-    <p><input type="password" name="pwd2" placeholder="password" value=""></p>
+    <p><input type="text" name="name" placeholder="이름" value=""></p>
+    <p><input type="text" name="email" placeholder="이메일" value=""></p>
+    <p><input type="password" name="pwd" placeholder="비밀번호" value=""></p>
+    <p><input type="password" name="pwd2" placeholder="비밀번호 재입력" value=""></p>
+    <p><input type="text" name="phonenum" placeholder="전화번호" value=""></p>
+    <p><input type="text" name="region" placeholder="지역" value=""></p>
+    <p><input type="text" name="possibletime" placeholder="이용가능시간" value=""></p>
+    <p><input type="text" name="camera" placeholder="카메라 기종" value=""></p>
+    <p><input type="text" name="career" placeholder="경력" value=""></p>
+    <p><input type="text" name="service" placeholder="대표서비스" value=""></p>
+    <p><input type="text" name="sns" placeholder="SNS link" value=""></p>
     <p>
     <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" value="LOGIN">회원가입하기 </button>
     </p>
@@ -271,10 +278,10 @@ body {
       //db에 삽입해주는 쿼리
       db2.query(
 
-        `INSERT INTO customer (name, email, password)  VALUES(?,?,?)
+        `INSERT INTO customer (name, email, password, phonenum, region, possibletime, camera, career, service, sns)  VALUES(?,?,?,?,?,?,?,?,?,?)
 
 `,
-        [post.name, post.email, post.pwd],
+        [post.name, post.email, post.pwd, post.phonenum, post.region, post.possibletime, post.camera, post.career, post.service, post.sns],
         function (error, result) {
           if (error) {
             throw error

@@ -49,91 +49,94 @@
         </div>
       </nav>
     </header>
-
-
-    <div class="row">
-      <div>
-        <ul class="tabs">
-          <li class="tab col s3">
-            <a href="#concept1" id="option1">개인 스냅</a>
-          </li>
-          <li class="tab col s3">
-            <a href="#concept2" id="option2">커플 스냅</a>
-          </li>
-          <li class="tab col s3">
-            <a href="#concept3" id="option3">가족 스냅</a>
-          </li>
-          <li class="tab col s3">
-            <a href="#concept4" id="option4">행사 스냅</a>
-          </li>
-        </ul>
-        <div id="concept1" class="row">
-          <a href="/snap1"
-            ><div class="card-panel">
-              <span class="red-text text-lighten-2 textLink"
-                ><p>예약하러 가기</p></span
-              >
-            </div></a>
-        </div>
-        <div id="concept2" class="row">
-          <a href="/snap1"
-            ><div class="card-panel">
-              <span class="red-text text-lighten-2"><p>예약하러 가기</p></span>
-            </div></a
-          >
-        </div>
-        <div id="concept3" class="row">
-          <a href="/snap1"
-            ><div class="card-panel">
-              <span class="red-text text-lighten-2"><p>예약하러 가기</p></span>
-            </div></a
-          >
-        </div>
-        <div id="concept4" class="row">
-          <a href="/snap1"
-            ><div class="card-panel">
-              <span class="red-text text-lighten-2"><p>예약하러 가기</p></span>
-            </div></a
-          >
-        </div>
-
-        <div id="container">
-          <h3>Best Photo Review</h3>
-          <span>이달에 촬영된 베스트 포토 후기입니다.</span>
-          <div id="toggleContainer">
-            <label>Carousel</label>
-            <div id="toggle">
-              <div id="outer3">
-                <div id="slider3"></div>
-              </div>
-              <label>Tiles</label>
-            </div>
+    <div class="container">
+      <div class="row">
+        <div>
+          <ul class="tabs">
+            <li class="tab col s3">
+              <a href="#concept1" id="option1">개인 스냅</a>
+            </li>
+            <li class="tab col s3">
+              <a href="#concept2" id="option2">커플 스냅</a>
+            </li>
+            <li class="tab col s3">
+              <a href="#concept3" id="option3">가족 스냅</a>
+            </li>
+            <li class="tab col s3">
+              <a href="#concept4" id="option4">행사 스냅</a>
+            </li>
+          </ul>
+          <div id="concept1" class="row">
+            <a href="/snap1"
+              ><div class="card-panel">
+                <span class="red-text text-lighten-2 textLink"
+                  ><p>예약하러 가기</p></span
+                >
+              </div></a
+            >
           </div>
-         <div id="galleryView">
-            <div id="galleryContainer">
-              <div id="leftView"></div>
-              <button id="navLeft" class="navBtns">
-                <i class="fas fa-arrow-left fa-3x"></i>
-              </button>
-              <a id="linkTag">
-                <div id="mainView"></div>
-              </a>
-              <div id="rightView"></div>
-              <button id="navRight" class="navBtns">
-                <i class="fas fa-arrow-right fa-3x"></i>
-              </button>
+          <div id="concept2" class="row">
+            <a href="/snap1"
+              ><div class="card-panel">
+                <span class="red-text text-lighten-2"
+                  ><p>예약하러 가기</p></span
+                >
+              </div></a
+            >
+          </div>
+          <div id="concept3" class="row">
+            <a href="/snap1"
+              ><div class="card-panel">
+                <span class="red-text text-lighten-2"
+                  ><p>예약하러 가기</p></span
+                >
+              </div></a
+            >
+          </div>
+          <div id="concept4" class="row">
+            <a href="/snap1"
+              ><div class="card-panel">
+                <span class="red-text text-lighten-2"
+                  ><p>예약하러 가기</p></span
+                >
+              </div></a
+            >
+          </div>
+
+          <div id="container">
+            <h3>Best Photo Review</h3>
+            <span>이달에 촬영된 베스트 포토 후기입니다.</span>
+            <div id="toggleContainer">
+              <label>Carousel</label>
+              <div id="toggle">
+                <div id="outer3">
+                  <div id="slider3"></div>
+                </div>
+                <label>Tiles</label>
+              </div>
             </div>
-          </div> 
-          <div id="tilesView">
-            <div id="tilesContainer">
-              <button class='clickButton' onclick="clickButtonFunction()" >&#x2764;</button>
-              <div id='clickCounter'></div>
+            <div id="galleryView">
+              <div id="galleryContainer">
+                <div id="leftView"></div>
+                <button id="navLeft" class="navBtns">
+                  <i class="fas fa-arrow-left fa-3x"></i>
+                </button>
+                <a id="linkTag">
+                  <div id="mainView"></div>
+                </a>
+                <div id="rightView"></div>
+                <button id="navRight" class="navBtns">
+                  <i class="fas fa-arrow-right fa-3x"></i>
+                </button>
+              </div>
+            </div>
+            <div id="tilesView">
+              <div id="tilesContainer"></div>
             </div>
           </div>
         </div>
       </div>
-
-
+    </div>
 
     <footer class="page-footer">
       <nav>
@@ -146,8 +149,6 @@
             <li><a class="material-icons" href="chat/chat.html">chat</a></li>
           </ul>
         </div>
-     
-      
       </nav>
     </footer>
 
@@ -160,10 +161,7 @@
       $(document).ready(function () {
         $('.tabs').tabs()
       })
-      
     </script>
     <!-- <script src="conceptEx.js"></script> -->
-
-
   </body>
 </html>

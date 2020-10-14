@@ -215,7 +215,7 @@ router.get('/upload', function(req, res){
 
         <ul id="nav-mobile" class="left">
           <li>
-            <a class="material-icons" href="first.html">keyboard_arrow_left</a>
+            <a class="material-icons" href="/ser">keyboard_arrow_left</a>
           </li>
         </ul>
         <ul id="nav-mobile" class="right">
@@ -285,7 +285,7 @@ router.post('/upload_process', function(req, res){
        }
        s3.upload(params, function(err, data){
 		   //여기서 얻어온 경로 data.Location을 db에 저장하기
-		   db2.query('UPDATE photographer SET mainphoto=? WHERE email=?', [data.Location, req.user.email], function(error, result){
+		   db2.query('UPDATE customer SET mainphoto=? WHERE email=?', [data.Location, req.user.email], function(error, result){
 			//response.writeHead(302, {Location: `favorite?id=${post.id}`});
 			//response.send();
 			
