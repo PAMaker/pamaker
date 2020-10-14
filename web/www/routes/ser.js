@@ -35,7 +35,7 @@ router.get('/',function(request,response){
         if(error){
           throw error;
         }
-        db2.query(`SELECT * FROM photographer WHERE id=?`,[queryData.id],function(error2,ptopic){
+        db2.query(`SELECT * FROM photographer WHERE email=?`,[request.user.email],function(error2,ptopic){
           if(error2){
             throw error2;
           }
@@ -172,7 +172,7 @@ router.get('/update',function(request,response){
             <form action="/ser/update_process" method="post">
             <input type="hidden" name="id" value="${ptopic[0].id}">
             <p>제목<input type="text" name="title" placeholder="title" value="${ptopic[0].maindesc}" style="color:gray;"></p>
-            <p>가격&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>${ptopic[0].price}</b><hr></p>
+            <p>가격<input type="text" name="title" placeholder="title" value="${ptopic[0].price}" style="color:gray;"></p>
             <p>세부설명</p>
             <p>
               <textarea name="description" placeholder="description" style="height:200px;">${ptopic[0].sevdesc}</textarea>
