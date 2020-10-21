@@ -56,7 +56,7 @@ module.exports = {
     <a class="waves-effect waves-light btn-large" style="color: papayawhip" href="/ser" style="margin-right: 20px;" ><i class="material-icons right">account_circle</i>서비스등록</a>
     <a class="waves-effect waves-light btn-large" style="color: papayawhip" href="/event-calendar.html" style="margin-right: 20px;"><i class="material-icons right">event</i>일정관리</a>
     <a class="waves-effect waves-light btn-large" style="color: papayawhip" href="#gallery"><i class="material-icons right">content_paste</i>포트폴리오</a>
-    <a class="waves-effect waves-light btn-large" style="color: papayawhip" href="/googlemap.html"><i class="material-icons right">room</i>실시간 촬영</a>
+    <a class="waves-effect waves-light btn-large" style="color: papayawhip" href="/googlemap"><i class="material-icons right">room</i>실시간 촬영</a>
 </div>
 </div>
 </header>

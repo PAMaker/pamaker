@@ -65,7 +65,7 @@ module.exports = {
         <ul id="nav-mobile" class="center">
           <li><a class="material-icons" href="first.html">home</a></li>
           <li><a class="material-icons" href="fav">favorite_border</a></li>
-          <li><a class="material-icons" href="chat/chat.html">chat</a></li>
+          <li><a class="material-icons" href="chat">chat</a></li>
         </ul>
           <ul id="nav-mobile" class="right">
              <li><a class="material-icons" href="mypage">account_circle</a></li>
@@ -78,7 +78,7 @@ module.exports = {
   </body>
   </html>
       `;
-    },list:function(topics){
+    },list:function(topics,photo){
       var list = '<ul>';
       var i = 0;
       while(i < topics.length){
@@ -87,14 +87,14 @@ module.exports = {
   	
     <div class="card horizontal">
       <div class="card-image">
-        <img src="photograper1.jpg" width="200px" height="200px"> 
+        <img src="${topics[i].mainphoto}" width="200px" height="200px"> 
       </div>
       <div class="card-stacked">
         <div class="card-content">
           <p><li><a>${topics[i].name}</a></li></p>
         </div>
         <div class="card-action">
-          <a href="?id=${topics[i].name}">작가님 프로필</a>
+          <a href="?id=${topics[i].email}">작가님 프로필</a>
         </div>
       </div>
     </div>

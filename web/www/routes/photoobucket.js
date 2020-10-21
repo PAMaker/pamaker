@@ -3,7 +3,7 @@ var router = express.Router();
 var formidable = require('formidable');
 var AWS = require('aws-sdk');
 AWS.config.region = 'ap-northeast-2';
-
+var db2 = require('../lib/db2')
 
 
 
@@ -23,7 +23,8 @@ router.get('/upload', function(req, res){
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+		<link rel="stylesheet" href="slider.css" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
         <div class="title">
 
@@ -31,6 +32,57 @@ router.get('/upload', function(req, res){
 <div></div>
 <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <style>
+.centered {
+	left: 50%;
+	margin-left: 420px;
+  }
+
+  /* * {
+	box-sizing: border-box;
+  }
+  body {
+	font-family: Verdana, sans-serif;
+  }
+  .mySlides {
+	display: none;
+  }
+  img {
+	vertical-align: middle;
+  }
+
+  .slideshow-container {
+	max-width: 1000px;
+	position: relative;
+	margin: auto;
+  } */
+
+  .banner {
+	position: relative;
+	width: 540px;
+	height: 250px;
+	margin: 0 auto;
+	padding: 0;
+	overflow: hidden;
+  }
+
+  /* .banner ul {
+	position: absolute;
+	margin: 0px;
+	padding: 0;
+	list-style: none;
+  }
+  .banner ul li {
+	float: left;
+	width: 540px;
+	height: 250px;
+	margin: 0;
+	padding: 0;
+  }  */
+
+  .card-title {
+	margin-top: 20px;
+	text-align: center;
+  }
 .body {
 	font-family: sans-serif;
 	background-color: #eeeeee;
@@ -45,7 +97,7 @@ router.get('/upload', function(req, res){
 	width: 100%;
 	margin: 0;
 	color: #fff;
-	background: #1fb264;
+	background: #000000;
 	border: none;
 	padding: 10px;
 	border-radius: 4px;
@@ -74,7 +126,7 @@ router.get('/upload', function(req, res){
 	cursor: pointer;
 }
 .file-upload-btn:hover {
-	background: #1aa059;
+	background: #000000;
 	color: #ffffff;
 	transition: 0.2s ease;
 	cursor: pointer;
@@ -99,12 +151,12 @@ router.get('/upload', function(req, res){
 }
 .image-upload-wrap {
 	margin-top: 20px;
-	border: 4px dashed #1fb264;
+	border: 4px dashed #000000;
 	position: relative;
 }
 .image-dropping,
 .image-upload-wrap:hover {
-	background-color: #1fb264;
+	background-color: #000000;
 	border: 4px dashed #ffffff;
 }
 .image-title-wrap {
@@ -117,7 +169,7 @@ router.get('/upload', function(req, res){
 .drag-text h3 {
 	font-weight: 100;
 	text-transform: uppercase;
-	color: #15824b;
+	color: #000000;
 	padding: 60px 0;
 }
 .file-upload-image {
@@ -152,7 +204,28 @@ router.get('/upload', function(req, res){
 }
 
 
-</style>
+</style></head>
+<body>
+<nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo center">
+          <img src="logo_white.png" style="width: 80px" alt="" />22세기
+          사진관</a
+        >
+
+        <ul id="nav-mobile" class="left">
+          <li>
+            <a class="material-icons" href="/ser">keyboard_arrow_left</a>
+          </li>
+        </ul>
+        <ul id="nav-mobile" class="right">
+          <li>
+            <a href="page/sass.html"><i class="material-icons">search</i></a>
+          </li>
+        </ul>
+      </div>
+	</nav>
+	
 <div class="file-upload">
 
 
@@ -160,7 +233,7 @@ router.get('/upload', function(req, res){
   <div class="image-upload-wrap">
       <input class="file-upload-input" type='file' name ="imgFile" onchange="readURL(this);" accept="image/*" />
       <div class="drag-text">
-          <h3>사진 업로드</h3>
+          <h3>메인 프로필 업로드</h3>
       </div>
   </div>
   <div class="file-upload-content">
@@ -178,27 +251,62 @@ router.get('/upload', function(req, res){
 
 
 </form>
+
+<footer class="page-footer">
+      <nav>
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="center">
+            <li><a class="material-icons" href="/first.html">home</a></li>
+
+            <li>
+              <a class="material-icons" href="/fav">favorite_border</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+	</footer>
+	
+	<script src="slider.js"></script>
+	</body></html>
     `;
     res.send(output);
 });
 
 router.post('/upload_process', function(req, res){
+	console.log(req.user.email)
    var form = new formidable.IncomingForm();
    form.parse(req, function(err, fields, files){
        var s3 = new AWS.S3();
        var params = {
-            Bucket:'photoobucket',
+            Bucket:'pamaker',
             Key:files.imgFile.name,
             ACL:'public-read',
             Body: require('fs').createReadStream(files.imgFile.path)
        }
        s3.upload(params, function(err, data){
+		   //여기서 얻어온 경로 data.Location을 db에 저장하기
+		   db2.query('UPDATE customer SET mainphoto=? WHERE email=?', [data.Location, req.user.email], function(error, result){
+			//response.writeHead(302, {Location: `favorite?id=${post.id}`});
+			//response.send();
+			
+		  })
+
+			
             var result='';
             if(err)
                 result = 'Fail';
             else
-                result = `<img src="${data.Location}">`;
-            res.send(`<html><body>${result}</body></html>`);
+				result = `<img src="${data.Location}">`;
+				console.log(data.Location);
+				res.send(`<html><meta charset="utf-8" />
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+			
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+				
+				</html><body><h2>업로드 완료!</h2>${result}<br><br><br>
+				
+				<a href="/ser" class="waves-effect waves-light btn">돌아가기</a>
+				</body></html>`);
        });
    });
 });
