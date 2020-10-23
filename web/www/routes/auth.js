@@ -67,6 +67,18 @@ body {
     padding: 10px;
     font-size: 16px;
 }
+footer {
+  position: fixed; /* Set the navbar to fixed position */
+  bottom: 10px; /* Position the navbar at the bottom of the page */
+  width: 100%; /* Full width */
+  height: 50px;
+  flex-shrink: 0;
+}  
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -104,6 +116,7 @@ body {
 <div class="modal"></div>
 
   <footer class ="page-footer">
+  <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="center">
@@ -114,6 +127,7 @@ body {
       </ul>
     </div>
     </nav>
+    </div>
   </footer>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -202,6 +216,7 @@ body {
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
       </head>
       <body>
+      <div class="navbar-fixed">
         <nav>
           <div class="nav-wrapper">
             <a href="#!" class="brand-logo center"
@@ -217,6 +232,7 @@ body {
             </ul>
           </div>
         </nav>
+        </div>
     
         <div class="container" style="margin-bottom: 70px" align="center">
           <h2 class="card-title text-center" style="color: #113366">회원가입</h2>
@@ -240,6 +256,7 @@ body {
         <div class="modal"></div>
     
         <footer class="page-footer">
+        <div class="navbar-fixed">
           <nav>
             <div class="nav-wrapper">
               <ul id="nav-mobile" class="center">
@@ -250,6 +267,7 @@ body {
               </ul>
             </div>
           </nav>
+          </div>
         </footer>
         <script
           src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -353,7 +371,7 @@ router.get('/changemyinfo', function (request, response) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-
+<div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
       
@@ -366,6 +384,7 @@ router.get('/changemyinfo', function (request, response) {
       <li><a href="page/sass.html"><i class="material-icons">search</i></a></li></ul>
     </div>
   </nav>
+  </div>
 
 <div class ="container" style="margin-bottom: 70px;">
     <h3>정보변경</h3>
@@ -385,6 +404,7 @@ router.get('/changemyinfo', function (request, response) {
 
 
 <footer class ="page-footer">
+<div class="navbar-fixed">
 <nav>
   <div class="nav-wrapper">
     <ul id="nav-mobile" class="center">
@@ -392,6 +412,7 @@ router.get('/changemyinfo', function (request, response) {
     </ul>
   </div>
   </nav>
+  </div>
 </footer>
 
 

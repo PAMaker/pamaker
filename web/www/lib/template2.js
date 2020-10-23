@@ -8,6 +8,7 @@ module.exports = {
         <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
         <link rel="stylesheet" type="text/css" href="reset.css">
         <link rel="stylesheet" type="text/css" href="first.css">
+        <link rel="stylesheet" type="text/css" href="nav.css">
         <link rel="stylesheet" href="style2.css">
          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -86,6 +87,7 @@ module.exports = {
   </div>
       
     <footer class="page-footer">
+    <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
         <ul id="nav-mobile" class="center">
@@ -99,6 +101,7 @@ module.exports = {
         </ul>
       </div>
       </nav>
+      </div>
     </footer>
   
   </body>

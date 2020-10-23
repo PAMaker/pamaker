@@ -4,8 +4,8 @@
     <title></title>
     <meta charset="utf-8" />
     <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="reset.css" />
-    <link rel="stylesheet" type="text/css" href="first.css" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="reset.css" />-->
+    <link rel="stylesheet" type="text/css" href="nav.css" /> 
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -27,8 +27,8 @@
 
       .banner {
         position: relative;
-        width: 560px;
-        height: 300px;
+        width: 100%;
+        height: 450px;
         margin: 0 auto;
         padding: 0;
         overflow: hidden;
@@ -43,6 +43,7 @@
   </head>
 
   <body>
+    <div class="navbar-fixed">
     <nav>
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo center">
@@ -62,32 +63,34 @@
         </ul>
       </div>
     </nav>
+  </div>
 
-    <div class="banner">
-      <div class="slideshow-container">
-        <div class="mySlides fade">
-          <img src="ban1.jpg" width="540" height="360px" />
-        </div>
-
-        <div class="mySlides fade">
-          <img src="ban2.jpg" width="540" height="360px" />
-        </div>
-
-        <div class="mySlides fade">
-          <img src="ban3.jpg" width="540" height="360px" />
-        </div>
-      </div>
-      <br />
-
-      <div style="text-align: center">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    </div>
+    
 
     <div class="container">
-      <div class="row" style="max-width: 540px">
+      <div class="banner">
+        <div class="slideshow-container">
+          <div class="mySlides fade">
+            <img src="ban1.jpg" width="100%" height="450px" />
+          </div>
+  
+          <div class="mySlides fade">
+            <img src="ban2.jpg" width="100%" height="450px" />
+          </div>
+  
+          <div class="mySlides fade">
+            <img src="ban3.jpg" width="100%" height="450px" />
+          </div>
+        </div>
+        <br />
+  
+        <div style="text-align: center">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+      </div>
+      <div class="row">
         <!-- <h5 style="text-align: center">지금 바로 서비스를 이용해보세요!</h5> -->
         <div class="card col s12 m6 center" style="height: 200px">
           <a href="pmypage">
@@ -112,10 +115,10 @@
               <p>원하는 사진을 찍어보아요!</p>
             </div>
           </a>
-
         </div>
       </div>
-      <div class="row" style="max-width: 540px">
+
+      <div class="row">
         <div
           class="col s12 m12 center"
           style="
@@ -149,8 +152,9 @@
     </div>
 
     <footer class="page-footer">
+      <div class="navbar-fixed" >
       <nav>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper" >
           <ul id="nav-mobile" class="center">
             <li><a class="material-icons" href="first.html">home</a></li>
 
@@ -160,6 +164,7 @@
           </ul>
         </div>
       </nav>
+    </div>
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

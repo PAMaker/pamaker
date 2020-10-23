@@ -29,6 +29,7 @@ module.exports = function (ppassport) {
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="first.css">
+  <link rel="stylesheet" type="text/css" href="nav.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -66,6 +67,7 @@ body {
     padding: 10px;
     font-size: 16px;
 }
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -85,9 +87,9 @@ body {
     </div>
   </nav>
 
-<div class ="container" style="margin-bottom: 70px;" align="center">
+<div class ="container" align="center">
 <h2 class="card-title text-center" style="color:#113366;">로그인</h2>
-  <div class="card align-middle" style="width:20rem; border-radius:20px;">
+  <div class="card align-middle" style="width:40rem; border-radius:20px;">
     <div class="card-body">
       <form action="/pauth/login_process" class="form-signin" method="post" onSubmit="logincall();return false">
         <h6 class="form-signin-heading">로그인 정보를 입력하세요</h6>
@@ -150,6 +152,7 @@ body {
     <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
     <link rel="stylesheet" type="text/css" href="reset.css" />
         <link rel="stylesheet" type="text/css" href="first.css" />
+        <link rel="stylesheet" type="text/css" href="nav.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link
           rel="stylesheet"
@@ -195,6 +198,7 @@ body {
             padding: 10px;
             font-size: 16px;
           }
+
   </style>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -214,7 +218,7 @@ body {
       </div>
     </nav>
   
-  <div class ="container" style="margin-bottom: 70px;">
+  <div class ="container">
   <h2 class="card-title text-center" style="color: #113366">회원가입</h2>
   <div class="card align-middle" style="width: 100%; border-radius: 20px">
     <div class="card-body">
@@ -327,6 +331,7 @@ router.get('/changemyinfo', function (request, response) {
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="first.css">
+  <link rel="stylesheet" type="text/css" href="nav.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -384,7 +389,7 @@ router.get('/changemyinfo', function (request, response) {
     </div>
   </nav>
 
-<div class ="container" style="margin-bottom: 70px;">
+<div class ="container">
     <h3>정보변경</h3>
 
   <form action="/pauth/changemyinfo_process" method="post">
