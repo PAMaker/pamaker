@@ -104,31 +104,36 @@ const {
 // 실시간 지도 (realtime-map.html)
 let markers = []
 let userName = ''
-let idx = -1
 
 io.on('connection', function (socket) {
   //클라이언트의 위치 정보를 받으면
   socket.on('location', function (location) {
     // addMarker(currentUser, location)
-    // db2.query(
-    //   `SELECT name FROM photographer WHERE email=?`,
-    //   [currentUser.email],
-    //   function (error, name) {
-    //     if (error) {
-    //       throw error
-    //     }
-    //     userName = name
-    //   }
-    // )
 
-    // idx = markers.indexOf([
-    //   currentUser.email,
-    //   location.latitude,
-    //   location.longitude,
-    // ])
+    console.log(markers)
 
-    // email 정보로 DB에서 name 검색
-    if (currentUser != '') {
+    let idx 
+    for (idx=0; idx<markers.length; idx++){
+      if (markers[idx][0] == currentUser.email){
+        break
+      }
+    }
+    //이미 해당 유저 위치 정보가 수집되고 있는 경우 --> 정보를 갱신
+    if (idx < markers.length-1) { 
+        console.log('already exists!')
+        markers[idx] = [
+          currentUser.email,
+          userName,
+          location.latitude,
+          location.longitude,
+        ]
+    }
+    //새로운 유저의 위치 정보가 수집되는 경우 --> 정보를 추가
+    else {
+      console.log('new!')
+      console.log('add: ' + location.latitude + ', ' + location.longitude)
+
+      // email값으로 db에서 name 검색
       db2.query(
         `SELECT name FROM photographer WHERE email=?`,
         [currentUser.email],
@@ -140,29 +145,7 @@ io.on('connection', function (socket) {
           userName = name[0].name
         }
       )
-    }
-
-    console.log('length : ', markers.length)
-    if (
-      markers.includes([
-        currentUser.email,
-        userName,
-        location.latitude,
-        location.longitude,
-      ])
-    ) {
-      // 이미 위치가 저장되고 있는 사용자라면 위치 정보를 갱신
-      console.log('already exists!')
-      markers[idx] = [
-        currentUser.email,
-        userName,
-        location.latitude,
-        location.longitude,
-      ]
-    } else {
-      // 새로운 사용자라면 위치 정보 추가
-      console.log('new!')
-      console.log('add: ' + location.latitude + ', ' + location.longitude)
+      // 추가
       markers.push([
         currentUser.email,
         userName,
@@ -171,7 +154,6 @@ io.on('connection', function (socket) {
       ])
     }
 
-    // markers.push(['currentUser.email', location.latitude, location.longitude])
 
     // markers 전송
     io.emit('markers', markers)
@@ -188,7 +170,8 @@ io.on('connection', function (socket) {
   })
 })
 
-function addMarker(currentUser, location) {
+// 마커를 추가하는 함수
+// function addMarker(currentUser, location) {
   // db2.query(
   //   `SELECT name FROM photographer WHERE email=?`,
   //   [currentUser.email],
@@ -201,16 +184,16 @@ function addMarker(currentUser, location) {
   //   }
   // )
   // 좌표 확인하고 markers 배열에 추가
-  console.log('add: ' + location.latitude + ', ' + location.longitude)
-  markers.push([
-    // userName,
-    currentUser.email,
-    userName,
-    location.latitude,
-    location.longitude,
-  ])
+  // console.log('add: ' + location.latitude + ', ' + location.longitude)
+  // markers.push([
+  //   // userName,
+  //   currentUser.email,
+  //   userName,
+  //   location.latitude,
+  //   location.longitude,
+  // ])
   // console.log(userName)
-}
+// }
 
 // Set static folder
 
