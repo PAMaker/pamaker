@@ -1,5 +1,5 @@
-/* header {
-  background: url('stars.jpg');
+header {
+  /* background: url('stars.jpg'); */
   background: linear-gradient(
     111deg,
     rgb(255, 255, 255) 0%,
@@ -8,8 +8,20 @@
   );
   background-size: cover;
   background-position: center;
-} */
+}
 
-/* nav {
+nav {
   background: teal;
-} */
+}
+footer {
+  position: fixed; /* Set the navbar to fixed position */
+  bottom: 10px; /* Position the navbar at the bottom of the page */
+  width: 100%; /* Full width */
+  height: 50px;
+  flex-shrink: 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
