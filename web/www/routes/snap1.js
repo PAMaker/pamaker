@@ -25,13 +25,13 @@ router.get('/',function(request,response){
     if(queryData.id === undefined){
         photographerlist.home(request,response);
     }else{
-        db2.query(`SELECT * FROM photographer`, function(error,topics){
+        db2.query(`SELECT * FROM customer`, function(error,topics){
             //console.log(topics);
             //console.log(topic);
             if(error){
               throw error;
             }
-            db2.query(`SELECT * FROM photographer WHERE email=?`,[queryData.id],function(error2,topic){
+            db2.query(`SELECT * FROM customer WHERE email=?`,[queryData.id],function(error2,topic){
               if(error2){
                 throw error2;
               }
@@ -42,7 +42,7 @@ router.get('/',function(request,response){
         
         
         //var customer = request.user.email;
-        var customer = 'yein song';
+        var customer = request.user.email;
         var photographer = queryData.id;
         console.log(queryData.id);
         
