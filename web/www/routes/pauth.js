@@ -27,6 +27,8 @@ module.exports = function (ppassport) {
   <title></title>
   <meta charset = "utf-8">
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
+  
+  <link rel="stylesheet" type="text/css" href="nav.css">
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -74,18 +76,33 @@ body {
 </head>
 <body>
 
-  <nav>
-    <div class="nav-wrapper">
-      
-        <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-      
-      <ul id="nav-mobile" class="left">
-        <li><a class="material-icons" href="/pmypage">keyboard_arrow_left</a></li>
-      </ul>
-      <ul id="nav-mobile" class="right">
-      <li><a href=""><i class="material-icons">search</i></a></li></ul>
-    </div>
-  </nav>
+<header>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo black-text"
+      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
+    >
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">JavaScript</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="left">
+      <li>
+        <a class="material-icons" href="first.html"
+          >keyboard_arrow_left</a
+        >
+      </li>
+    </ul>
+    <ul id="nav-mobile" class="right">
+      <li>
+        <a href="page/sass.html"><i class="material-icons">search</i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</header>
 
 <div class ="container" align="center">
 <h2 class="card-title text-center" style="color:#113366;">로그인</h2>
@@ -151,6 +168,7 @@ body {
     <meta charset = "utf-8">
     <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
     <link rel="stylesheet" type="text/css" href="reset.css" />
+
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link
           rel="stylesheet"
@@ -204,20 +222,37 @@ body {
   </head>
   <body>
   
+  <header>
     <nav>
       <div class="nav-wrapper">
-        
-          <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-        
+        <a href="" class="brand-logo black-text"
+          ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
+        >
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+
         <ul id="nav-mobile" class="left">
-          <li><a class="material-icons" href="/pmypage">keyboard_arrow_left</a></li>
+          <li>
+            <a class="material-icons" href="first.html"
+              >keyboard_arrow_left</a
+            >
+          </li>
         </ul>
         <ul id="nav-mobile" class="right">
-        <li><a href="page/sass.html"><i class="material-icons">search</i></a></li></ul>
+          <li>
+            <a href="page/sass.html"><i class="material-icons">search</i></a>
+          </li>
+        </ul>
       </div>
     </nav>
-  
-  <div class ="container">
+
+  </header>
+
+  <div class ="container" style="margin-bottom: 70px;">
+
   <h2 class="card-title text-center" style="color: #113366">회원가입</h2>
   <div class="card align-middle" style="width: 100%; border-radius: 20px">
     <div class="card-body">
@@ -244,7 +279,7 @@ body {
           </div>
         </div>
 
-  <footer class ="page-footer">
+  <footer class ="page-footer" style="background-color:#242424">
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="center">
@@ -281,10 +316,10 @@ body {
       //db에 삽입해주는 쿼리
       db2.query(
 
-        `INSERT INTO customer (name, email, password, phonenum, region, possibletime, camera, career, service, sns)  VALUES(?,?,?,?,?,?,?,?,?,?)
+        `INSERT INTO customer (name, email, password, phonenum, region, possibletime, camera, career, service, sns, kind)  VALUES(?,?,?,?,?,?,?,?,?,?,?)
 
 `,
-        [post.name, post.email, post.pwd, post.phonenum, post.region, post.possibletime, post.camera, post.career, post.service, post.sns],
+        [post.name, post.email, post.pwd, post.phonenum, post.region, post.possibletime, post.camera, post.career, post.service, post.sns,'P'],
         function (error, result) {
           if (error) {
             throw error
@@ -374,18 +409,33 @@ router.get('/changemyinfo', function (request, response) {
 </head>
 <body>
 
-  <nav>
-    <div class="nav-wrapper">
-      
-        <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-      
-      <ul id="nav-mobile" class="left">
-        <li><a class="material-icons" href="/pmypage">keyboard_arrow_left</a></li>
-      </ul>
-      <ul id="nav-mobile" class="right">
-      <li><a href="page/sass.html"><i class="material-icons">search</i></a></li></ul>
-    </div>
-  </nav>
+<header>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo black-text"
+      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
+    >
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">JavaScript</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="left">
+      <li>
+        <a class="material-icons" href="first.html"
+          >keyboard_arrow_left</a
+        >
+      </li>
+    </ul>
+    <ul id="nav-mobile" class="right">
+      <li>
+        <a href="page/sass.html"><i class="material-icons">search</i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</header>
 
 <div class ="container">
     <h3>정보변경</h3>
@@ -404,7 +454,7 @@ router.get('/changemyinfo', function (request, response) {
 </form>
 </div>
 
-<footer class ="page-footer">
+<footer class ="page-footer" style="background-color:#242424">
 <nav>
   <div class="nav-wrapper">
     <ul id="nav-mobile" class="center">
