@@ -239,3 +239,15 @@ span {
   text-align: center;
   width: 20%;
 }
+
+.btn,
+.btn-large,
+.btn-small {
+  background-color: rgb(58, 58, 58);
+}
+
+.btn:hover,
+.btn-large:hover,
+.btn-small:hover {
+  background-color: #242424;
+}

@@ -28,15 +28,14 @@ module.exports = function (passport) {
   <title></title>
   <meta charset = "utf-8">
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
-  <link rel="stylesheet" type="text/css" href="nav.css">
   <link rel="stylesheet" type="text/css" href="reset.css">
-  <link rel="stylesheet" type="text/css" href="first.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+  <link rel="stylesheet" type="text/css" href="first.css">
+  <link rel="stylesheet" type="text/css" href="nav.css">
 <style>
 @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
    
@@ -86,33 +85,18 @@ footer {
 </head>
 <body>
 
-<header>
-<nav>
-  <div class="nav-wrapper">
-    <a href="" class="brand-logo black-text"
-      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
-    >
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
-    </ul>
-
-    <ul id="nav-mobile" class="left">
-      <li>
-        <a class="material-icons" href="first.html"
-          >keyboard_arrow_left</a
-        >
-      </li>
-    </ul>
-    <ul id="nav-mobile" class="right">
-      <li>
-        <a href="page/sass.html"><i class="material-icons">search</i></a>
-      </li>
-    </ul>
-  </div>
-</nav>
-</header>
+  <nav>
+    <div class="nav-wrapper">
+      
+        <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      
+      <ul id="nav-mobile" class="left">
+        <li><a class="material-icons" href="/pmypage">keyboard_arrow_left</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right">
+      <li><a href=""><i class="material-icons">search</i></a></li></ul>
+    </div>
+  </nav>
 
 <div class ="container" style="margin-bottom: 70px;" align="center">
 <h2 class="card-title text-center" style="color:#113366;">로그인</h2>
@@ -131,9 +115,8 @@ footer {
 
 <div class="modal"></div>
 
-
-  <footer class ="page-footer" style="background-color:#242424">
-
+  <footer class ="page-footer">
+  <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="center">
@@ -182,7 +165,6 @@ footer {
         <meta charset="utf-8" />
         <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
         <link rel="stylesheet" type="text/css" href="reset.css" />
-        <link rel="stylesheet" type="text/css" href="first.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link
           rel="stylesheet"
@@ -196,7 +178,8 @@ footer {
           href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    
+        <link rel="stylesheet" type="text/css" href="first.css">
+        <link rel="stylesheet" type="text/css" href="nav.css">
         <style>
           @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
     
@@ -320,16 +303,14 @@ footer {
       request.flash('error', 'Password must same!')
       response.redirect('/auth/register')
     } else {
-      console.log("회원가입db저장")
       //db에 삽입해주는 쿼리
       db2.query(
-        `INSERT INTO customer (name,email, password,kind)
-  VALUES(?,?,?,?)
+        `INSERT INTO customer (name,email, password)
+  VALUES(?,?,?)
 `,
-        [post.name, post.email, post.pwd,'C'],
+        [post.name, post.email, post.pwd],
         function (error, result) {
           if (error) {
-            console.log("회원가입error!!")
             throw error
           }
         }
@@ -372,8 +353,6 @@ router.get('/changemyinfo', function (request, response) {
   <meta charset = "utf-8">
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
   <link rel="stylesheet" type="text/css" href="reset.css">
-  <link rel="stylesheet" type="text/css" href="first.css">
-  <link rel="stylesheet" type="text/css" href="nav.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -381,7 +360,8 @@ router.get('/changemyinfo', function (request, response) {
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-
+    <link rel="stylesheet" type="text/css" href="first.css">
+    <link rel="stylesheet" type="text/css" href="nav.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <style>
@@ -391,36 +371,20 @@ router.get('/changemyinfo', function (request, response) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-
-
-<header>
-<nav>
-  <div class="nav-wrapper">
-    <a href="" class="brand-logo black-text"
-      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
-    >
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
-    </ul>
-
-    <ul id="nav-mobile" class="left">
-      <li>
-        <a class="material-icons" href="first.html"
-          >keyboard_arrow_left</a
-        >
-      </li>
-    </ul>
-    <ul id="nav-mobile" class="right">
-      <li>
-        <a href="page/sass.html"><i class="material-icons">search</i></a>
-      </li>
-    </ul>
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      
+        <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      
+      <ul id="nav-mobile" class="left">
+        <li><a class="material-icons" href="/mypage">keyboard_arrow_left</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right">
+      <li><a href="page/sass.html"><i class="material-icons">search</i></a></li></ul>
+    </div>
+  </nav>
   </div>
-</nav>
-</header>
-
 
 <div class ="container" style="margin-bottom: 70px;">
     <h3>정보변경</h3>
@@ -439,9 +403,8 @@ router.get('/changemyinfo', function (request, response) {
   
 
 
-
-<footer class ="page-footer" style="background-color:#242424">
-
+<footer class ="page-footer">
+<div class="navbar-fixed">
 <nav>
   <div class="nav-wrapper">
     <ul id="nav-mobile" class="center">

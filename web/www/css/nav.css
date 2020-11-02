@@ -1,21 +1,4 @@
 header {
-  /* background: url('stars.jpg'); */
-  background: linear-gradient(
-    111deg,
-    rgb(255, 255, 255) 0%,
-    transparent 70%,
-    url('stars.jpg') 100%
-  );
-  background-size: cover;
-  background-position: center;
-}
-
-nav {
-  background: teal;
-
-} */
-
-header {
   background: url('mainBg.png');
   background-size: 100%;
   /* background: linear-gradient(
@@ -40,9 +23,9 @@ footer {
   width: 100%; /* Full width */
   height: 50px;
   flex-shrink: 0;
-  background-color: #242424;
+  z-index: 99;
+  background: black;
 }
-
 .page-footer {
   background-color: #242424;
   height: 80px;
@@ -50,18 +33,10 @@ footer {
 footer > nav {
   height: 80px;
   background-color: #242424;
-
 }
 .container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-}
-
-
-a {
-  font-size: small;
-  font-family: sans-serif;
-  color: #242424;
 }
 
