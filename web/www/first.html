@@ -18,6 +18,7 @@
     />
 
     <link rel="stylesheet" href="slider.css" />
+    <link rel="stylesheet" type="text/css" href="nav.css" />
 
     <style>
       .centered {
@@ -41,12 +42,12 @@
         text-align: center;
       }
     </style>
-
   </head>
 
   <body>
-    <div class="navbar-fixed">
-    <nav>
+
+    <!-- <nav>
+
       <div class="nav-wrapper">
         <a href="#!" class="brand-logo center">
           <img src="logo_white.png" style="width: 80px" alt="" />22세기
@@ -64,8 +65,36 @@
           </li>
         </ul>
       </div>
-    </nav>
-  </div>
+
+    </nav> -->
+    <header>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="" class="brand-logo black-text"
+            ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
+          >
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">JavaScript</a></li>
+          </ul>
+
+          <ul id="nav-mobile" class="left">
+            <li>
+              <a class="material-icons" href="first.html"
+                >keyboard_arrow_left</a
+              >
+            </li>
+          </ul>
+          <ul id="nav-mobile" class="right">
+            <li>
+              <a href="page/sass.html"><i class="material-icons">search</i></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
 
     
 
@@ -105,7 +134,6 @@
               <p>사진 촬영 의뢰를 확인해보세요!</p>
             </div>
           </a>
-
         </div>
 
         <div class="card col s12 m6 center" style="height: 200px">
@@ -172,8 +200,6 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-
 
     <script src="slider.js"></script>
   </body>

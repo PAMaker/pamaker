@@ -28,6 +28,7 @@ module.exports = function (passport) {
   <title></title>
   <meta charset = "utf-8">
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
+  <link rel="stylesheet" type="text/css" href="nav.css">
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="first.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -85,18 +86,33 @@ footer {
 </head>
 <body>
 
-  <nav>
-    <div class="nav-wrapper">
-      
-        <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-      
-      <ul id="nav-mobile" class="left">
-        <li><a class="material-icons" href="/pmypage">keyboard_arrow_left</a></li>
-      </ul>
-      <ul id="nav-mobile" class="right">
-      <li><a href=""><i class="material-icons">search</i></a></li></ul>
-    </div>
-  </nav>
+<header>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo black-text"
+      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
+    >
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">JavaScript</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="left">
+      <li>
+        <a class="material-icons" href="first.html"
+          >keyboard_arrow_left</a
+        >
+      </li>
+    </ul>
+    <ul id="nav-mobile" class="right">
+      <li>
+        <a href="page/sass.html"><i class="material-icons">search</i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</header>
 
 <div class ="container" style="margin-bottom: 70px;" align="center">
 <h2 class="card-title text-center" style="color:#113366;">로그인</h2>
@@ -115,8 +131,9 @@ footer {
 
 <div class="modal"></div>
 
-  <footer class ="page-footer">
-  <div class="navbar-fixed">
+
+  <footer class ="page-footer" style="background-color:#242424">
+
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="center">
@@ -356,6 +373,7 @@ router.get('/changemyinfo', function (request, response) {
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="first.css">
+  <link rel="stylesheet" type="text/css" href="nav.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -373,20 +391,36 @@ router.get('/changemyinfo', function (request, response) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-<div class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper">
-      
-        <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-      
-      <ul id="nav-mobile" class="left">
-        <li><a class="material-icons" href="/mypage">keyboard_arrow_left</a></li>
-      </ul>
-      <ul id="nav-mobile" class="right">
-      <li><a href="page/sass.html"><i class="material-icons">search</i></a></li></ul>
-    </div>
-  </nav>
+
+
+<header>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo black-text"
+      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
+    >
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">JavaScript</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="left">
+      <li>
+        <a class="material-icons" href="first.html"
+          >keyboard_arrow_left</a
+        >
+      </li>
+    </ul>
+    <ul id="nav-mobile" class="right">
+      <li>
+        <a href="page/sass.html"><i class="material-icons">search</i></a>
+      </li>
+    </ul>
   </div>
+</nav>
+</header>
+
 
 <div class ="container" style="margin-bottom: 70px;">
     <h3>정보변경</h3>
@@ -405,8 +439,9 @@ router.get('/changemyinfo', function (request, response) {
   
 
 
-<footer class ="page-footer">
-<div class="navbar-fixed">
+
+<footer class ="page-footer" style="background-color:#242424">
+
 <nav>
   <div class="nav-wrapper">
     <ul id="nav-mobile" class="center">
