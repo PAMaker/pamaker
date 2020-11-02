@@ -5,8 +5,8 @@
 	<title></title>
 	<meta charset = "utf-8">
   <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
-  <link rel="stylesheet" type="text/css" href="reset.css">
-  <link rel="stylesheet" type="text/css" href="first.css">
+  <!-- <link rel="stylesheet" type="text/css" href="reset.css"> -->
+  
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -15,11 +15,25 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-   
+    <link rel="stylesheet" type="text/css" href="first.css">
    <script type="text/javascript">
     </script>
 
   </head>
+  <style>
+.card{
+  background-image: url("pattern1.jpg");
+  width: 100%;
+  height: 250px;
+  padding-top: 10px;
+}
+.card-content{
+  background-color: #ffffff;
+  margin: 20px;
+  padding: 20px;
+  height: 200px;
+}
+  </style>
 <body>
 
   <nav>
@@ -34,63 +48,26 @@
   </nav>
 
 
-<!-- <div class ="container">
-  <div class="row" style="float:left; width:50%; max-width: 540px;" >
-    <div class="col" >
-      <div class="card">
-        <div class="card-image">
-          <i class="medium material-icons">alarm</i>
-          <span class="card-title" style="color: black;">실시간 촬영</span>
-        </div>
-        <div class="card-content">
-          <p>I am a very simple card. I am good at containing small</p>
-        </div>
-        <div class="card-action">
-          <a href="index.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>실시간 촬영</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row" style="float:left; width:50%; max-width: 540px;;">
-    <div class="col">
-      <div class="card">
-        <div class="card-image">
-          <i class="medium material-icons">today</i>
-          <span class="card-title"  style="color: black;" >예약촬영</span>
-        </div>
-        <div class="card-content">
-          <p>I am convenient because I require little markup to use effectively.</p>
-        </div>
-        <div class="card-action">
-          <a href="concept.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>예약 촬영</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 <div class="container">
-  <div class="row" style="max-width: 540px;">
-    <div class="card col s12 m6 center">
-      <div class="card-title" style="color: black;">실시간촬영</div>
+  <div class="row">
+    <div class="card">
+      <!-- <div class="card-title" style="color: black;">실시간촬영</div> -->
       <div class="card-content">
-        <i class="medium material-icons">alarm</i>
-        <p>주변에 있는 사진작가를 만나보세요!</p>
+        <h4>예약 촬영</h4>
+        <p>예약을 통해 사진작가를 만나보세요!</p></br>
+        <a href="concept.html" class="waves-effect waves-light btn">예약 촬영</a>
       </div>
-      <div class="card-action">
-        <a href="realtime-map.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>실시간 촬영</a>
-      </div>
+      
     </div>
 
-    <div class="card col s12 m6 center">
-      <div class="card-title" style="color: black;">예약촬영</div>
+    <div class="card">
+      <!-- <div class="card-title" style="color: black;">예약촬영</div> -->
       <div class="card-content">
-        <i class="medium material-icons">today</i>
-        <p>예약을 통해 사진작가를 만나보세요!</p>
-      </div>
-      <div class="card-action">
-        <a href="concept.html" class="waves-effect waves-light btn main_btn"><i class="material-icons left">cloud</i>예약 촬영</a>
+        <h4>실시간 촬영</h4>
+        <p>주변에 있는 사진작가를 만나보세요!</p>
+        <p style="color:red;">*서비스 준비중입니다. 기다려 주시길 바랍니다*</p></br>
+        <a href="realtime-map.html" class="waves-effect waves-light btn">실시간 촬영</a>
       </div>
     </div>
   </div>
