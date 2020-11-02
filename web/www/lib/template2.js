@@ -134,56 +134,165 @@ module.exports = {
     plist = plist + '</tbody></table>'
     return plist
   },
-  list1: function (topics) {
-    var list2 = '<ul> <div class="col s12 m7">'
-    var i = 0
-    while(i<topics.length){
-      list2 = 
-      list2 + `
-      <div class="card horizontal">
-        <div class="card-image">
-          <img src="photograper1.jpg" width="200px" height="200px"> 
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <p><a>${topics[i].pname}</a></p>
-          </div>
-          <div class="card-action">
-            <a href="/chat?id=${topics[i].room}&user=${topics[i].uid}">채팅하기</a>
-          </div>
-        </div>
-      </div>
-        `
-        i = i + 1
-    }
-    
-    list2 = list2 + '</div> </ul>'
-    return list2
-  },
   list2: function (topics) {
-    var list2 = '<ul> <div class="col s12 m7">'
-    var i = 0
-    while(i<topics.length){
-      list2 = 
-      list2 + `
-      <div class="card horizontal">
-        <div class="card-image">
-          <img src="photograper1.jpg" width="200px" height="200px"> 
+    var list2 = '<ul>'
+
+    list2 = `
+      <div class="col s12 m7">
+     
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="photograper1.jpg" width="200px" height="200px"> 
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><a>${topics.chatroom0}</a></p>
         </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <p><a>${topics[i].uname}</a></p>
-          </div>
-          <div class="card-action">
-            <a href="/chat?id=${topics[i].room}&user=${topics[i].pid}">채팅하기</a>
-          </div>
+        <div class="card-action">
+          <a href="/chat?id=${topics.chatroom0}&user=${topics.name}">채팅하기</a>
         </div>
       </div>
-        `
-        i = i + 1
-    }
-    
-    list2 = list2 + '</div> </ul>'
+    </div>
+  
+
+  <div class="card horizontal">
+      <div class="card-image">
+        <img src="" width="200px" height="200px"> 
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><a>${topics.chatroom1}</a></p>
+        </div>
+        <div class="card-action">
+          <a href="?id=${topics.chatroom1}">채팅하기</a>
+        </div>
+      </div>
+    </div>
+  
+
+   <div class="card horizontal">
+      <div class="card-image">
+        <img src="" width="200px" height="200px"> 
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><a>${topics.chatroom2}</a></p>
+        </div>
+        <div class="card-action">
+          <a href="?id=${topics.chatroom2}">채팅하기</a>
+        </div>
+      </div>
+    </div>
+ 
+
+  <div class="card horizontal">
+      <div class="card-image">
+        <img src="" width="200px" height="200px"> 
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><a>${topics.chatroom2}</a></p>
+        </div>
+        <div class="card-action">
+          <a href="?id=${topics.chatroom2}">채팅하기</a>
+        </div>
+      </div>
+    </div>
+ 
+
+  <div class="card horizontal">
+      <div class="card-image">
+        <img src="" width="200px" height="200px"> 
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><a>${topics.chatroom3}</a></p>
+        </div>
+        <div class="card-action">
+          <a href="?id=${topics.chatroom3}">채팅하기</a>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="card horizontal">
+      <div class="card-image">
+        <img src="" width="200px" height="200px"> 
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><a>${topics.chatroom0}</a></p>
+        </div>
+        <div class="card-action">
+          <a href="?id=${topics.chatroom0}">채팅하기</a>
+        </div>
+      </div>
+    </div>
+  
+
+  <div class="card horizontal">
+      <div class="card-image">
+        <img src="" width="200px" height="200px"> 
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><a>${topics.chatroom0}</a></p>
+        </div>
+        <div class="card-action">
+          <a href="?id=${topics.chatroom0}">채팅하기</a>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="card horizontal">
+      <div class="card-image">
+        <img src="" width="200px" height="200px"> 
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><a>${topics.chatroom0}</a></p>
+        </div>
+        <div class="card-action">
+          <a href="?id=${topics.chatroom0}">채팅하기</a>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="card horizontal">
+      <div class="card-image">
+        <img src="" width="200px" height="200px"> 
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><a>${topics.chatroom0}</a></p>
+        </div>
+        <div class="card-action">
+          <a href="?id=${topics.chatroom0}">채팅하기</a>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="card horizontal">
+      <div class="card-image">
+        <img src="" width="200px" height="200px"> 
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p><a>${topics.chatroom0}</a></p>
+        </div>
+        <div class="card-action">
+          <a href="?id=${topics.chatroom0}">채팅하기</a>
+        </div>
+      </div>
+    </div>
+  
+</div>
+     
+      `
+    list2 = list2 + '</ul>'
     return list2
   },
 }
