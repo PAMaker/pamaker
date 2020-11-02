@@ -27,6 +27,8 @@ module.exports = function (ppassport) {
   <title></title>
   <meta charset = "utf-8">
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
+  
+  <link rel="stylesheet" type="text/css" href="nav.css">
   <link rel="stylesheet" type="text/css" href="reset.css">
   <link rel="stylesheet" type="text/css" href="first.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -72,18 +74,33 @@ body {
 </head>
 <body>
 
-  <nav>
-    <div class="nav-wrapper">
-      
-        <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-      
-      <ul id="nav-mobile" class="left">
-        <li><a class="material-icons" href="/pmypage">keyboard_arrow_left</a></li>
-      </ul>
-      <ul id="nav-mobile" class="right">
-      <li><a href=""><i class="material-icons">search</i></a></li></ul>
-    </div>
-  </nav>
+<header>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo black-text"
+      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
+    >
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">JavaScript</a></li>
+    </ul>
+
+    <ul id="nav-mobile" class="left">
+      <li>
+        <a class="material-icons" href="first.html"
+          >keyboard_arrow_left</a
+        >
+      </li>
+    </ul>
+    <ul id="nav-mobile" class="right">
+      <li>
+        <a href="page/sass.html"><i class="material-icons">search</i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</header>
 
 <div class ="container" style="margin-bottom: 70px;" align="center">
 <h2 class="card-title text-center" style="color:#113366;">로그인</h2>
@@ -150,6 +167,7 @@ body {
     <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
     <link rel="stylesheet" type="text/css" href="reset.css" />
         <link rel="stylesheet" type="text/css" href="first.css" />
+        <link rel="stylesheet" type="text/css" href="nav.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link
           rel="stylesheet"
@@ -201,19 +219,34 @@ body {
   </head>
   <body>
   
+  <header>
     <nav>
       <div class="nav-wrapper">
-        
-          <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-        
+        <a href="" class="brand-logo black-text"
+          ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
+        >
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+
         <ul id="nav-mobile" class="left">
-          <li><a class="material-icons" href="/pmypage">keyboard_arrow_left</a></li>
+          <li>
+            <a class="material-icons" href="first.html"
+              >keyboard_arrow_left</a
+            >
+          </li>
         </ul>
         <ul id="nav-mobile" class="right">
-        <li><a href="page/sass.html"><i class="material-icons">search</i></a></li></ul>
+          <li>
+            <a href="page/sass.html"><i class="material-icons">search</i></a>
+          </li>
+        </ul>
       </div>
     </nav>
-  
+  </header>
+
   <div class ="container" style="margin-bottom: 70px;">
   <h2 class="card-title text-center" style="color: #113366">회원가입</h2>
   <div class="card align-middle" style="width: 100%; border-radius: 20px">
@@ -241,7 +274,7 @@ body {
           </div>
         </div>
 
-  <footer class ="page-footer">
+  <footer class ="page-footer" style="background-color:#242424">
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="center">
