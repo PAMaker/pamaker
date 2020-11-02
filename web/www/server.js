@@ -25,6 +25,8 @@ const io = socketio(server)
 const db2 = require('./lib/db2')
 const pauth = require('./lib/pauth')
 var formidable = require('formidable')
+var url = require('url');
+
 ///세션 인증
 const session = require('express-session')
 var FileStore = require('session-file-store')(session)
@@ -265,12 +267,64 @@ io.on('connection', (socket) => {
     }
     console.log(moment().format('h:mm a'))
     db2.query(
-      'INSERT INTO chat_test (room, uid, msg, time) VALUES (?, ?, ?, ?)',
+      'INSERT INTO chatMessage (room, uid, msg, time) VALUES (?, ?, ?, ?)',
       [user.room, user.username, msg, moment().format('h:mm a')],
       function () {
         //console.log('Data Insert OK');
       }
     )
+    var roomlong = user.room.length;
+    var usernamelong = user.username.length;
+    var pnamelong = roomlong - usernamelong;
+    var pname = user.room.substring(0,pnamelong);
+    var Cname; //고객이름
+    var Pname; //작가이름
+    //panme => 작가 이메일, user.username => 고객 이메일
+    console.log(roomlong);
+    console.log(usernamelong);
+    console.log(pnamelong);
+    console.log(pname); //작가 email
+
+    db2.query(
+      'INSERT INTO chatroom (room,uid,pid) VALUES (?, ?, ?)',
+      [user.room, user.username, pname],
+      function () {
+        //console.log('Data Insert OK');
+      }
+    )
+
+    db2.query('select * from customer where email=?',[user.username], function(err,customerC){
+      if(err) return done(err);
+      else{
+        Cname = customerC[0].name;//고객이름
+        console.log(Cname);
+        db2.query(
+          'UPDATE chatroom SET uname=? WHERE uid=?',
+          [Cname,user.username],
+          function (error, result) {
+            
+          }
+        )
+      }
+    })
+
+    db2.query('select * from customer where email=?',[pname], function(err,customerP){
+      if(err) return done(err);
+      else{
+        Pname = customerP[0].name;//작가이름
+        console.log(Pname);
+        db2.query(
+          'UPDATE chatroom SET pname=? WHERE pid=?',
+          [Pname,pname],
+          function (error, result) {
+            response.end()
+          }
+        )
+      }
+    })
+
+
+
   })
 
   // Runs when client disconnects
@@ -303,74 +357,7 @@ app.use(express.static('pages'))
 app.use(express.static('lib'))
 // Set static folder
 app.use(express.static(path.join(__dirname, 'pages')))
-//
 
-// Set The Storage Engine
-// const storage = multer.diskStorage({
-//   destination: "./public/uploads/",
-//   filename: function (req, file, cb) {
-//     cb(
-//       null,
-//       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-//     );
-//   },
-// });
-
-// //Init Upload
-// const upload = multer({
-//   storage: storage,
-//   limits: { fileSize: 1000000 },
-//   fileFilter: function (req, file, cb) {
-//     checkFileType(file, cb);
-//   },
-// }).single("myImage");
-
-// // Check File Type
-// function checkFileType(file, cb) {
-//   // Allowed ext
-//   const filetypes = /jpeg|jpg|png|gif/;
-//   // Check ext
-//   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-//   // Check mime
-//   const mimetype = filetypes.test(file.mimetype);
-
-//   if (mimetype && extname) {
-//     return cb(null, true);
-//   } else {
-//     cb("Error: Images Only!");
-//   }
-// }
-
-// EJS
-// app.set("view engine", "ejs");
-
-// // Public Folder
-// app.use(express.static("./public"));
-
-// app.get("/index", (req, res) => res.render("index"));
-
-// //파일 제출누르면
-// app.post("/upload", (req, res) => {
-//   upload(req, res, (err) => {
-//     if (err) {
-//       res.render("index", {
-//         msg: err,
-//       });
-//     } else {
-//       if (req.file == undefined) {
-//         res.render("index", {
-//           msg: "Error: No File Selected!",
-//         });
-//       } else {
-//         res.render("index", {
-//           msg: "File Uploaded!",
-//           file: `uploads/${req.file.filename}`,
-
-//         });
-//       }
-//     }
-//   });
-// });
 
 const multerS3 = require('multer-s3')
 const AWS = require('aws-sdk')
@@ -492,7 +479,7 @@ app.get('/event-calendar.html', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/event-calendar.html')) //이렇게 응답해준다
 })
 
-var port = process.env.PORT || 8088 // 1
+var port = process.env.PORT || 8080 // 1
 // const server = app.listen(port, function(){
 //  console.log('server on! http://localhost:'+port);
 // });

@@ -278,10 +278,10 @@ body {
       //db에 삽입해주는 쿼리
       db2.query(
 
-        `INSERT INTO customer (name, email, password, phonenum, region, possibletime, camera, career, service, sns)  VALUES(?,?,?,?,?,?,?,?,?,?)
+        `INSERT INTO customer (name, email, password, phonenum, region, possibletime, camera, career, service, sns, kind)  VALUES(?,?,?,?,?,?,?,?,?,?,?)
 
 `,
-        [post.name, post.email, post.pwd, post.phonenum, post.region, post.possibletime, post.camera, post.career, post.service, post.sns],
+        [post.name, post.email, post.pwd, post.phonenum, post.region, post.possibletime, post.camera, post.career, post.service, post.sns,'P'],
         function (error, result) {
           if (error) {
             throw error
