@@ -303,14 +303,16 @@ footer {
       request.flash('error', 'Password must same!')
       response.redirect('/auth/register')
     } else {
+      console.log("회원가입db저장")
       //db에 삽입해주는 쿼리
       db2.query(
-        `INSERT INTO customer (name,email, password)
-  VALUES(?,?,?)
+        `INSERT INTO customer (name,email, password,kind)
+  VALUES(?,?,?,?)
 `,
-        [post.name, post.email, post.pwd],
+        [post.name, post.email, post.pwd,'C'],
         function (error, result) {
           if (error) {
+            console.log("회원가입error!!")
             throw error
           }
         }
