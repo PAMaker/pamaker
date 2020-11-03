@@ -105,7 +105,7 @@ module.exports = {
   	
     <div class="card horizontal">
       <div class="card-image">
-        <img src="${topics[i].mainphoto}" width="200px" height="200px"> 
+        <img src="현근창10.jpg" width="200px" height="200px"> 
       </div>
       <div class="card-stacked">
         <div class="card-content">
