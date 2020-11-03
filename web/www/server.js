@@ -396,6 +396,16 @@ app.get('/first.html', function (request, response) {
   response.sendFile(path.join(__dirname + '/first.html')) //이렇게 응답해준다
 })
 
+app.get('/header.html', function (request, response) {
+  //요청을 받으면
+  response.sendFile(path.join(__dirname + '/header.html')) //이렇게 응답해준다
+})
+
+app.get('/footer.html', function (request, response) {
+  //요청을 받으면
+  response.sendFile(path.join(__dirname + '/footer.html')) //이렇게 응답해준다
+})
+
 app.get('/second.html', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/second.html'))
 })
