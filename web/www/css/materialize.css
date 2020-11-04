@@ -2980,8 +2980,8 @@ ul.staggered-list li {
 
 .page-footer {
   padding-top: 20px;
-  color: #fff;
-  background-color: #ee6e73;
+  color: black;
+  background-color: black;
 }
 
 .page-footer .footer-copyright {
@@ -4318,8 +4318,8 @@ table span.badge {
 }
 
 nav {
-  color: #fff;
-  background-color: #ee6e73;
+  color: rgb(0, 0, 0);
+  background-color: #242424;
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -4379,7 +4379,7 @@ nav .sidenav-trigger i {
 
 nav .brand-logo {
   position: absolute;
-  color: #fff;
+  color: rgb(0, 0, 0);
   display: inline-block;
   font-size: 2.1rem;
   padding: 0;
@@ -5361,7 +5361,7 @@ small {
 .btn-large:focus,
 .btn-small:focus,
 .btn-floating:focus {
-  background-color: #1d7d74;
+  background-color: #242424;
 }
 
 .btn,
@@ -5369,7 +5369,7 @@ small {
 .btn-small {
   text-decoration: none;
   color: #fff;
-  background-color: #26a69a;
+  background-color: #242424;
   text-align: center;
   letter-spacing: 0.5px;
   -webkit-transition: background-color 0.2s ease-out;
@@ -5380,7 +5380,7 @@ small {
 .btn:hover,
 .btn-large:hover,
 .btn-small:hover {
-  background-color: #2bbbad;
+  background-color: #242424;
 }
 
 .btn-floating {
@@ -5393,7 +5393,7 @@ small {
   height: 40px;
   line-height: 40px;
   padding: 0;
-  background-color: #26a69a;
+  background-color: #242424;
   border-radius: 50%;
   -webkit-transition: background-color 0.3s;
   transition: background-color 0.3s;
@@ -5402,7 +5402,7 @@ small {
 }
 
 .btn-floating:hover {
-  background-color: #26a69a;
+  background-color: #242424;
 }
 
 .btn-floating:before {
@@ -5608,7 +5608,7 @@ button.btn-floating {
   z-index: -1;
   width: 40px;
   height: 40px;
-  background-color: #26a69a;
+  background-color: #242424;
   border-radius: 50%;
   -webkit-transform: scale(0);
   transform: scale(0);
@@ -5918,7 +5918,7 @@ body.keyboard-focused .dropdown-content li:focus {
 
 .modal .modal-footer {
   border-radius: 0 0 2px 2px;
-  background-color: #fafafa;
+  background-color: #000000;
   padding: 4px 6px;
   height: 56px;
   width: 100%;
@@ -6229,7 +6229,7 @@ select:focus {
 
 button:focus {
   outline: none;
-  background-color: #2ab7a9;
+  background-color: #242424;
 }
 
 label {
@@ -7804,11 +7804,11 @@ input[type='range']::-ms-thumb {
 .sidenav li > a.btn-large:hover,
 .sidenav li > a.btn-small:hover,
 .sidenav li > a.btn-large:hover {
-  background-color: #2bbbad;
+  background-color: #242424;
 }
 
 .sidenav li > a.btn-floating:hover {
-  background-color: #26a69a;
+  background-color: #242424;
 }
 
 .sidenav li > a > i,
