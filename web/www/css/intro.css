@@ -17,11 +17,11 @@ video {
   left: 0;
   min-width: 100%;
   min-height: 100%;
-  background-size : cover;
+  background-size: cover;
   width: auto;
   height: auto;
   z-index: -1;
-  /* background-image: url('main2.jpg');
+  /* background-image: url('main2.jpg');s
   background-size: 100% auto; */
 }
 
@@ -69,7 +69,10 @@ section {
   height: 250px;
   margin-right: 70px;
 }
-
+h6 {
+  text-align: center;
+  font-weight: 300;
+}
 h5 {
   text-align: center;
   font-weight: 300;
@@ -77,10 +80,12 @@ h5 {
 
 h4 {
   font-weight: bold;
+  text-align: center;
 }
 
 p {
   font-weight: 300;
+  text-align: center;
 }
 
 .btn,
@@ -93,4 +98,21 @@ p {
 .btn-large:hover,
 .btn-small:hover {
   background-color: #242424;
+}
+
+.profile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.box {
+  width: 250px;
+  height: 250px;
+  border-radius: 70%;
+  overflow: hidden;
+}
+.infoImg {
+  width: 400px;
+  height: auto;
+  overflow: hidden;
 }
