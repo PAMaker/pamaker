@@ -472,7 +472,7 @@ app.get('/event-calendar.html', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/event-calendar.html')) //이렇게 응답해준다
 })
 
-var port = process.env.PORT || 8080 // 1
+var port = process.env.PORT || 8088 // 1
 // const server = app.listen(port, function(){
 //  console.log('server on! http://localhost:'+port);
 // });
