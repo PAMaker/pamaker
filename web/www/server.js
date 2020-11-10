@@ -64,6 +64,7 @@ var pmyinfoRouter = require('./routes/pmypage')
 app.use('/pmypage', pmyinfoRouter)
 //사진업로드
 
+
 //후기작성기능
 var favRouter = require('./routes/fav')
 app.use('/fav', favRouter)
@@ -71,6 +72,9 @@ app.use('/fav', favRouter)
 //문의 기능
 var qnaRouter = require('./routes/qna')
 app.use('/qna', qnaRouter)
+
+var testRouter = require('./routes/intro')
+app.use('/test', testRouter)
 
 //사진작가리스트 보여주기
 var snapRouter = require('./routes/snap1')
