@@ -25,6 +25,8 @@ const io = socketio(server)
 const db2 = require('./lib/db2')
 const pauth = require('./lib/pauth')
 var formidable = require('formidable')
+var url = require('url');
+
 ///세션 인증
 const session = require('express-session')
 var FileStore = require('session-file-store')(session)
@@ -62,6 +64,7 @@ var pmyinfoRouter = require('./routes/pmypage')
 app.use('/pmypage', pmyinfoRouter)
 //사진업로드
 
+
 //후기작성기능
 var favRouter = require('./routes/fav')
 app.use('/fav', favRouter)
@@ -69,6 +72,9 @@ app.use('/fav', favRouter)
 //문의 기능
 var qnaRouter = require('./routes/qna')
 app.use('/qna', qnaRouter)
+
+// var introRouter = require('./routes/intro__')
+// app.use('/intro', introRouter)
 
 //사진작가리스트 보여주기
 var snapRouter = require('./routes/snap1')
@@ -104,31 +110,36 @@ const {
 // 실시간 지도 (realtime-map.html)
 let markers = []
 let userName = ''
-let idx = -1
 
 io.on('connection', function (socket) {
   //클라이언트의 위치 정보를 받으면
   socket.on('location', function (location) {
     // addMarker(currentUser, location)
-    // db2.query(
-    //   `SELECT name FROM photographer WHERE email=?`,
-    //   [currentUser.email],
-    //   function (error, name) {
-    //     if (error) {
-    //       throw error
-    //     }
-    //     userName = name
-    //   }
-    // )
 
-    // idx = markers.indexOf([
-    //   currentUser.email,
-    //   location.latitude,
-    //   location.longitude,
-    // ])
+    console.log(markers)
 
-    // email 정보로 DB에서 name 검색
-    if (currentUser != '') {
+    let idx 
+    for (idx=0; idx<markers.length; idx++){
+      if (markers[idx][0] == currentUser.email){
+        break
+      }
+    }
+    //이미 해당 유저 위치 정보가 수집되고 있는 경우 --> 정보를 갱신
+    if (idx < markers.length-1) { 
+        console.log('already exists!')
+        markers[idx] = [
+          currentUser.email,
+          userName,
+          location.latitude,
+          location.longitude,
+        ]
+    }
+    //새로운 유저의 위치 정보가 수집되는 경우 --> 정보를 추가
+    else {
+      console.log('new!')
+      console.log('add: ' + location.latitude + ', ' + location.longitude)
+
+      // email값으로 db에서 name 검색
       db2.query(
         `SELECT name FROM photographer WHERE email=?`,
         [currentUser.email],
@@ -140,29 +151,7 @@ io.on('connection', function (socket) {
           userName = name[0].name
         }
       )
-    }
-
-    console.log('length : ', markers.length)
-    if (
-      markers.includes([
-        currentUser.email,
-        userName,
-        location.latitude,
-        location.longitude,
-      ])
-    ) {
-      // 이미 위치가 저장되고 있는 사용자라면 위치 정보를 갱신
-      console.log('already exists!')
-      markers[idx] = [
-        currentUser.email,
-        userName,
-        location.latitude,
-        location.longitude,
-      ]
-    } else {
-      // 새로운 사용자라면 위치 정보 추가
-      console.log('new!')
-      console.log('add: ' + location.latitude + ', ' + location.longitude)
+      // 추가
       markers.push([
         currentUser.email,
         userName,
@@ -171,7 +160,6 @@ io.on('connection', function (socket) {
       ])
     }
 
-    // markers.push(['currentUser.email', location.latitude, location.longitude])
 
     // markers 전송
     io.emit('markers', markers)
@@ -188,7 +176,8 @@ io.on('connection', function (socket) {
   })
 })
 
-function addMarker(currentUser, location) {
+// 마커를 추가하는 함수
+// function addMarker(currentUser, location) {
   // db2.query(
   //   `SELECT name FROM photographer WHERE email=?`,
   //   [currentUser.email],
@@ -201,16 +190,16 @@ function addMarker(currentUser, location) {
   //   }
   // )
   // 좌표 확인하고 markers 배열에 추가
-  console.log('add: ' + location.latitude + ', ' + location.longitude)
-  markers.push([
-    // userName,
-    currentUser.email,
-    userName,
-    location.latitude,
-    location.longitude,
-  ])
+  // console.log('add: ' + location.latitude + ', ' + location.longitude)
+  // markers.push([
+  //   // userName,
+  //   currentUser.email,
+  //   userName,
+  //   location.latitude,
+  //   location.longitude,
+  // ])
   // console.log(userName)
-}
+// }
 
 // Set static folder
 
@@ -265,12 +254,64 @@ io.on('connection', (socket) => {
     }
     console.log(moment().format('h:mm a'))
     db2.query(
-      'INSERT INTO chat_test (room, uid, msg, time) VALUES (?, ?, ?, ?)',
+      'INSERT INTO chatMessage (room, uid, msg, time) VALUES (?, ?, ?, ?)',
       [user.room, user.username, msg, moment().format('h:mm a')],
       function () {
         //console.log('Data Insert OK');
       }
     )
+    var roomlong = user.room.length;
+    var usernamelong = user.username.length;
+    var pnamelong = roomlong - usernamelong;
+    var pname = user.room.substring(0,pnamelong);
+    var Cname; //고객이름
+    var Pname; //작가이름
+    //panme => 작가 이메일, user.username => 고객 이메일
+    console.log(roomlong);
+    console.log(usernamelong);
+    console.log(pnamelong);
+    console.log(pname); //작가 email
+
+    db2.query(
+      'INSERT INTO chatroom (room,uid,pid) VALUES (?, ?, ?)',
+      [user.room, user.username, pname],
+      function () {
+        //console.log('Data Insert OK');
+      }
+    )
+
+    db2.query('select * from customer where email=?',[user.username], function(err,customerC){
+      if(err) return done(err);
+      else{
+        Cname = customerC[0].name;//고객이름
+        console.log(Cname);
+        db2.query(
+          'UPDATE chatroom SET uname=? WHERE uid=?',
+          [Cname,user.username],
+          function (error, result) {
+            
+          }
+        )
+      }
+    })
+
+    db2.query('select * from customer where email=?',[pname], function(err,customerP){
+      if(err) return done(err);
+      else{
+        Pname = customerP[0].name;//작가이름
+        console.log(Pname);
+        db2.query(
+          'UPDATE chatroom SET pname=? WHERE pid=?',
+          [Pname,pname],
+          function (error, result) {
+            response.end()
+          }
+        )
+      }
+    })
+
+
+
   })
 
   // Runs when client disconnects
@@ -303,74 +344,7 @@ app.use(express.static('pages'))
 app.use(express.static('lib'))
 // Set static folder
 app.use(express.static(path.join(__dirname, 'pages')))
-//
 
-// Set The Storage Engine
-// const storage = multer.diskStorage({
-//   destination: "./public/uploads/",
-//   filename: function (req, file, cb) {
-//     cb(
-//       null,
-//       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-//     );
-//   },
-// });
-
-// //Init Upload
-// const upload = multer({
-//   storage: storage,
-//   limits: { fileSize: 1000000 },
-//   fileFilter: function (req, file, cb) {
-//     checkFileType(file, cb);
-//   },
-// }).single("myImage");
-
-// // Check File Type
-// function checkFileType(file, cb) {
-//   // Allowed ext
-//   const filetypes = /jpeg|jpg|png|gif/;
-//   // Check ext
-//   const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
-//   // Check mime
-//   const mimetype = filetypes.test(file.mimetype);
-
-//   if (mimetype && extname) {
-//     return cb(null, true);
-//   } else {
-//     cb("Error: Images Only!");
-//   }
-// }
-
-// EJS
-// app.set("view engine", "ejs");
-
-// // Public Folder
-// app.use(express.static("./public"));
-
-// app.get("/index", (req, res) => res.render("index"));
-
-// //파일 제출누르면
-// app.post("/upload", (req, res) => {
-//   upload(req, res, (err) => {
-//     if (err) {
-//       res.render("index", {
-//         msg: err,
-//       });
-//     } else {
-//       if (req.file == undefined) {
-//         res.render("index", {
-//           msg: "Error: No File Selected!",
-//         });
-//       } else {
-//         res.render("index", {
-//           msg: "File Uploaded!",
-//           file: `uploads/${req.file.filename}`,
-
-//         });
-//       }
-//     }
-//   });
-// });
 
 const multerS3 = require('multer-s3')
 const AWS = require('aws-sdk')
@@ -424,6 +398,16 @@ let upload = multer({
 app.get('/first.html', function (request, response) {
   //요청을 받으면
   response.sendFile(path.join(__dirname + '/first.html')) //이렇게 응답해준다
+})
+
+app.get('/header.html', function (request, response) {
+  //요청을 받으면
+  response.sendFile(path.join(__dirname + '/header.html')) //이렇게 응답해준다
+})
+
+app.get('/footer.html', function (request, response) {
+  //요청을 받으면
+  response.sendFile(path.join(__dirname + '/footer.html')) //이렇게 응답해준다
 })
 
 app.get('/second.html', function (request, response) {
@@ -492,7 +476,7 @@ app.get('/event-calendar.html', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/event-calendar.html')) //이렇게 응답해준다
 })
 
-var port = process.env.PORT || 8088 // 1
+var port = process.env.PORT || 8080 // 1
 // const server = app.listen(port, function(){
 //  console.log('server on! http://localhost:'+port);
 // });

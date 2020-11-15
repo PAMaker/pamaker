@@ -28,12 +28,11 @@ module.exports = function (ppassport) {
   <meta charset = "utf-8">
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
   <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="first.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="first.css">
-  <link rel="stylesheet" type="text/css" href="nav.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 <style>
@@ -67,7 +66,6 @@ body {
     padding: 10px;
     font-size: 16px;
 }
-
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -87,9 +85,9 @@ body {
     </div>
   </nav>
 
-<div class ="container" align="center">
+<div class ="container" style="margin-bottom: 70px;" align="center">
 <h2 class="card-title text-center" style="color:#113366;">로그인</h2>
-  <div class="card align-middle" style="width:40rem; border-radius:20px;">
+  <div class="card align-middle" style="width:20rem; border-radius:20px;">
     <div class="card-body">
       <form action="/pauth/login_process" class="form-signin" method="post" onSubmit="logincall();return false">
         <h6 class="form-signin-heading">로그인 정보를 입력하세요</h6>
@@ -151,6 +149,7 @@ body {
     <meta charset = "utf-8">
     <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
     <link rel="stylesheet" type="text/css" href="reset.css" />
+        <link rel="stylesheet" type="text/css" href="first.css" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
         <link
           rel="stylesheet"
@@ -164,8 +163,7 @@ body {
           href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
         />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="first.css" />
-        <link rel="stylesheet" type="text/css" href="nav.css">
+    
   <style>
   @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
     
@@ -197,7 +195,6 @@ body {
             padding: 10px;
             font-size: 16px;
           }
-
   </style>
   
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -217,24 +214,20 @@ body {
       </div>
     </nav>
   
-  <div class ="container">
-  <h2 class="card-title text-center" style="color: #113366">회원가입</h2>
+  <div class ="container" style="margin-bottom: 70px;">
+  <h2 class="card-title text-center" style="color: #113366">작가등록</h2>
   <div class="card align-middle" style="width: 100%; border-radius: 20px">
     <div class="card-body">
 
     <form action="/pauth/register_process" class="form-signin" method="post" onSubmit="logincall();return false">
     <h6 class="form-signin-heading">회원가입 정보를 입력하세요</h6>
-    <p><input type="text" name="name" placeholder="이름" value=""></p>
-    <p><input type="text" name="email" placeholder="이메일" value=""></p>
-    <p><input type="password" name="pwd" placeholder="비밀번호" value=""></p>
-    <p><input type="password" name="pwd2" placeholder="비밀번호 재입력" value=""></p>
-    <p><input type="text" name="phonenum" placeholder="전화번호" value=""></p>
-    <p><input type="text" name="region" placeholder="지역" value=""></p>
-    <p><input type="text" name="possibletime" placeholder="이용가능시간" value=""></p>
-    <p><input type="text" name="camera" placeholder="카메라 기종" value=""></p>
-    <p><input type="text" name="career" placeholder="경력" value=""></p>
-    <p><input type="text" name="service" placeholder="대표서비스" value=""></p>
-    <p><input type="text" name="sns" placeholder="SNS link" value=""></p>
+    <p><input type="text" name="name" placeholder="name" value=""></p>
+    <p><input type="email" name="email" placeholder="email" value=""></p>
+    <p><input type="password" name="pwd" placeholder="password" value=""></p>
+    <p><input type="password" name="pwd2" placeholder="password" value=""></p>
+    <p><input type="text" name="phone" placeholder="phone" value=""></p>
+    <p><input type="text" name="camera" placeholder="camera" value=""></p>
+    <p><input type="text" name="sns" placeholder="sns link" value=""></p>
     <p>
     <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit" value="LOGIN">회원가입하기 </button>
     </p>
@@ -273,6 +266,10 @@ body {
     // var email2 = post.email2
     var pwd = post.pwd
     var pwd2 = post.pwd2
+    var phone = post.phone
+    var camera = post.camera
+    var sns = post.sns
+
 
     if (pwd !== pwd2) {
       request.flash('error', 'password must same!')
@@ -281,10 +278,10 @@ body {
       //db에 삽입해주는 쿼리
       db2.query(
 
-        `INSERT INTO customer (name, email, password, phonenum, region, possibletime, camera, career, service, sns)  VALUES(?,?,?,?,?,?,?,?,?,?)
+        `INSERT INTO photographer (name, email, password, phone, camera, sns)  VALUES(?,?,?,?,?,?)
 
 `,
-        [post.name, post.email, post.pwd, post.phonenum, post.region, post.possibletime, post.camera, post.career, post.service, post.sns],
+        [post.name, post.email, post.pwd, post.phone, post.camera, post.sns],
         function (error, result) {
           if (error) {
             throw error
@@ -329,13 +326,13 @@ router.get('/changemyinfo', function (request, response) {
   <meta charset = "utf-8">
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
   <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="first.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="first.css">
-  <link rel="stylesheet" type="text/css" href="nav.css">
+  
   <style>
   @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
   html {
@@ -387,7 +384,7 @@ router.get('/changemyinfo', function (request, response) {
     </div>
   </nav>
 
-<div class ="container">
+<div class ="container" style="margin-bottom: 70px;">
     <h3>정보변경</h3>
 
   <form action="/pauth/changemyinfo_process" method="post">
@@ -426,11 +423,12 @@ router.get('/changemyinfo', function (request, response) {
 //heidysql 에 있는 정보변경
 router.post('/changemyinfo_process', function (request, response) {
   var post = request.body
-  // var email1 = post.email1
-  // var email2 = post.email2
   var email = post.email
   var pwd = post.pwd
   var pwd2 = post.pwd2
+  var time = post.time
+  var camera = post.camera
+  var sns = post.sns
 
   if (pwd !== pwd2) {
     request.flash('error', 'password must same!')
@@ -438,7 +436,7 @@ router.post('/changemyinfo_process', function (request, response) {
   } else {
     //db에 변경해주는 쿼리
     var sql =
-      'UPDATE photographer SET name=?,email=?,pwd=?,phone=? WHERE id = ' +
+      'UPDATE customer SET name=?,email=?,pwd=?,phone=? WHERE id = ' +
       db2.escape(post.name)
 
     db2.query(sql, [post.name, post.email, post.pwd, post.phone], function (

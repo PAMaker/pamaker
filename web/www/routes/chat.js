@@ -28,8 +28,8 @@ router.get('/',function(request,response){
     if(queryData.id === undefined){
       topic.home(request,response);
     }else{
-      db2.query(`SELECT * FROM chat_test`, function(error,topics){
-        console.log(topics); //chat_test 테이블 데이터 다 나옴
+      db2.query(`SELECT * FROM chatMessage`, function(error,topics){
+        console.log(topics); //chatMessgae 테이블 데이터 다 나옴
         console.log(queryData.id);//작가이름
         console.log(queryData.user);//고객이름
         var id = queryData.id;//현근창송예인
@@ -41,7 +41,7 @@ router.get('/',function(request,response){
         }
         
         //해당 room 대화내용 복귀
-        db2.query(`SELECT * FROM chat_test WHERE chat_test.room=?`,[id],function(error2,topic){
+        db2.query(`SELECT * FROM chatMessage WHERE chatMessage.room=?`,[id],function(error2,topic){
           if(error2){
             throw error2;
           }

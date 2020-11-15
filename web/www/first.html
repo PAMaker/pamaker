@@ -3,9 +3,9 @@
   <head>
     <title></title>
     <meta charset="utf-8" />
-    <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
-    <!-- <link rel="stylesheet" type="text/css" href="reset.css" />
-    <link rel="stylesheet" type="text/css" href="first.css" /> -->
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="header.js"></script>
+    <script src="footer.js"></script>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -19,6 +19,7 @@
 
     <link rel="stylesheet" href="slider.css" />
     <link rel="stylesheet" href="first.css" />
+    <link rel="stylesheet" type="text/css" href="nav.css">
 
     <style>
       .centered {
@@ -28,8 +29,6 @@
 
       .banner ,.slideshow-container{
         position: relative;
-
-
         width: 90%;
         height: 550px;
         margin: 0 auto;
@@ -53,27 +52,35 @@
   </head>
 
   <body>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Logo</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
+  
+<header>
+<nav>
+  <div class="nav-wrapper">
+    <a href="" class="brand-logo black-text"
+      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
+    >
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="sass.html">Sass</a></li>
+      <li><a href="badges.html">Components</a></li>
+      <li><a href="collapsible.html">JavaScript</a></li>
+    </ul>
 
-        <ul id="nav-mobile" class="left">
-          <li>
-            <a class="material-icons" href="first.html">keyboard_arrow_left</a>
-          </li>
-        </ul>
-        <ul id="nav-mobile" class="right">
-          <li>
-            <a href="page/sass.html"><i class="material-icons">search</i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <ul id="nav-mobile" class="left">
+      <li>
+        <a class="material-icons" href="first.html"
+          >keyboard_arrow_left</a
+        >
+      </li>
+    </ul>
+    <ul id="nav-mobile" class="right">
+      <li>
+        <a href="page/sass.html"><i class="material-icons">search</i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</header>
+  
 <br/>
 
 
@@ -102,8 +109,8 @@
 
     <div class="container">
       <div class="row">
-        <!-- <h5 style="text-align: center">지금 바로 서비스를 이용해보세요!</h5>-->
-        <div class="card"> 
+        <h5 style="text-align: center">지금 바로 서비스를 이용해보세요!</h5>
+        <div class="card">
             <div class="card-title" style="color: black">
               작가페이지
             </div>
@@ -136,12 +143,13 @@
         <div class ="entry">
           <h3 class="title">
             사진작가로 활동하기 </br>
-            <a class="waves-effect waves-light btn-large" href="./register">등록하기</a>
+            <a class="waves-effect waves-light btn-large" href="pauth/register">등록하기</a>
           </h3>
         </div>
       </div>
     </div>
-    <footer class="page-footer">
+    
+
       <nav>
         <div class="nav-wrapper">
           <ul id="nav-mobile" class="center">
@@ -153,7 +161,7 @@
           </ul>
         </div>
       </nav>
-    </footer>
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -167,3 +175,4 @@
     <script src="slider.js"></script>
   </body>
 </html>
+
