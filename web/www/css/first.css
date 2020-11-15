@@ -4,6 +4,9 @@ body {
   width: 100%;
   height: 100%;
 }
+li {
+    margin-left: 100px;
+}
 
 .container {
   margin-bottom: 70px;

@@ -3,7 +3,7 @@ var template2 = require('./template2.js')
 
 exports.home = function (request, response) {
   db2.query(`SELECT * FROM topic`, function (error, topics) {
-    var title = '지금 바로 후기를 남겨보세요!'
+    var title = ''
     var description =
       '후기 작성시 텍스트리뷰 1000포인트, 포토리뷰 2000포인트를 드립니다. (20자 이상 작성해 주세요) '
     function myFunction() {
