@@ -9,6 +9,7 @@ var router = express.Router();
 var auth = require('../lib/auth');
 var db2 = require('../lib/db2');//heidy db
 var template_chat = require('../lib/template_chat.js');
+var pauth = require('../lib/pauth');
 //const chatMessages = document.querySelector('.chat-messages');//여기
 
 
@@ -25,6 +26,10 @@ router.get('/',function(request,response){
   //var id = parseUrl.substring(parseUrl.lastIndexOf("=")+1);
   //console.log(id);
   if(pathname === '/'){
+    if (!pauth.isOwner(request, response)) {
+      response.redirect('/pmypage')
+      return false
+    }
     if(queryData.id === undefined){
       topic.home(request,response);
     }else{

@@ -26,6 +26,30 @@ const db2 = require('./lib/db2')
 const pauth = require('./lib/pauth')
 var formidable = require('formidable')
 var url = require('url');
+const cors = require('cors');
+//cors 허용
+app.use(cors({ 
+  origin(origin, callback) {
+    callback(null, true)
+  },
+  credentials : true 
+}));
+
+//application/json 형태의 데이터 req.body에 저장
+app.use(express.json());
+//www-form-urlencode 형태의 데이터 req.body에 저장
+app.use(express.urlencoded({ extended: false }));
+
+//기본값
+app.use(express.static('css'))
+app.use(express.static('js'))
+app.use(express.static('img'))
+app.use(express.static('Semantic'))
+app.use(express.static('pages'))
+app.use(express.static('lib'))
+app.use(express.static('static/html'))
+app.use(express.static('static/js'))
+app.use(express.static('static'))
 
 ///세션 인증
 const session = require('express-session')
@@ -335,13 +359,7 @@ io.on('connection', (socket) => {
 
 ////////////
 
-//기본값
-app.use(express.static('css'))
-app.use(express.static('js'))
-app.use(express.static('img'))
-app.use(express.static('Semantic'))
-app.use(express.static('pages'))
-app.use(express.static('lib'))
+
 // Set static folder
 app.use(express.static(path.join(__dirname, 'pages')))
 
@@ -476,7 +494,7 @@ app.get('/event-calendar.html', function (request, response) {
   response.sendFile(path.join(__dirname + 'pages/event-calendar.html')) //이렇게 응답해준다
 })
 
-var port = process.env.PORT || 8080 // 1
+var port = process.env.PORT || 8088 // 1
 // const server = app.listen(port, function(){
 //  console.log('server on! http://localhost:'+port);
 // });

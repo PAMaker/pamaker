@@ -133,12 +133,13 @@ module.exports = {
       }
       list = list+'</ul>';
       return list;
-    },control:function(maindesc,sevdesc,price,photographer,customer){
+    },control:function(mainphoto,maindesc,sevdesc,price,photographer,customer){
         var control = `
       <div class="conatiner" style="margin-top:100px">
         <div class="row">
           <div class="col s12 l4 push-l1">
-            <img src="photographer1.jpg" alt="" class="responsive-img materialboxed"/>
+            <a>${mainphoto}</a>
+            <img src="${mainphoto}" alt="" class="responsive-img materialboxed"/>
           </div>
           <div class="col s12 l6 offset-l2 left-align">
             <h4 style="font-weight: 600">${maindesc}</h4>

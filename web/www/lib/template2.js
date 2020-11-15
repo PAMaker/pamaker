@@ -26,6 +26,9 @@ module.exports = {
     </script>
 
     <style>
+  .nav {
+    background: #a8a4a4;
+  }
     .box {
   width: 150px;
   height: 150px; 
@@ -110,12 +113,65 @@ module.exports = {
   },
   list: function (topics) {
     var list =
-      '<table class="css-serial"><thead><th>no.</th><th>제목</th></thead><tbody>'
+      '<nav style="background-color: #a8a4a4;"><div class="nav-wrapper"><ul class="left hide-on-med-and-down"><li><a href="sass.html">photo</a></li><li><a href="badges.html">phone case</a></li><li class="active"><a href="collapsible.html">grip tok</a></li></ul></div></nav>'
     var i = 0
     while (i < topics.length) {
       list =
         list +
-        `<tr><td>&nbsp;</td><td><a href="?id=${topics[i].id}">${topics[i].title}</a></td></tr>`
+        `<table><tr><td><div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="촬영1팀(1).jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><a href="?id=${topics[i].id}">${topics[i].title}</a><i class="material-icons right">more_vert</i></span>
+          <p><a href="#">별점</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
+          <p>상세후기</p>
+        </div>
+      </div></td>
+      <td><div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="촬영1팀(1).jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">${topics[i].title}<i class="material-icons right">more_vert</i></span>
+          <p><a href="#">별점</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
+          <p>상세후기</p>
+        </div>
+      </div></td>
+      <td><div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="촬영1팀(1).jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">${topics[i].title}<i class="material-icons right">more_vert</i></span>
+          <p><a href="#">별점</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
+          <p>상세후기</p>
+        </div>
+      </div></td>
+      <td><div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="촬영1팀(1).jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">${topics[i].title}<i class="material-icons right">more_vert</i></span>
+          <p><a href="#">별점</a></p>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
+          <p>상세후기</p>
+        </div>
+      </div></td>
+      </tr></table>
+        <!--<tr><td>&nbsp;</td><td><a href="?id=${topics[i].id}">${topics[i].title}</a></td></tr>-->`
       i = i + 1
     }
     list = list + '</tbody></table>'
