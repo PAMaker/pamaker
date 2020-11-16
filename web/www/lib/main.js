@@ -37,8 +37,9 @@ console.log(room);//현근창송예인
 var photoname = room.substr(0,3);
 console.log(photoname);//현근창
 var username = decodeURIComponent(second[1]);
-
 console.log(username);
+
+
 ///
 // var username = '송예인';
 // var room = '송예인현근창';

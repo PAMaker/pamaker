@@ -36,6 +36,7 @@ router.get('/',function(request,response){
                 throw error2;
               }
          console.log(topic); 
+        var mainphoto = topic[0].mainphoto;
         var maindesc = topic[0].maindesc;
         var sevdesc = topic[0].sevdesc;
         var price = topic[0].price;
@@ -49,7 +50,7 @@ router.get('/',function(request,response){
         //photographer+customer => customer db chatroom 에 순차대로 저장
 
           var list = template3.list(topic);
-          var control = template3.control(maindesc,sevdesc,price,photographer,customer); // 사용자의 id db에서 가져오기
+          var control = template3.control(mainphoto,maindesc,sevdesc,price,photographer,customer); // 사용자의 id db에서 가져오기
           var html = template3.HTML('',control);
           
             response.send(html);

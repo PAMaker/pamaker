@@ -133,34 +133,39 @@ module.exports = {
       }
       list = list+'</ul>';
       return list;
-    },control:function(maindesc,sevdesc,price,photographer,customer){
+    },control:function(mainphoto,maindesc,sevdesc,price,photographer,customer){
         var control = `
-          <div class="row">
-  			<div class="twelve columns">
-  				<div><img class="image" src="" width=100px height=100px></div>
-          <br><br>
-          <a href="/chat?id=${photographer}${customer}&user=${customer}" class="waves-effect waves-light btn main_btn">대화하기</a>
-          <a class="waves-effect waves-light btn main_btn" style="color: papayawhip" href="photograper.html#gallery">포트폴리오</a>
-          <a class="waves-effect waves-light btn main_btn" style="color: papayawhip" href="/pay.html">결제진행</a>
-  				<h2>작가님 한줄</h2>
-          <p>${maindesc}</p>
-          
-</div></div>
-
-  <div class="col s12 l6 offset-l1 center-align">
-          
-          <!-- button -->
-          <div class="container" style="margin-top: 30px;"></div>
-              <h4>서비스 설명</h4>
+      <div class="conatiner" style="margin-top:100px">
+        <div class="row">
+          <div class="col s12 l4 push-l1">
+            <a>${mainphoto}</a>
+            <img src="${mainphoto}" alt="" class="responsive-img materialboxed"/>
+          </div>
+          <div class="col s12 l6 offset-l2 left-align">
+            <h4 style="font-weight: 600">${maindesc}</h4>
+            <hr style="margin-top:40px; margin-bottom:40px;">
+            <div>
+              <h5 style="font-weight:bold">작가 정보</h5>
+              <h6>메일 주소 : ${photographer}</h6>
+              <h5 style="font-weight:bold; margin-top:50px">상품 설명</h5>
               <h6>${sevdesc}</h6>
-              <h4>가격 정보</h4>
-              <h6>${price}</h6>
-              <h4>서비스 평가</h4>
-              <h6></h6>
-          </div></div>
+              <h5 style="font-weight:bold; margin-top:50px">가격</h5>
+              <h6>${price} 원</h6>
+            </div>
+            <div style="margin-top:40px">
+              <a href="/chat?id=${photographer}${customer}&user=${customer}"><div class="card-panel black white-text" style="padding:10px; text-align:center;"><h6>채팅으로 촬영 상담</h6></div></a>
+              <a class="white black-text" href="/pay.html"><div class="card-panel white" style="padding:10px; text-align:center;"><h6>결제 진행</6></div></a>
+            </div>
+        </div>
       </div>
 
+      <div class="row" style="margin-top:100px">
+        <div class="col s12 l4"><h5 style="font-weight:bold">포트폴리오</h5></div><a class="waves-effect black-text" style="right-align" href="portfolio.html">▶ 더보기</a>
+      </div>
+      <hr style="width:80%; margin-bottom:100px">
 
+          
+</div></div>
 
 `;
       

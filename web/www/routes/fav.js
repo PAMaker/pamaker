@@ -45,38 +45,55 @@ router.get('/', function (request, response) {
               `후기`,
               ``,
               `
-              <table style="border-top: 1px solid; border-collapse: collapse;">  
-              <tr style="border-bottom: solid 1px ;">     
-                  <th style="border-bottom: solid 1px ;width: 100px">제목</th>     
-                  <td style="border-bottom: 1px solid;">
-                      <p>${title}</p>
-                  </td>   
-              </tr>  
-              <tr style="border-top: solid 1px ;">     
-                  <th style="border-bottom: solid 1px ;">이름</th>     
-                  <td style="border-bottom: 1px solid;">       
-                      <p>${topic[0].name}</p>
-                  </td>   
-              </tr> 
-              <tr style="border-top: solid 1px; height:300px;">     
-                  <th style="border-bottom: solid 1px ;">내용</th>     
-                  <td style="border-bottom: 1px solid;">       
-                      <p>${description}</p>
-                  </td>   
-              </tr> 
-           </table><br>`,
-              `<div class="col s6" >
-                <div class="row" >
-                  <div class="col"><a href="/fav" class ="waves-effect waves-light btn main_btn"> ◁&nbsp;&nbsp;목록</a></div>
-                  <div class="col">
-                    <a href="/fav/update?id=${queryData.id}" class ="waves-effect waves-light btn main_btn" >수정</a></div>
-                  <div class="col">
-                    <form action="/fav/delete_process" method="post">
-                      <input type="hidden" name="id" value="${queryData.id}">
-                      <input type="submit" class="waves-effect waves-light btn main_btn" value="삭제">
-                    </form></div>  
-                </div>
-              </div>`
+              <div class="row" id="content">
+
+              <div class="col s9">
+                  <ul class="collection">
+                      <li class="collection-item avatar">
+                      <h5>${title}</h5>
+                        <img src="1.jpg" style="width: auto; height: 500px;">
+                        
+                        </p>
+          
+                      </li>
+                      <li class="collection-item avatar">
+                        <div class="title">별점</div>
+                        <p style="float: left;">
+                          <p id="star_grade">
+                              <a href="#">★</a>
+                              <a href="#">★</a>
+                              <a href="#">★</a>
+                              <a href="#">★</a>
+                              <a href="#">★</a>
+                              </p>
+                          <br>
+                        </p>
+                      </li>
+                      <li class="collection-item avatar">
+                          <h6>${description}</h6>
+                      </li>
+                    </ul>
+          
+                    <div class="row" >
+                      <div class="col"><a href="/fav" class ="waves-effect waves-light btn main_btn"> ◁&nbsp;&nbsp;목록</a></div>
+                      <div class="col">
+                        <a href="/fav/update?id=${queryData.id}" class ="waves-effect waves-light btn main_btn" >수정</a></div>
+                      <div class="col">
+                        <form action="/fav/delete_process" method="post">
+                          <input type="hidden" name="id" value="${queryData.id}">
+                          <input type="submit" class="waves-effect waves-light btn main_btn" value="삭제">
+                        </form></div>  
+                    </div>
+              </div>
+          
+              <div class="col s3">
+              <br>
+              <br>
+                  <p>작성자 :${topic[0].name}</p>
+                  <hr>
+                  <p>작성시간 :${topic[0].created}</p>
+              </div>
+          </div>`
             )
             response.send(html)
           }
