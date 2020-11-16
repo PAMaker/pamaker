@@ -88,6 +88,12 @@ p {
   text-align: center;
 }
 
+.infoImg {
+  width: 400px;
+  height: auto;
+  overflow: hidden;
+}
+
 .btn,
 .btn-large,
 .btn-small {
@@ -106,13 +112,56 @@ p {
   object-fit: cover;
 }
 .box {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   border-radius: 70%;
   overflow: hidden;
 }
-.infoImg {
-  width: 400px;
-  height: auto;
+
+.css-serial {
+  counter-reset: serial-number;
+}
+.css-serial td:first-child:before {
+  counter-increment: serial-number;
+  content: counter(serial-number);
+}
+
+.MultiCarousel {
+  float: left;
   overflow: hidden;
+  padding: 15px;
+  width: 100%;
+  position: relative;
+}
+.MultiCarousel .MultiCarousel-inner {
+  transition: 1s ease all;
+  float: left;
+}
+.MultiCarousel .MultiCarousel-inner .item {
+  float: left;
+}
+.MultiCarousel .MultiCarousel-inner .item > div {
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  background: #f1f1f1;
+  color: #666;
+}
+.MultiCarousel .leftLst,
+.MultiCarousel .rightLst {
+  position: absolute;
+  border-radius: 50%;
+  top: calc(50% - 20px);
+}
+.MultiCarousel .leftLst {
+  left: 0;
+}
+.MultiCarousel .rightLst {
+  right: 0;
+}
+
+.MultiCarousel .leftLst.over,
+.MultiCarousel .rightLst.over {
+  pointer-events: none;
+  background: #ccc;
 }

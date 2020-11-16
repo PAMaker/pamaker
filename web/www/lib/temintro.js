@@ -201,83 +201,19 @@ module.exports = {
 </html>
         `
     },
-    list: function (topics) {
+    list: function (topic) {
       var list =
         '<table class="css-serial"><thead><th>no.</th><th>제목</th></thead><tbody>'
       var i = 0
-      while (i < topics.length) {
-        list =
+      while (i < 28) {
+          console.log(i)
+          list =
           list +
           `<tr><td>&nbsp;</td><td><a href="?id=${topics[i].id}">${topics[i].title}</a></td></tr>`
+        }
         i = i + 1
-      }
+
       list = list + '</tbody></table>'
       return list
-    },
-    plist: function (topic) {
-      var plist =
-        '<table class="css-serial"><thead><tr><th>No.</th><th>제목</th></tr></thead><tbody>'
-      var i = 0
-      while (i < topic.length) {
-        plist =
-          plist +
-          `<tr><td>&nbsp;</td><td><a href="?id=${topic[i].id}">${topic[i].maindesc}</a></td></tr>`
-        i = i + 1
-      }
-      plist = plist + '</tbody></table>'
-      return plist
-    },
-    list1: function (topics) {
-      var list2 = '<ul> <div class="col s12 m7">'
-      var i = 0
-      while(i<topics.length){
-        list2 = 
-        list2 + `
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="photograper1.jpg" width="200px" height="200px"> 
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <p><a>${topics[i].pname}</a></p>
-            </div>
-            <div class="card-action">
-              <a href="/chat?id=${topics[i].room}&user=${topics[i].uid}">채팅하기</a>
-            </div>
-          </div>
-        </div>
-          `
-          i = i + 1
-      }
-      
-      list2 = list2 + '</div> </ul>'
-      return list2
-    },
-    list2: function (topics) {
-      var list2 = '<ul> <div class="col s12 m7">'
-      var i = 0
-      while(i<topics.length){
-        list2 = 
-        list2 + `
-        <div class="card horizontal">
-          <div class="card-image">
-            <img src="photograper1.jpg" width="200px" height="200px"> 
-          </div>
-          <div class="card-stacked">
-            <div class="card-content">
-              <p><a>${topics[i].uname}</a></p>
-            </div>
-            <div class="card-action">
-              <a href="/chat?id=${topics[i].room}&user=${topics[i].pid}">채팅하기</a>
-            </div>
-          </div>
-        </div>
-          `
-          i = i + 1
-      }
-      
-      list2 = list2 + '</div> </ul>'
-      return list2
-    },
-  }
-  
+    }
+}

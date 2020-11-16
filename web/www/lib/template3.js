@@ -35,6 +35,20 @@ module.exports = {
   height: 100%;
   object-fit: cover;
 }
+div.gallery {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 20%;
+  height: 20%;
+  box-shadow: #242424;
+}
+
+div.gallery img {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
 
 
 </style>
@@ -71,6 +85,9 @@ module.exports = {
   
      
       <div class="container">
+      <br><br><br>
+      <h5>촬영 가능한 스케줄 목록</h5>
+      <hr style="width:100%; margin-bottom:50px; margin-top:20px">
         ${list}
         ${control}
         ${chat}
@@ -101,22 +118,27 @@ module.exports = {
       var i = 0;
       while(i < topics.length){
         list = list + `
-        <div class="col s12 m7">
-  	
-    <div class="card horizontal">
-      <div class="card-image">
-        <img src="현근창10.jpg" width="200px" height="200px"> 
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p><li><a>${topics[i].name}</a></li></p>
+    <div class="row" style="float:left">
+      <div class="col s12 m7 l4 push-l2">
+        <div class="card" style="width:300px;">
+          <div class="card-image">
+            <img src="현근창10.jpg" >
+          </div>
+          <div class="card-content">
+            <h6 style="font-weight:bold">${topics[i].maindesc}</h6><p>${topics[i].service}</p
+            <br><br>
+            <p>${topics[i].name}<p>
+            <br>
+            <p><i class="material-icons" style="font-size:15px">location_on</i>&nbsp${topics[i].region}&nbsp&nbsp
+            <i class="material-icons" style="font-size:15px">payments</i>&nbsp${topics[i].price}</p>
+          </div>
+          <div class="card-action" style="background-color:black">
+            <a href="?id=${topics[i].email}" style="color:white; font-size:15px; font-weight:bold">&nbsp&nbsp&nbsp자세히 보기</a>
+          </div>
         </div>
-        <div class="card-action">
-          <a href="?id=${topics[i].email}">작가님 프로필</a>
-        </div>
       </div>
-    </div>
-  </div>`;
+    </div>`;
+    
         i = i + 1;
       }
       list = list+'</ul>';
@@ -160,9 +182,39 @@ module.exports = {
       </div>
 
       <div class="row" style="margin-top:100px">
-        <div class="col s12 l4"><h5 style="font-weight:bold">포트폴리오</h5></div><a class="waves-effect black-text" style="right-align" href="portfolio.html">▶ 더보기</a>
+        <div class="col s12 l4"><h5 style="font-weight:bold">포트폴리오</h5></div>
+        <div class="col s12 l2 push-l5"><a class="waves-effect black-text" href="portfolio.html">▶ 더보기</a></div>
       </div>
-      <hr style="width:80%; margin-bottom:100px">
+      <hr style="width:80%; margin-bottom:50px">
+      <div style="margin-top: 50px; margin-bottom: 200px;">
+
+      <div class="row">
+      <div class="col s12 push-l1">
+        <div class="gallery">
+          <a target="_blank" href="현근창1.jpg"/>
+            <img src="현근창1.jpg" alt="photo1">
+          </a>
+        </div>
+        
+        <div class="gallery">
+          <a target="_blank" href="현근창2.jpg">
+            <img src="현근창2.jpg" alt="photo2"/>
+          </a>
+        </div>
+
+        <div class="gallery">
+          <a target="_blank" href="현근창3.jpg">
+            <img src="현근창3.jpg" alt="photo3"/>
+          </a>
+        </div>
+        
+        <div class="gallery">
+          <a target="_blank" href="현근창4.jpg">
+            <img src="현근창4.jpg" alt="photo4"/>
+          </a>
+        </div>
+      </div>
+      </div>
 
           
 </div></div>
