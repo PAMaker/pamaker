@@ -97,8 +97,8 @@ app.use('/fav', favRouter)
 var qnaRouter = require('./routes/qna')
 app.use('/qna', qnaRouter)
 
-var testRouter = require('./routes/intro')
-app.use('/test', testRouter)
+// var introRouter = require('./routes/intro__')
+// app.use('/intro', introRouter)
 
 //사진작가리스트 보여주기
 var snapRouter = require('./routes/snap1')

@@ -8,6 +8,7 @@ var express = require('express')
 var router = express.Router()
 //var auth = require('../lib/auth')
 var db2 = require('../lib/db2') //heidy db
+const { end } = require('../lib/db2')
 
 //각각의 리스트를 눌렀을때
 //localhost:8080/fav
@@ -21,24 +22,24 @@ router.get('/', function (request, response) {
 
   if (pathname === '/') {
       db2.query(`SELECT * FROM topic`, function (error, topics) {
-        console.log(topics)
+        console.log('start') 
 
         //console.log(topic);
         if (error) {
           throw error
         }
         db2.query(
-          `SELECT * FROM topic LEFT JOIN customer ON topic.id=customer.id WHERE topic.id=?`,
+          `SELECT * FROM topics LEFT JOIN customer ON topic.id=customer.id WHERE topic.id=? AND topic.best='b'`,
           [queryData.id],
-          function (error2, topic) {
+          function (error2, topics) {
             if (error2) {
               throw error2
             }
-            console.log(topic)  
-            var list = temintro.list(topic)
+            var list = temintro.list(topics)
             var html = temintro.HTML(
                 list
             )
+            console.log('end') 
             response.send(html)
           },
 

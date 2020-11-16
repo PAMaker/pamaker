@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
+  <!-- <link rel="stylesheet" type="text/css" href="reset.css"> -->
+  
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="nav.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="first.css">
+   <script type="text/javascript">
+    </script>
+
+  </head>
+  <style>
+.card{
+  background-image: url("pattern1.jpg");
+  width: 100%;
+  height: 250px;
+  padding-top: 10px;
+}
+.card-content{
+  background-color: #ffffff;
+  margin: 20px;
+  padding: 20px;
+  height: 200px;
+}
+#star_grade a{
+    text-decoration: none;
+    color: gray;
+    font-size:2em;
+  }
+  #star_grade a.on{
+      color: #FCDB61;
+      font-size:2em;
+  }
+  </style>
+<body>
+
+  <header>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="" class="brand-logo black-text"
+          ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
+        >
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="left">
+          <li>
+            <a class="material-icons" href="first.html"
+              >keyboard_arrow_left</a
+            >
+          </li>
+        </ul>
+        <ul id="nav-mobile" class="right">
+          <li>
+            <a href="page/sass.html"><i class="material-icons">search</i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+  <div class="row" id="content">
+
+    <div class="col s7 offset-s1">
+        <ul class="collection">
+            <li class="collection-item avatar">
+            <h5>title</h5>
+              <img src="1.jpg" style="width: auto; height: 500px;">
+              
+              </p>
+
+            </li>
+            <li class="collection-item avatar">
+              <div class="title">별점</div>
+              <p style="float: left;">
+                <p id="star_grade">
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    <a href="#">★</a>
+                    </p>
+                <br>
+              </p>
+            </li>
+            <li class="collection-item avatar">
+                <h6>세부내용</h6>
+            </li>
+          </ul>
+
+          <div class="row" >
+            <div class="col"><a href="/fav" class ="waves-effect waves-light btn main_btn"> ◁&nbsp;&nbsp;목록</a></div>
+            <div class="col">
+              <a href="/fav/update?id=${queryData.id}" class ="waves-effect waves-light btn main_btn" >수정</a></div>
+            <div class="col">
+              <form action="/fav/delete_process" method="post">
+                <input type="hidden" name="id" value="${queryData.id}">
+                <input type="submit" class="waves-effect waves-light btn main_btn" value="삭제">
+              </form></div>  
+          </div>
+    </div>
+
+    <div class="col s2">
+        <p>작성자 :</p>
+        <hr>
+        <p>작성시간 :</p>
+    </div>
+</div>
+
+
+<footer include-html="footer.html"></footer>
+<script>
+    $('#star_grade a').click(function(){
+        $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+        $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+        return false;
+    });
+</script>
+</body>
+<script>
+includeHTML( function () {
+});
+</script>
+</html>
