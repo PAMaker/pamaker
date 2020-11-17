@@ -11,11 +11,9 @@ header {
 }
 
 nav {
-  background:  #242424;
-
-} */
-
-header {
+  background: #242424;
+}
+*/ header {
   background: url('mainBg.png');
   background-size: 100%;
   /* background: linear-gradient(
@@ -50,14 +48,12 @@ footer {
 footer > nav {
   height: 80px;
   background-color: #242424;
-
 }
 .container {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
-
 
 a {
   font-size: small;
