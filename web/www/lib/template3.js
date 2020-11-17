@@ -87,16 +87,16 @@ div.gallery img {
       <div class="container">
       <br><br><br>
       <h5>촬영 가능한 스케줄 목록</h5>
-      <hr style="width:100%; margin-bottom:50px; margin-top:20px">
+      <hr style="width:100%; margin-bottom:50px; margin-top:20px;">
         ${list}
         ${control}
         ${chat}
         ${chatlist}
   </div>
       
-    <footer class="page-footer" style="background-color:#242424">
+    <footer class="page-footer" style="background-color:#242424;">
     <nav>
-      <div class="nav-wrapper">
+      <div class="nav-wrapper>
         <ul id="nav-mobile" class="center">
           <li><a class="material-icons" href="first.html">home</a></li>
           <li><a class="material-icons" href="fav">favorite_border</a></li>
