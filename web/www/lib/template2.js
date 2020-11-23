@@ -92,6 +92,7 @@ module.exports = {
   
    
 
+
      
       <div class="container">
         <h2>${title}</h2>
@@ -133,14 +134,15 @@ module.exports = {
   },
   list: function (topics) {
     var list =
-      '<nav style="background-color: #a8a4a4;"><div class="nav-wrapper"><ul class="left hide-on-med-and-down"><li><a href="sass.html">photo</a></li><li><a href="badges.html">phone case</a></li><li class="active"><a href="collapsible.html">grip tok</a></li></ul></div></nav>'
+      '<nav style="background-color: #a8a4a4;"><div class="nav-wrapper"><ul class="left hide-on-med-and-down"><li><a href="#">photo</a></li><li><a href="badges.html">phone case</a></li><li class="active"><a href="collapsible.html">grip tok</a></li></ul></div></nav>'
     var i = 0
     while (i < topics.length) {
       list =
         list +
-        `<table><tr><td><div class="card">
+        `<table><tr>
+        <td><div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="촬영1팀(1).jpg">
+          <img class="activator" src="촬영1팀(1).jpg" style="width:450px;">
         </div>
         <div class="card-content">
           <span class="card-title activator grey-text text-darken-4"><a href="?id=${topics[i].id}"></a><i class="material-icons right">more_vert</i></span>
@@ -152,8 +154,35 @@ module.exports = {
         <a href="#">★</a>
         <a href="#">★</a>
         </p>
-          
         </div>
+        
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
+          <p>상세후기${topics[i].maindesc}</p>
+            <div style="position:fixed; bottom:0px; width: auto;"> 
+              <p style="text-align: left;">작성자 : ${topics[i].author}</p>
+              <p style="text-align: left; ">작성시간 : ${topics[i].created}</p>
+            </div>
+        </div>
+      </div></td>
+
+
+      <td><div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="촬영1팀(2).jpg" style="width:450px; height:300px; overflow: hidden;">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"><a href="?id=${topics[i].id}"></a><i class="material-icons right">more_vert</i></span>
+          <p><a href="?id=${topics[i].id}">${topics[i].title}</a></p> 
+        <p id="star_grade">
+        <a href="#">★</a>
+        <a href="#">★</a>
+        <a href="#">★</a>
+        <a href="#">★</a>
+        <a href="#">★</a>
+        </p>
+        </div>
+
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
           <p>상세후기${topics[i].maindesc}</p>
@@ -165,41 +194,26 @@ module.exports = {
       </div></td>
       <td><div class="card">
         <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="촬영1팀(1).jpg">
+          <img class="activator" src="촬영1팀(3).jpg" style="width:450px;">
         </div>
         <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">${topics[i].title}<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">별점</a></p>
+          <span class="card-title activator grey-text text-darken-4"><a href="?id=${topics[i].id}"></a><i class="material-icons right">more_vert</i></span>
+          <p><a href="?id=${topics[i].id}">${topics[i].title}</a></p> 
+        <p id="star_grade">
+        <a href="#">★</a>
+        <a href="#">★</a>
+        <a href="#">★</a>
+        <a href="#">★</a>
+        <a href="#">★</a>
+        </p>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
-          <p>상세후기</p>
-        </div>
-      </div></td>
-      <td><div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="촬영1팀(1).jpg">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">${topics[i].title}<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">별점</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
-          <p>상세후기</p>
-        </div>
-      </div></td>
-      <td><div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="촬영1팀(1).jpg">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4">${topics[i].title}<i class="material-icons right">more_vert</i></span>
-          <p><a href="#">별점</a></p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
-          <p>상세후기</p>
+          <p>상세후기${topics[i].maindesc}</p>
+            <div style="position:fixed; bottom:0px; width: auto;"> 
+              <p style="text-align: left;">작성자 : ${topics[i].author}</p>
+              <p style="text-align: left; ">작성시간 : ${topics[i].created}</p>
+            </div>
         </div>
       </div></td>
       </tr></table>

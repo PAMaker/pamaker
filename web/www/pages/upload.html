@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="includeHTML.js"></script>
+    <script type="text/JavaScript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+
+   
+    <link rel="stylesheet" href="first.css" />
+    <link rel="stylesheet" type="text/css" href="nav.css">
+
+    <style>
+ div > img{
+     box-shadow: 3px 3px gray;
+ }
+
+    </style>
+
+  </head>
+
+  <body>
+       <!--<header include-html="header.html"></header>-->
+       <header>
+          <nav>
+              <a href="" class="brand-logo black-text"><img src="logo.png" style="width: 80px" alt=""/>22세기 사진관</a>
+          </nav>
+      </header>
+      
+<div class="container">
+    <div class="row">
+        <div class="col s2" style="padding-right: 30px;">
+          <ul><i class="material-icons">photo_size_select_actual</i><p>배경지우기</p></ul>
+          <ul><i class="material-icons">filter_hdr</i><p>배경 선택</p></ul> 
+          <ul><i class="material-icons">format_size</i><p>글씨 추가</p></ul>
+          <ul><i class="material-icons">refresh</i><p>초기화</p></ul>
+          <ul><i class="material-icons">reply</i><p>되돌리기</p></ul> 
+        </div>
+
+        <div class="col s7" style="background-color: rgb(179, 177, 177);">
+            <i class="large material-icons">cloud_upload</i><h5>사진 편집하기</h5>
+            <input type='file' id='upload' name='upload'/>
+            <br>
+            <div id='preview' style="width: 50%;"></div>
+            <br>
+            <img src="api.jpg" style="width: 350px; margin-bottom: 70px;"/>
+        </div>
+
+        <div class="col s3" style="padding-top: 250px;">
+            <h6>preview</h6>
+            <img src="api3.png" style="width: 200px; height:180px; border:1px solid black;"/>
+            <!-- <canvas width="200" height="200" style="border:1px solid black; z-index: 0;"></canvas>       -->
+            <div>
+                <a href="snap1" class="waves-effect waves-light btn">저장하기</a>
+            </div>
+        </div>
+</div>
+    
+<footer>
+      <nav>
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="center">
+            <li><a class="material-icons" href="first.html">home</a></li>
+
+            <li>
+              <a class="material-icons" href="fav">favorite_border</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="slider.js"></script>
+  </body>
+  <script>
+    var upload = document.querySelector('#upload');
+    var preview = document.querySelector('#preview');
+ 
+    upload.addEventListener('change',function (e) {
+        var get_file = e.target.files;
+ 
+        var image = document.createElement('img');
+        var reader = new FileReader();
+        reader.onload = (function (aImg) {
+            console.log(1);
+ 
+            return function (e) {
+                console.log(3);
+                aImg.src = e.target.result
+            }
+        })(image)
+ 
+        if(get_file){
+            reader.readAsDataURL(get_file[0]);
+            console.log(2);
+        }
+ 
+        preview.appendChild(image);
+    })
+</script>
+  
+</html>
+
