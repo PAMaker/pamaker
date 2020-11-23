@@ -58,7 +58,7 @@ module.exports = {
         <li><a class="material-icons" href="first.html"></a></li>
         <li><a class="material-icons" href="first.html">home</a></li>
         <li><a class="material-icons" href="fav">favorite_border</a></li>
-        <li><a class="material-icons" href="chat">chat</a></li>
+        <li><a class="material-icons" href="/pchat">chat</a></li>
         <li><a class="material-icons" href="mypage">account_circle</a></li>
         <li><a class="material-icons" href="first.html"></a></li>
         <li><a class="material-icons" href="first.html"></a></li>

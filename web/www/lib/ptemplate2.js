@@ -69,7 +69,7 @@ module.exports = {
         <ul id="nav-mobile" class="center">
           <li><a class="material-icons" href="first.html">home</a></li>
           <li><a class="material-icons" href="fav">favorite_border</a></li>
-          <li><a class="material-icons" href="pchat">chat</a></li>
+          <li><a class="material-icons" href="/pchat">chat</a></li>
         </ul>
           <ul id="nav-mobile" class="right">
              <li><a class="material-icons" href="mypage">account_circle</a></li>

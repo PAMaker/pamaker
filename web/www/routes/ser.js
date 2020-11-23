@@ -79,7 +79,7 @@ router.get('/',function(request,response){
               <input type="submit" class="waves-effect waves-light btn main_btn" value="삭제">
             </form></div>  
         </div>
-      </div>`
+      </div>`,``
     ) 
 
       
