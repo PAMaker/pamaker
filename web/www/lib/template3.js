@@ -4,82 +4,37 @@ module.exports = {
       <!DOCTYPE html>
       <html>
       <head>
-        <title></title>
-        <meta charset = "utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
-        <link rel="stylesheet" type="text/css" href="reset.css">
-        <link rel="stylesheet" type="text/css" href="first.css">
-        <link rel="stylesheet" type="text/css" href="nav.css">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <title></title>
+      <meta charset = "utf-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
+      <link rel="stylesheet" type="text/css" href="reset.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+ 
+       <link rel="stylesheet" href="gallery.css">
+       <link rel="stylesheet" href="calendar.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     
+        <link rel="stylesheet" type="text/css" href="first.css">
+        <link rel="stylesheet" type="text/css" href="nav.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
-        $(document).ready(function(){
-          $('.collapsible').collapsible();
-          M.updateTextFields();
-  });
-
-    </script>
-
     <style>
-    .box {
-  width: 150px;
-  height: 150px; 
-  border-radius: 70%;
-  overflow: hidden;
-}
-.profile {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-div.gallery {
-  margin: 5px;
-  border: 1px solid #ccc;
-  float: left;
-  width: 20%;
-  height: 20%;
-  box-shadow: #242424;
-}
-
-div.gallery img {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-}
-
-
-</style>
+    html,body{
+      width:100%;
+      height:100%;
+    }
+    #main_wrap{
+      width: 100%;
+      height:100%;
+      padding-top:200px;
+    }
+    </style>
 </head>
-
 <body>
 <header>
 <nav>
-  <div class="nav-wrapper">
-    <a href="" class="brand-logo black-text"
-      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
-    >
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
-    </ul>
-
-    <ul id="nav-mobile" class="left">
-      <li>
-        <a class="material-icons" href="first.html"
-          >keyboard_arrow_left</a
-        >
-      </li>
-    </ul>
-    <ul id="nav-mobile" class="right">
-      <li>
-        <a href="page/sass.html"><i class="material-icons">search</i></a>
-      </li>
-    </ul>
-  </div>
+  <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
 </nav>
 </header>
   
@@ -96,18 +51,20 @@ div.gallery img {
       
     <footer class="page-footer" style="background-color:#242424;">
     <nav>
-      <div class="nav-wrapper>
-        <ul id="nav-mobile" class="center">
-          <li><a class="material-icons" href="first.html">home</a></li>
-          <li><a class="material-icons" href="fav">favorite_border</a></li>
-          <li><a class="material-icons" href="chat">chat</a></li>
-        </ul>
-          <ul id="nav-mobile" class="right">
-             <li><a class="material-icons" href="mypage">account_circle</a></li>
-          </ul>
-        
-      </div>
-      </nav>
+  <div class="nav-wrapper">
+      <ul id="nav-mobile" class="center">
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html">home</a></li>
+        <li><a class="material-icons" href="fav">favorite_border</a></li>
+        <li><a class="material-icons" href="chat">chat</a></li>
+        <li><a class="material-icons" href="mypage">account_circle</a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+      </ul>
+    </div>
+  </nav>
     </footer>
   
   </body>
