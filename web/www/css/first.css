@@ -99,7 +99,12 @@ body {
   display: none;
 }
 img {
-  vertical-align: middle;
+  vertical-align: middle !important;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
 }
 
 /* Slideshow container */

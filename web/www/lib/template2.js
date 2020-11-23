@@ -1,98 +1,45 @@
 module.exports = {
   HTML: function (title, list, plist, list2, body) {
-    return `<!DOCTYPE html>
-      <html>
-      <head>
-        <title></title>
-        <meta charset = "utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
-        <link rel="stylesheet" type="text/css" href="reset.css">
-
-        <link rel="stylesheet" href="style2.css">
-         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-        
-        <link rel="stylesheet" type="text/css" href="first.css">
-        <link rel="stylesheet" type="text/css" href="nav.css">
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script>
-        $(document).ready(function(){
-          $('.collapsible').collapsible();
-          M.updateTextFields();
-      });
-      </script>
-
-
-    <style>
-  .nav {
-    background: #a8a4a4;
-  }
-    .box {
-  width: 150px;
-  height: 150px; 
-  border-radius: 70%;
-  overflow: hidden;
-}
-.profile {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    return `
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title></title>
+    <meta charset = "utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   
-  .cell_padding {
-  padding : 1em;
-  }
+
+     <link rel="stylesheet" href="gallery.css">
+     <link rel="stylesheet" href="calendar.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   
-  
-  
-  .table_center {
-  display : table;
-  margin-left : auto;
-  margin-right : auto;
+      <link rel="stylesheet" type="text/css" href="/first.css">
+      <link rel="stylesheet" type="text/css" href="/nav.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <style>
+  html,body{
+    width:100%;
+    height:100%;
   }
-
-  .css-serial {
-    counter-reset: serial-number; 
-   }
-   .css-serial td:first-child:before {
-    counter-increment: serial-number; 
-    content: counter(serial-number); 
-   }
-
-
-   #star_grade a{
-    text-decoration: none;
-    color: gray;
-    font-size:2em;
+  #main_wrap{
+    width: 100%;
+    height:100%;
+    padding-top:200px;
   }
-  #star_grade a.on{
-      color: #FCDB61;
-      font-size:2em;
-  }
-
-
-</style>
+  </style>
 </head>
-
 <body>
+
+<header>
 <nav>
-  <div class="nav-wrapper">
-    <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-    <ul id="nav-mobile" class="left">
-        <li><a class="material-icons" href="/pmypage">keyboard_arrow_left</a></li>
-      </ul>
-      
-    
-    <ul id="nav-mobile" class="right">
-    <li><a href="sass.html"><i class="material-icons">search</i></a></li></ul>
-  </div>
+<a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
 </nav>
+</header>
   
-   
-
-
+  
      
       <div class="container">
         <h2>${title}</h2>
@@ -102,32 +49,24 @@ module.exports = {
         ${body}
   </div>
       
-    <footer class="page-footer">
-    <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <ul id="nav-mobile" class="center">
-          <li><a class="material-icons" href="/first.html">home</a></li>
-          <li><a class="material-icons" href="/fav">favorite_border</a></li>
-          <li><a class="material-icons" href="/chat">chat</a></li>
-        </ul>
-          <ul id="nav-mobile" class="right">
-             <li><a class="material-icons" href="/pmypage">account_circle</a></li>
-          </ul>
-        </ul>
-      </div>
-      </nav>
-      </div>
-    </footer>
-    <script>
-        $('#star_grade a').click(function(){
-            $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
-            $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
-            return false;
-        });
-</script>
 
-  
+  <nav>
+  <div class="nav-wrapper">
+      <ul id="nav-mobile" class="center">
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html">home</a></li>
+        <li><a class="material-icons" href="fav">favorite_border</a></li>
+        <li><a class="material-icons" href="chat">chat</a></li>
+        <li><a class="material-icons" href="mypage">account_circle</a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+      </ul>
+    </div>
+  </nav>
+
+
   </body>
   </html>
       `

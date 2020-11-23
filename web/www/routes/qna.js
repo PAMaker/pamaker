@@ -9,13 +9,18 @@ var db2 = require('../lib/db2')
 var shortid = require('shortid')
 
 router.get('/question', function (request, response) {
-  // if (!auth.isOwner(request, response)) {
+  if (!auth.isOwner(request, response)) {
 
-  //   response.redirect('/mypage')
-  //   return false
-  // }
+    response.redirect('/mypage')
+    return false
+  }
   var title = '문의작성'
-
+  var list2 ='';
+  var body = ''; 
+// ${list}
+// ${plist}
+// ${list2}
+// ${body}
   //var list = template2.list(request.list);
   var html = template2.HTML(
     title,
@@ -39,7 +44,7 @@ router.get('/question', function (request, response) {
           <input type="submit">
         </p>
       </form>
-    `
+    `,list2,body
   )
   response.send(html)
 })
