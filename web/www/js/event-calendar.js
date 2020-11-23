@@ -125,6 +125,16 @@ function renderCalendar(m, y) {
   let date = 1
   //remaing dates of last month
   let r_pm = d_pm - firstDay + 1
+  //eventsToday 가 json 에 있는지 확인
+      let storedEvents = JSON.parse(localStorage.getItem('events'));
+      console.log(storedEvents.length);
+      var arrNumber = new Array();//배열
+      for(var i = 0;i<storedEvents.length;i++){
+        arrNumber[i] = storedEvents[i].eventDate;
+        console.log(arrNumber[i]);
+      }
+      
+  
   for (let i = 0; i < 6; i++) {
     let row = document.createElement('tr')
     for (let j = 0; j < 7; j++) {
@@ -152,18 +162,30 @@ function renderCalendar(m, y) {
           }
         }
         break
-      } else {
+    } else {
         let cell = document.createElement('td')
         let span = document.createElement('span')
         let cellText = document.createTextNode(date)
         span.classList.add('showEvent')
+        //console.log(date+''+m+''+y);
+        //1.오늘인 경우
         if (
           date === c_date.getDate() &&
           y === c_date.getFullYear() &&
           m === c_date.getMonth()
         ) {
           span.classList.add('bg-primary')
+         
         }
+        //2.이벤트가 있는 날인 경우
+        for(var k = 0; k<storedEvents.length;k++){
+           if(date+''+m+''+y ===arrNumber[k]){
+            //이벤트가 있는 경우 노란색동그라미
+            span.classList.add('bg-primary-event')
+          }
+        }
+        
+       
         cell.appendChild(span).appendChild(cellText)
         row.appendChild(cell)
         date++
@@ -186,6 +208,7 @@ $(function () {
         (eventsToday) => eventsToday.eventDate === eventDate
       )
       let eventsList = Object.keys(eventsToday).map((k) => eventsToday[k])
+      console.log(eventsList);
       if (eventsList.length > 0) {
         let eventsLi = ''
         eventsList.forEach((event) =>
@@ -197,7 +220,9 @@ $(function () {
                     </button>
                   </div>`)
           )
+
         )
+        
       } else {
         $('.events-today').html(
           '<h5 class="text-center">아직 일정이 없습니다.</h5 class="text-center">'

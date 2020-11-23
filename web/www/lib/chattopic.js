@@ -5,7 +5,7 @@ var template2 = require('./template2.js');
 
 exports.home = function(request,response){
 
-
+    
 
     db2.query(`SELECT * FROM chatroom WHERE uid=?`,[request.user.email],function(error2,customer){
         

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <title>분리된 HTML</title>
+  <script src="/static/js/includeHTML.js"></script>
+    <link rel="stylesheet" href="static/css/first.css" />
+    <link rel="stylesheet" type="text/css" href="static/css/nav.css">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+  
+  
+        <style>
+      .centered {
+        left: 50%;
+        margin-left: 420px;
+      }
+
+      .banner ,.slideshow-container{
+        position: relative;
+        width: 90%;
+        height: 550px;
+        margin: 0 auto;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .card-title {
+        margin-top: 20px;
+        text-align: center;
+      }
+      .card{
+        width: 400px;
+        height: 250px;
+        float: left;
+        padding-top: 30px;
+      }
+
+    </style>
+</head>
+<body>
+  <header include-html="/static/html/header.html"></header>
+
+
+
+  <footer include-html="/static/html/footer.html"></footer>
+</body>
+<script>
+includeHTML( function () {
+});
+</script>
+</html>
