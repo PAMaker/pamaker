@@ -50,7 +50,7 @@ router.post('/question_process', function (request, response) {
     return false
   }
   var post = request.body;
-  console.log(request.user.email);
+  console.log("req.user.email",request.user.email);
   db2.query(
     `
   INSERT INTO QNA (id,title,question) 

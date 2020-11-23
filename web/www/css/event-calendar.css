@@ -6,7 +6,7 @@ html body .card {
   overflow: hidden;
 }
 html body .card-header {
-  background: navy;
+  background: rgb(172, 172, 191);
   color: #fff;
 }
 html body .card-header .prevMonth {
@@ -36,6 +36,12 @@ html body .card-body .dates span {
   width: 45px;
   line-height: 45px;
   cursor: pointer;
+}
+.bg-primary-event {
+  background-color: #218af3 !important;
+}
+.bg-primary {
+  background-color: #f3db21 !important;
 }
 html body .card-body .dates span.active,
 html body .card-body .dates span:hover {
