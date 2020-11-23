@@ -15,11 +15,11 @@ var session = require('express-session')
 //http://localhost:8080/auth/login
 module.exports = function (passport) {
   router.get('/login', function (request, response) {
-    var fmsg = request.flash()
-    var feedb2ack = ''
-    if (fmsg.error) {
-      feedb2ack = fmsg.error[0]
-    }
+    // var fmsg = request.flash()
+    // var feedb2ack = ''
+    // if (fmsg.error) {
+    //   feedb2ack = fmsg.error[0]
+    // }
     var title = '로그인'
     var html = `
   <!DOCTYPE html>
@@ -158,7 +158,7 @@ footer > nav {
 </body>
 </html>`
 
-    response.send(html)
+response.send(html)
   })
 
   //로그인버튼을 눌렀을때 /auth/login_process로 라우팅되면서

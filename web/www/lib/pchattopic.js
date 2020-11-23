@@ -5,7 +5,7 @@ var template2 = require('./template2.js');
 
 exports.home = function(request,response){
 
-
+    console.log("이메일",request.user.email);
 
     db2.query(`SELECT * FROM chatroom WHERE pid=?`,[request.user.email],function(error2,customer){
         
