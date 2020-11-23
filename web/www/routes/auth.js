@@ -22,100 +22,66 @@ module.exports = function (passport) {
     // }
     var title = '로그인'
     var html = `
-  <!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-  <meta charset = "utf-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
-  <link rel="stylesheet" type="text/css" href="reset.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="nav.css">
-<style>
-@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
-   
-html {
-  height: 100%;
-}
-
-body {
-    width:100%;
-    height:100%;
-    margin: 0;
-    font-family: "Nanum Gothic", arial, helvetica, sans-serif;
-    background-repeat: no-repeat;
-}
-img {
-  vertical-align: middle;
-}
-header > nav {
-  background: transparent;
-  box-shadow: none;
-}
-footer > nav {
-  height: 80px;
-  background-color: #242424;
-}
-  .card {
-      margin: 0 auto; /* Added */
-      float: none; /* Added */
-      margin-bottom: 10px; /* Added */
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.form-signin .form-control {
-    position: relative;
-    height: auto;
-    -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-         box-sizing: border-box;
-    padding: 10px;
-    font-size: 16px;
-}
-.container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
-</style>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
-
-<header>
-<nav>
-  <div class="nav-wrapper">
-    <a href="" class="brand-logo black-text"
-      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
-    >
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
-    </ul>
-
-    <ul id="nav-mobile" class="left">
-      <li>
-        <a class="material-icons" href="first.html"
-          >keyboard_arrow_left</a
-        >
-      </li>
-    </ul>
-    <ul id="nav-mobile" class="right">
-      <li>
-        <a href="page/sass.html"><i class="material-icons">search</i></a>
-      </li>
-    </ul>
-  </div>
-</nav>
-</header>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title></title>
+      <meta charset = "utf-8">
+      <link rel="stylesheet" href="/first.css" />
+      <link rel="stylesheet" type="text/css" href="/nav.css">
+    
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+    
+    
+    
+        
+    <style>
+    @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+      
+    html {
+      height: 100%;
+    }
+    
+    body {
+        width:100%;
+        height:100%;
+        margin: 0;
+        font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+        background-repeat: no-repeat;
+    }
+    
+      .card {
+          margin: 0 auto; /* Added */
+          float: none; /* Added */
+          margin-bottom: 10px; /* Added */
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    
+    .form-signin .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+             box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+    }
+    </style>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body>
+    
+    <header>
+    <nav>
+        <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+    </nav>
+    </header>
 
 <div class ="container" style="margin-bottom: 70px;" align="center">
 <h2 class="card-title text-center" style="color:#113366;">로그인</h2>
@@ -136,22 +102,22 @@ footer > nav {
 
 
 
-<footer class="page-footer" style="background-color:#242424">
 <nav>
   <div class="nav-wrapper">
-    <ul id="nav-mobile" class="center">
-      <li><a class="material-icons" href="first.html">home</a></li>
-      
-      <li><a class="material-icons" href="fav">favorite_border</a></li>
-      <li><a class="material-icons" href="chat">chat</a></li>
-    </ul>
-      <ul id="nav-mobile" class="right">
-         <li><a class="material-icons" href="mypage">account_circle</a></li>
+      <ul id="nav-mobile" class="center">
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html">home</a></li>
+        <li><a class="material-icons" href="fav">favorite_border</a></li>
+        <li><a class="material-icons" href="chat">chat</a></li>
+        <li><a class="material-icons" href="mypage">account_circle</a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
       </ul>
-    </ul>
-  </div>
+    </div>
   </nav>
-</footer>
+  
     
 
   
@@ -183,28 +149,20 @@ response.send(html)
     var html = `
     <!DOCTYPE html>
     <html>
-      <head>
-        <title></title>
-        <meta charset="utf-8" />
-        <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
-        <link rel="stylesheet" type="text/css" href="reset.css" />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous"
-        />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-        />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="first.css">
-        <link rel="stylesheet" type="text/css" href="nav.css">
-        <style>
-          @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+    <head>
+      <title></title>
+      <meta charset = "utf-8">
+      <link rel="stylesheet" href="/first.css" />
+      <link rel="stylesheet" type="text/css" href="/nav.css">
+    
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+  <style>
+  @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
     
           html {
             height: 100%;
@@ -216,14 +174,6 @@ response.send(html)
             margin: 0;
             font-family: "Nanum Gothic", arial, helvetica, sans-serif;
             background-repeat: no-repeat;
-          }
-          header > nav {
-            background: transparent;
-            box-shadow: none;
-          }
-          footer > nav {
-            height: 80px;
-            background-color: #242424;
           }
     
           .card {
@@ -242,38 +192,17 @@ response.send(html)
             padding: 10px;
             font-size: 16px;
           }
-        </style>
-    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      </head>
-      <body>
-      <header>
-      <nav>
-        <div class="nav-wrapper">
-          <a href="" class="brand-logo black-text"
-            ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
-          >
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">JavaScript</a></li>
-          </ul>
-      
-          <ul id="nav-mobile" class="left">
-            <li>
-              <a class="material-icons" href="first.html"
-                >keyboard_arrow_left</a
-              >
-            </li>
-          </ul>
-          <ul id="nav-mobile" class="right">
-            <li>
-              <a href="page/sass.html"><i class="material-icons">search</i></a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      </header>
+  </style>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+  
+  <header>
+  <nav>
+      <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+  </nav>
+  </header>
     
         <div class="container" style="margin-bottom: 70px" align="center">
           <h2 class="card-title text-center" style="color: #113366">회원가입</h2>
@@ -297,22 +226,21 @@ response.send(html)
         <div class="modal"></div>
     
 
-        <footer class="page-footer" style="background-color:#242424">
         <nav>
-          <div class="nav-wrapper">
+        <div class="nav-wrapper">
             <ul id="nav-mobile" class="center">
+              <li><a class="material-icons" href="first.html"></a></li>
+              <li><a class="material-icons" href="first.html"></a></li>
+              <li><a class="material-icons" href="first.html"></a></li>
               <li><a class="material-icons" href="first.html">home</a></li>
-              
               <li><a class="material-icons" href="fav">favorite_border</a></li>
               <li><a class="material-icons" href="chat">chat</a></li>
-            </ul>
-              <ul id="nav-mobile" class="right">
-                 <li><a class="material-icons" href="mypage">account_circle</a></li>
-              </ul>
+              <li><a class="material-icons" href="mypage">account_circle</a></li>
+              <li><a class="material-icons" href="first.html"></a></li>
+              <li><a class="material-icons" href="first.html"></a></li>
             </ul>
           </div>
-          </nav>
-        </footer>
+        </nav>
         <script
           src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
           integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -390,45 +318,62 @@ router.get('/changemyinfo', function (request, response) {
   var title = '정보변경'
 
   var html = `
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-  <meta charset = "utf-8">
-  <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
-  <link rel="stylesheet" type="text/css" href="reset.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <title></title>
+    <meta charset = "utf-8">
+    <link rel="stylesheet" href="/first.css" />
+    <link rel="stylesheet" type="text/css" href="/nav.css">
+  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <link rel="stylesheet" type="text/css" href="first.css">
-    <link rel="stylesheet" type="text/css" href="nav.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
+  
 <style>
-
+@import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
+  
+        html {
+          height: 100%;
+        }
+  
+        body {
+          width: 100%;
+          height: 100%;
+          margin: 0;
+          font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+          background-repeat: no-repeat;
+        }
+  
+        .card {
+          margin: 0 auto; /* Added */
+          float: none; /* Added */
+          margin-bottom: 10px; /* Added */
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+  
+        .form-signin .form-control {
+          position: relative;
+          height: auto;
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          padding: 10px;
+          font-size: 16px;
+        }
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-<div class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper">
-      
-        <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-      
-      <ul id="nav-mobile" class="left">
-        <li><a class="material-icons" href="/mypage">keyboard_arrow_left</a></li>
-      </ul>
-      <ul id="nav-mobile" class="right">
-      <li><a href="page/sass.html"><i class="material-icons">search</i></a></li></ul>
-    </div>
-  </nav>
-  </div>
+
+<header>
+<nav>
+    <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+</nav>
+</header>
 
 <div class ="container" style="margin-bottom: 70px;">
     <h3>정보변경</h3>
@@ -447,17 +392,21 @@ router.get('/changemyinfo', function (request, response) {
   
 
 
-<footer class ="page-footer">
-<div class="navbar-fixed">
 <nav>
-  <div class="nav-wrapper">
+<div class="nav-wrapper">
     <ul id="nav-mobile" class="center">
-      
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="/first.html">home</a></li>
+      <li><a class="material-icons" href="/fav">favorite_border</a></li>
+      <li><a class="material-icons" href="/chat">chat</a></li>
+      <li><a class="material-icons" href="/mypage">account_circle</a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
     </ul>
   </div>
-  </nav>
-  </div>
-</footer>
+</nav>
 
 
 </body>

@@ -26,15 +26,19 @@ module.exports = function (ppassport) {
 <head>
   <title></title>
   <meta charset = "utf-8">
-  <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
-  <link rel="stylesheet" type="text/css" href="reset.css">
-  <link rel="stylesheet" type="text/css" href="first.css">
+  <link rel="stylesheet" href="/first.css" />
+  <link rel="stylesheet" type="text/css" href="/nav.css">
+
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+
+
+
+    
 <style>
 @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 	
@@ -72,18 +76,11 @@ body {
 </head>
 <body>
 
-  <nav>
-    <div class="nav-wrapper">
-      
-        <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-      
-      <ul id="nav-mobile" class="left">
-        <li><a class="material-icons" href="/pmypage">keyboard_arrow_left</a></li>
-      </ul>
-      <ul id="nav-mobile" class="right">
-      <li><a href=""><i class="material-icons">search</i></a></li></ul>
-    </div>
-  </nav>
+<header>
+<nav>
+    <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+</nav>
+</header>
 
 <div class ="container" style="margin-bottom: 70px;" align="center">
 <h2 class="card-title text-center" style="color:#113366;">로그인</h2>
@@ -105,10 +102,15 @@ body {
   <nav>
     <div class="nav-wrapper">
       <ul id="nav-mobile" class="center">
-        <li><a class="material-icons" href="first.html">home</a></li>
-        <li><a class="material-icons" href="fav">favorite_border</a></li>
-        <li><a class="material-icons" href="chat/chat.html">chat</a></li>
-        <li><a class="material-icons" href="pmypage">account_circle</a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html">home</a></li>
+      <li><a class="material-icons" href="fav">favorite_border</a></li>
+      <li><a class="material-icons" href="chat">chat</a></li>
+      <li><a class="material-icons" href="mypage">account_circle</a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
       </ul>
     </div>
     </nav>
@@ -142,27 +144,19 @@ body {
     var title = '회원가입'
 
     var html = `
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <title></title>
-    <meta charset = "utf-8">
-    <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0"> -->
-    <link rel="stylesheet" type="text/css" href="reset.css" />
-        <link rel="stylesheet" type="text/css" href="first.css" />
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link
-          rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-          crossorigin="anonymous"
-        />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-        />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title></title>
+      <meta charset = "utf-8">
+      <link rel="stylesheet" href="/first.css" />
+      <link rel="stylesheet" type="text/css" href="/nav.css">
+    
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     
   <style>
   @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
@@ -201,18 +195,11 @@ body {
   </head>
   <body>
   
-    <nav>
-      <div class="nav-wrapper">
-        
-          <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
-        
-        <ul id="nav-mobile" class="left">
-          <li><a class="material-icons" href="/pmypage">keyboard_arrow_left</a></li>
-        </ul>
-        <ul id="nav-mobile" class="right">
-        <li><a href="page/sass.html"><i class="material-icons">search</i></a></li></ul>
-      </div>
-    </nav>
+  <header>
+  <nav>
+      <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+  </nav>
+  </header>
   
   <div class ="container" style="margin-bottom: 70px;">
   <h2 class="card-title text-center" style="color: #113366">작가등록</h2>
@@ -237,18 +224,22 @@ body {
           </div>
         </div>
 
-  <footer class ="page-footer">
-  <nav>
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="center">
-        <li><a class="material-icons" href="first.html">home</a></li>
-        <li><a class="material-icons" href="fav">favorite_border</a></li>
-        <li><a class="material-icons" href="chat/chat.html">chat</a></li>
-        <li><a class="material-icons" href="pmypage">account_circle</a></li>
-      </ul>
-    </div>
-    </nav>
-  </footer>
+        <nav>
+        <div class="nav-wrapper">
+            <ul id="nav-mobile" class="center">
+              <li><a class="material-icons" href="first.html"></a></li>
+              <li><a class="material-icons" href="first.html"></a></li>
+              <li><a class="material-icons" href="first.html"></a></li>
+              <li><a class="material-icons" href="first.html">home</a></li>
+              <li><a class="material-icons" href="fav">favorite_border</a></li>
+              <li><a class="material-icons" href="chat">chat</a></li>
+              <li><a class="material-icons" href="mypage">account_circle</a></li>
+              <li><a class="material-icons" href="first.html"></a></li>
+              <li><a class="material-icons" href="first.html"></a></li>
+            </ul>
+          </div>
+        </nav>
+        
 
  
 </body>
@@ -278,7 +269,7 @@ body {
       //db에 삽입해주는 쿼리
       db2.query(
 
-        `INSERT INTO photographer (name, email, password, phone, camera, sns)  VALUES(?,?,?,?,?,?)
+        `INSERT INTO customer (name, email, password, phonenum, camera, sns)  VALUES(?,?,?,?,?,?)
 
 `,
         [post.name, post.email, post.pwd, post.phone, post.camera, post.sns],

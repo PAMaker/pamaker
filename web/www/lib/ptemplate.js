@@ -34,29 +34,7 @@ module.exports = {
 <body>
 <header>
 <nav>
-  <div class="nav-wrapper">
-    <a href="" class="brand-logo black-text"
-      ><img src="logo.png" style="width: 80px" alt="" />22세기 사진관</a
-    >
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">JavaScript</a></li>
-    </ul>
-
-    <ul id="nav-mobile" class="left">
-      <li>
-        <a class="material-icons" href="first.html"
-          >keyboard_arrow_left</a
-        >
-      </li>
-    </ul>
-    <ul id="nav-mobile" class="right">
-      <li>
-        <a href="page/sass.html"><i class="material-icons">search</i></a>
-      </li>
-    </ul>
-  </div>
+    <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
 </nav>
 </header>
 
@@ -77,20 +55,21 @@ module.exports = {
 </header>
 
 
-  
-  <nav>
-    <div class="nav-wrapper">
+<nav>
+  <div class="nav-wrapper">
       <ul id="nav-mobile" class="center">
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
         <li><a class="material-icons" href="first.html">home</a></li>
         <li><a class="material-icons" href="fav">favorite_border</a></li>
-        <li><a class="material-icons" href="pchat">chat</a></li>
-      </ul>
-        <ul id="nav-mobile" class="right">
-           <li><a class="material-icons" href="pmypage">account_circle</a></li>
-        </ul>
+        <li><a class="material-icons" href="/pchat">chat</a></li>
+        <li><a class="material-icons" href="mypage">account_circle</a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
       </ul>
     </div>
-    </nav>
+  </nav>
     </div>
 
 
