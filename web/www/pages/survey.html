@@ -1,0 +1,71 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: ffcd4a;
+        background-repeat: no-repeat;
+        background-image: url('survey.png');
+      }
+      h6 {
+        font-weight: bold;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
+    />
+  </head>
+  <body>
+    <div style="margin-top: 200px; margin-left: 100px">
+      <form action="#">
+        <h6>Q1. 농도 100% 쨍한 원색 VS 파스텔 색</h6>
+        <label>
+          <input name="group1" type="radio" />
+          <span>원색</span>
+        </label>
+        <label>
+          <input name="group1" type="radio" />
+          <span>파스텔 색</span>
+        </label>
+        <br /><br /><br />
+        <h6>Q2. 무채색이 다른 색보다 더 잘 어울린다.</h6>
+        <label>
+          <input name="group2" type="radio" />
+          <span>Yes</span>
+        </label>
+        <label>
+          <input name="group2" type="radio" />
+          <span>No</span>
+        </label>
+        <br /><br /><br />
+        <h6>Q3. 형광색이 다른 색보다 더 잘 어울린다.</h6>
+        <label>
+          <input name="group1" type="radio" />
+          <span>Yes</span>
+        </label>
+        <label>
+          <input name="group1" type="radio" />
+          <span>No</span>
+        </label>
+        <br /><br /><br />
+      </form>
+    </div>
+
+    <a
+      class="waves-effect waves-light btn-large grey darken-3"
+      style="margin-left: 20%"
+      href="survey_result.html"
+      >결과 보기</a
+    >
+  </body>
+  <script src="jquery-3.5.1.min.js"></script>
+  <!-- <script>
+    $(document).ready(function () {
+      $('.modal').modal()
+    })
+  </script> -->
+  <!-- <script src="survey.js"></script> -->
+</html>
