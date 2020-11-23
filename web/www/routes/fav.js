@@ -51,7 +51,7 @@ router.get('/', function (request, response) {
                   <ul class="collection">
                       <li class="collection-item avatar">
                       <h5>${title}</h5>
-                        <img src="1.jpg" style="width: auto; height: 500px;">
+                        <img src="main2.jpg" style="width: auto; height: 500px; padding-right:80px">
                         
                         </p>
           
