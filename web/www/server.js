@@ -26,14 +26,14 @@ const db2 = require('./lib/db2')
 const pauth = require('./lib/pauth')
 var formidable = require('formidable')
 var url = require('url');
-const cors = require('cors');
-//cors 허용
-app.use(cors({ 
-  origin(origin, callback) {
-    callback(null, true)
-  },
-  credentials : true 
-}));
+
+//헤더 푸터 고정->csp 정책때매 안됨,, meta태크 추가해줘도 안됨
+// app.use('/static', express.static(path.join(__dirname, 'public')));
+
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'public','html','index2.html'));
+// });
+
 
 //application/json 형태의 데이터 req.body에 저장
 app.use(express.json());
@@ -50,6 +50,11 @@ app.use(express.static('lib'))
 app.use(express.static('static/html'))
 app.use(express.static('static/js'))
 app.use(express.static('static'))
+
+
+
+
+
 
 ///세션 인증
 const session = require('express-session')
@@ -120,8 +125,8 @@ app.use('/pchat', chatRouter)
 var pbRouter = require('./routes/photoobucket')
 app.use('/photoobucket', pbRouter)
 
-// var googlemapRouter = require('./routes/map')
-// app.use('/map', googlemapRouter)
+var portRouter = require('./routes/portfolio')
+app.use('/portfolio', portRouter)
 
 const formatMessage = require('./util/messages')
 const {
@@ -132,73 +137,73 @@ const {
 } = require('./util/users')
 
 // 실시간 지도 (realtime-map.html)
-let markers = []
-let userName = ''
+// let markers = []
+// let userName = ''
 
-io.on('connection', function (socket) {
-  //클라이언트의 위치 정보를 받으면
-  socket.on('location', function (location) {
-    // addMarker(currentUser, location)
+// io.on('connection', function (socket) {
+//   //클라이언트의 위치 정보를 받으면
+//   socket.on('location', function (location) {
+//     // addMarker(currentUser, location)
 
-    console.log(markers)
+//     console.log(markers)
 
-    let idx 
-    for (idx=0; idx<markers.length; idx++){
-      if (markers[idx][0] == currentUser.email){
-        break
-      }
-    }
-    //이미 해당 유저 위치 정보가 수집되고 있는 경우 --> 정보를 갱신
-    if (idx < markers.length-1) { 
-        console.log('already exists!')
-        markers[idx] = [
-          currentUser.email,
-          userName,
-          location.latitude,
-          location.longitude,
-        ]
-    }
-    //새로운 유저의 위치 정보가 수집되는 경우 --> 정보를 추가
-    else {
-      console.log('new!')
-      console.log('add: ' + location.latitude + ', ' + location.longitude)
+//     let idx 
+//     for (idx=0; idx<markers.length; idx++){
+//       if (markers[idx][0] == currentUser.email){
+//         break
+//       }
+//     }
+//     //이미 해당 유저 위치 정보가 수집되고 있는 경우 --> 정보를 갱신
+//     if (idx < markers.length-1) { 
+//         console.log('already exists!')
+//         markers[idx] = [
+//           currentUser.email,
+//           userName,
+//           location.latitude,
+//           location.longitude,
+//         ]
+//     }
+//     //새로운 유저의 위치 정보가 수집되는 경우 --> 정보를 추가
+//     else {
+//       console.log('new!')
+//       console.log('add: ' + location.latitude + ', ' + location.longitude)
 
-      // email값으로 db에서 name 검색
-      db2.query(
-        `SELECT name FROM photographer WHERE email=?`,
-        [currentUser.email],
-        function (error, name) {
-          if (error) {
-            throw error
-          }
-          console.log(name[0].name)
-          userName = name[0].name
-        }
-      )
-      // 추가
-      markers.push([
-        currentUser.email,
-        userName,
-        location.latitude,
-        location.longitude,
-      ])
-    }
+//       // email값으로 db에서 name 검색
+//       db2.query(
+//         `SELECT name FROM photographer WHERE email=?`,
+//         [currentUser.email],
+//         function (error, name) {
+//           if (error) {
+//             throw error
+//           }
+//           console.log(name[0].name)
+//           userName = name[0].name
+//         }
+//       )
+//       // 추가
+//       markers.push([
+//         currentUser.email,
+//         userName,
+//         location.latitude,
+//         location.longitude,
+//       ])
+//     }
 
 
-    // markers 전송
-    io.emit('markers', markers)
-    // io.emit('currentUser', currentUser.email)
-  })
+//     // markers 전송
+//     io.emit('markers', markers)
+//     // io.emit('currentUser', currentUser.email)
+//   })
 
-  socket.on('forceDisconnect', function () {
-    socket.disconnect()
-  })
+//   socket.on('forceDisconnect', function () {
+//     socket.disconnect()
+//   })
 
-  socket.on('disconnect', function () {
-    console.log('user disconnected: ' + socket.name)
-    markers.pop()
-  })
-})
+//   socket.on('disconnect', function () {
+//     console.log('user disconnected: ' + socket.name)
+//     markers.pop()
+//   })
+// })
 
 // 마커를 추가하는 함수
 // function addMarker(currentUser, location) {
@@ -426,6 +431,10 @@ app.get('/header.html', function (request, response) {
 app.get('/footer.html', function (request, response) {
   //요청을 받으면
   response.sendFile(path.join(__dirname + '/footer.html')) //이렇게 응답해준다
+})
+
+app.get('/getready.html', function (request, response) {
+  response.sendFile(path.join(__dirname + 'pages/getready.html'))
 })
 
 app.get('/second.html', function (request, response) {
