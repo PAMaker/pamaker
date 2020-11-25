@@ -178,6 +178,7 @@ router.get('/update',function(request,response){
             </p><br>
 
               <input type="submit" class ="waves-effect waves-light btn main_btn" value="수정하기">
+              <div class="col"><a href="/ser" class ="waves-effect waves-light btn main_btn"> ◁&nbsp;&nbsp;뒤로가기</a></div>
             </p>
           </form>
             `,
