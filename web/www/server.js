@@ -333,7 +333,7 @@ io.on('connection', (socket) => {
           'UPDATE chatroom SET pname=? WHERE pid=?',
           [Pname,pname],
           function (error, result) {
-            response.end()
+            
           }
         )
       }
