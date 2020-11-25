@@ -11,10 +11,10 @@ exports.home = function (request, response) {
 
       var description = ''
 
-      console.log(topic) //해당 이메일을 가진 작가의 서비스 테이블만 나옴
-      console.log(topic[0].maindesc)
-      console.log(topic[0].sevdesc)
-      console.log(topic[0].price)
+      // console.log(topic) //해당 이메일을 가진 작가의 서비스 테이블만 나옴
+      // console.log(topic[0].maindesc)
+      // console.log(topic[0].sevdesc)
+      // console.log(topic[0].price)
 
       var plist =
         '<table class="css-serial"><thead><tr><th>No.</th><th>제목</th></tr></thead><tbody>'

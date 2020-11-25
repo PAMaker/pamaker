@@ -36,14 +36,15 @@ router.get('/',function(request,response){
           throw error;
         }
         db2.query(`SELECT * FROM photographer WHERE email=?`,[request.user.email],function(error2,ptopic){
+          db2.query(`SELECT * FROM photographer WHERE id=?`,[queryData.id],function(error2,ptopic){
           if(error2){
             throw error2;
           }
      console.log(ptopic); 
      var maindesc = ptopic[0].maindesc;
      var sevdesc = ptopic[0].sevdesc;
-     var price = ptopic[0].topic;
-
+     var price = ptopic[0].price;
+    
      var html = template2.HTML(
       ``,
       ``,
@@ -85,7 +86,7 @@ router.get('/',function(request,response){
       
         response.send(html);
       });
-      
+    });
       });
 
 
@@ -108,16 +109,14 @@ router.get('/create',function(request,response){
         var html = template2.HTML(title, '',
           ` <form action="/ser/create_process" method="post">
           <p>제목<input type="text" name="maindesc" placeholder="maindesc"></p>
-          <p>컨셉(개인,커플,가족,애견 중 택1)<input type="text" name="concept" placeholder="concept"></p>
           <p>가격정보<input type="text" name="price" placeholder="price"></p>
           <p>
             세부 내용(20자 이상)<textarea name="sevdesc" placeholder="sevdesc" style="height: 200px;"></textarea>
           </p>
           <p><input type="submit" class ="waves-effect waves-light btn main_btn" value="등록"></p>
         </form>
-        
         `,
-          ``
+          '',''
           );
 
         //response.writeHead(200);//서버가 정상 처리하여 응답한 경우
@@ -138,9 +137,9 @@ router.post('/create_process',function(request,response){
   console.log(post.maindesc);
   console.log(email);
   db2.query(`
-  INSERT INTO photographer (email,maindesc,sevdesc,price,concept) 
-    VALUES(?,?,?,?,?)`,
-  [email,post.maindesc,post.sevdesc,post.price,post.concept], 
+  INSERT INTO photographer (email,maindesc,sevdesc,price) 
+    VALUES(?,?,?,?)`,
+  [email,post.maindesc,post.sevdesc,post.price], 
   function(error, result){
     if(error){
       throw error;
@@ -171,11 +170,11 @@ router.get('/update',function(request,response){
             `
             <form action="/ser/update_process" method="post">
             <input type="hidden" name="id" value="${ptopic[0].id}">
-            <p>제목<input type="text" name="title" placeholder="title" value="${ptopic[0].maindesc}" style="color:gray;"></p>
-            <p>가격<input type="text" name="title" placeholder="title" value="${ptopic[0].price}" style="color:gray;"></p>
+            <p>제목<input type="text" name="maindesc" placeholder="maindesc" value="${ptopic[0].maindesc}" style="color:gray;"></p>
+            <p>가격<input type="text" name="price" placeholder="price" value="${ptopic[0].price}" style="color:gray;"></p>
             <p>세부설명</p>
             <p>
-              <textarea name="description" placeholder="description" style="height:200px;">${ptopic[0].sevdesc}</textarea>
+              <textarea name="sevdesc" placeholder="sevdesc" style="height:200px;">${ptopic[0].sevdesc}</textarea>
             </p><br>
 
               <input type="submit" class ="waves-effect waves-light btn main_btn" value="수정하기">
@@ -191,7 +190,7 @@ router.get('/update',function(request,response){
 
 // });
 
-///id 값으로 url 에 나타내줘서 그거보고 db에서 처리할수 있도록 하고있네...
+
 router.post('/update_process',function(request,response){
   var post = request.body;
     //request.on('end', function(){

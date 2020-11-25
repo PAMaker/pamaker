@@ -16,24 +16,24 @@ router.get('/s3', function(req, res){
 router.get('/upload', function(req, res){
     var output = `
     <!DOCTYPE html>
-      <html>
-      <head>
-        <title></title>
-        <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
-        
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-		<link rel="stylesheet" type="text/css" href="first.css">
-        <link rel="stylesheet" type="text/css" href="nav.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <div class="title">
+    <html>
+    <head>
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
+    <link rel="stylesheet" type="text/css" href="reset.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
 
-</div>
-<div></div>
-<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<style>
-html,body{
+     <link rel="stylesheet" href="gallery.css">
+     <link rel="stylesheet" href="calendar.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  
+      <link rel="stylesheet" type="text/css" href="/first.css">
+      <link rel="stylesheet" type="text/css" href="/nav.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <style>
+  html,body{
     width:100%;
     height:100%;
   }
@@ -42,12 +42,17 @@ html,body{
     height:100%;
     padding-top:200px;
   }
-
-</style>
+  </style>
 </head>
 <body>
 
 
+<header>
+<nav>
+<a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+</nav>
+</header>
+  
 
 	
 <div class="file-upload">
@@ -72,6 +77,21 @@ html,body{
 
 </form>
 
+<nav>
+<div class="nav-wrapper">
+    <ul id="nav-mobile" class="center">
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html">home</a></li>
+      <li><a class="material-icons" href="fav">favorite_border</a></li>
+      <li><a class="material-icons" href="/pchat">chat</a></li>
+      <li><a class="material-icons" href="mypage">account_circle</a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+      <li><a class="material-icons" href="first.html"></a></li>
+    </ul>
+  </div>
+</nav>
 	</body></html>
     `;
     res.send(output);
