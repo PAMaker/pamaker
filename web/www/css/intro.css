@@ -8,7 +8,7 @@ header {
   margin: 0;
   padding: 0;
   height: 100%;
-  background-color: rgb(171, 192, 233);
+  /* background-color: rgb(171, 192, 233); */
   /* background: url (catPattern.png) center center fixed no-repeat; */
 }
 
@@ -37,7 +37,7 @@ video {
   font-weight: 800;
 }
 
-.mainImg {
+/* .mainImg {
   position: absolute;
   top: 0;
   left: 0;
@@ -48,7 +48,7 @@ video {
   z-index: -1;
   background-image: url('mainBg.png');
   background-size: 100% auto;
-}
+} */
 
 section {
   padding-top: 4vw;

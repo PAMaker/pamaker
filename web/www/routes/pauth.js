@@ -240,8 +240,6 @@ body {
           </div>
         </nav>
         
-
- 
 </body>
 </html>
   `

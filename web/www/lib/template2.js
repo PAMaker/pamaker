@@ -35,7 +35,7 @@ module.exports = {
 
 <header>
 <nav>
-<a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+<a href="/" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
 </nav>
 </header>
   

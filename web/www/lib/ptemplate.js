@@ -18,6 +18,7 @@ module.exports = {
       
           <link rel="stylesheet" type="text/css" href="first.css">
           <link rel="stylesheet" type="text/css" href="nav.css">
+
           <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
       <style>
       html,body{
@@ -34,7 +35,7 @@ module.exports = {
 <body>
 <header>
 <nav>
-    <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+    <a href="/" class="brand-logo black-text" id="logo"><img src="logo_background.png" style="width: 80px" alt="" /></a>
 </nav>
 </header>
 
@@ -71,9 +72,6 @@ module.exports = {
     </div>
   </nav>
     </div>
-
-
-
 </body>
 </html>
       `
