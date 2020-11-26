@@ -32,11 +32,11 @@ module.exports = {
     </style>
 </head>
 <body>
-<header>
-<nav>
-  <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
-</nav>
-</header>
+  <header>
+    <nav>
+      <a href="/" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+    </nav>
+  </header>
   
      
       <div class="container">
