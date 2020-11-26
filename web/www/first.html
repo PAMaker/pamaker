@@ -4,7 +4,10 @@
     <title></title>
     <meta charset="utf-8" />
     <script src="includeHTML.js"></script>
-    <script type="text/JavaScript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      type="text/JavaScript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -16,9 +19,9 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
 
-   
     <link rel="stylesheet" href="first.css" />
-    <link rel="stylesheet" type="text/css" href="nav.css">
+    <link rel="stylesheet" type="text/css" href="nav.css" />
+    <link rel="stylesheet" href="font.css" />
 
     <style>
       .centered {
@@ -26,7 +29,8 @@
         margin-left: 420px;
       }
 
-      .banner ,.slideshow-container{
+      .banner,
+      .slideshow-container {
         position: relative;
         width: 90%;
         height: 550px;
@@ -34,45 +38,34 @@
         padding: 0;
         overflow: hidden;
       }
-
-      .card-title {
-        margin-top: 20px;
-        text-align: center;
-      }
-      .card{
-        width: 400px;
-        height: 250px;
-        float: left;
-        padding-top: 30px;
-      }
-
     </style>
-
   </head>
 
   <body>
-       
-       <header>
-          <nav>
-              <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
-          </nav>
-      </header>
-  
-<br/>
+    <header>
+      <nav>
+        <a href="" class="brand-logo black-text" id="logo"
+          ><img src="logo_background.png" style="width: 80px" alt=""
+        /></a>
+      </nav>
+    </header>
 
+    <br />
 
     <div class="banner">
       <div class="slideshow-container">
         <div class="mySlides fade">
-          <img src="color_test.png" style="width: 100%; height: auto"/>
+          <a href="survey.html"
+            ><img src="color_test.png" style="width: 100%; height: auto"
+          /></a>
         </div>
 
         <div class="mySlides fade">
-          <img src="photo_review.png" style="width: 100%; height: auto;" />
+          <img src="photo_review.png" style="width: 100%; height: auto" />
         </div>
 
         <div class="mySlides fade">
-          <img src="goods.png" style="width: 100%; height: auto;" />
+          <img src="goods.png" style="width: 100%; height: auto" />
         </div>
       </div>
       <br />
@@ -84,73 +77,59 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <h5 style="text-align: center">지금 바로 서비스를 이용해보세요!</h5>
-        <div class="card">
-            <div class="card-title" style="color: black">
-              작가페이지
-            </div>
-            <div class="card-content">
-              <p>사진 촬영 의뢰를 확인해보세요!</p></br>
-              <a href="pmypage" class="btn-right">
-                바로가기
-                <span class="arrow-right"></span>
-           </a>
-            </div>
-
-        </div>
-
-        <div class="card">
-            <div class="card-title" style="color: black">
-              회원페이지
-            </div>
-            <div class="card-content">
-              <p>원하는 사진을 찍어보아요!</p></br>
-              <a href="second.html" class="btn-right">
-                바로가기
-                <span class="arrow-right"></span>
-           </a>
-            </div>
-        </div>
-      </div>
-
-
-      <div class="row">
-        <div class ="entry">
-          <h3 class="title">
-            사진작가로 활동하기 </br>
-            <a class="waves-effect waves-light btn-large" href="pauth/register">등록하기</a>
-          </h3>
-        </div>
-      </div>
+    <div class="row" style="margin: 50px">
+      <img src="first2.png" style="width: 90%" />
     </div>
-    
 
-      <nav>
-        <div class="nav-wrapper">
-          <ul id="nav-mobile" class="center">
-            <li><a class="material-icons" href="first.html">home</a></li>
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="col s3" style="text-align: center">
+        <a href="pmypage"
+          ><img src="first_icon1.png" alt="" width="250px" />
+          <h6>작가 회원으로 서비스 이용하기</h6></a
+        >
+      </div>
+      <div class="col s3" style="text-align: center">
+        <a href="/mypage"
+          ><img src="first_icon2.png" alt="" width="250px" />
+          <h6>일반 회원으로 서비스 이용하기</h6></a
+        >
+      </div>
+      <div class="col s3"></div>
+    </div>
 
-            <li>
-              <a class="material-icons" href="fav">favorite_border</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+    <div class="row" style="margin-top: 100px">
+      <a href="survey.html"
+        ><img src="first_banner.png" style="width: 100%"
+      /></a>
+    </div>
+    <div class="row">
+      <a href="pauth/register"
+        ><img src="first_banner2.png" style="width: 100%"
+      /></a>
+    </div>
 
+    <nav>
+      <div class="nav-wrapper">
+        <ul id="nav-mobile" class="center">
+          <li><a class="material-icons" href="first.html">home</a></li>
+
+          <li>
+            <a class="material-icons" href="fav">favorite_border</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-
     <script src="slider.js"></script>
+    <script src="navbarLink.js"></script>
   </body>
-<script>
+  <!-- <script>
 includeHTML( function () {
 
 });
-</script>
-  
+</script> -->
 </html>
-

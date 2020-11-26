@@ -35,7 +35,7 @@ module.exports = {
 
 <header>
 <nav>
-<a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+<a href="/" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
 </nav>
 </header>
   
@@ -49,7 +49,7 @@ module.exports = {
         ${body}
   </div>
       
-
+<footer>
   <nav>
   <div class="nav-wrapper">
       <ul id="nav-mobile" class="center">
@@ -65,7 +65,7 @@ module.exports = {
       </ul>
     </div>
   </nav>
-
+</footer>
 
   </body>
   </html>
@@ -106,55 +106,8 @@ module.exports = {
       </div></td>
 
 
-      <td><div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="촬영1팀(2).jpg" style="width:450px; height:300px; overflow: hidden;">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><a href="?id=${topics[i].id}"></a><i class="material-icons right">more_vert</i></span>
-          <p><a href="?id=${topics[i].id}">${topics[i].title}</a></p> 
-        <p id="star_grade">
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        </p>
-        </div>
-
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
-          <p>상세후기${topics[i].maindesc}</p>
-            <div style="position:fixed; bottom:0px; width: auto;"> 
-              <p style="text-align: left;">작성자 : ${topics[i].author}</p>
-              <p style="text-align: left; ">작성시간 : ${topics[i].created}</p>
-            </div>
-        </div>
-      </div></td>
-      <td><div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="촬영1팀(3).jpg" style="width:450px;">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><a href="?id=${topics[i].id}"></a><i class="material-icons right">more_vert</i></span>
-          <p><a href="?id=${topics[i].id}">${topics[i].title}</a></p> 
-        <p id="star_grade">
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        </p>
-        </div>
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
-          <p>상세후기${topics[i].maindesc}</p>
-            <div style="position:fixed; bottom:0px; width: auto;"> 
-              <p style="text-align: left;">작성자 : ${topics[i].author}</p>
-              <p style="text-align: left; ">작성시간 : ${topics[i].created}</p>
-            </div>
-        </div>
-      </div></td>
+      
+     
       </tr></table>
         <!--<tr><td>&nbsp;</td><td><a href="?id=${topics[i].id}">${topics[i].title}</a></td></tr>-->`
       i = i + 1
@@ -178,19 +131,32 @@ module.exports = {
   list1: function (topics) {
     var list2 = '<ul> <div class="col s12 m7">'
     var i = 0
-    while(i<topics.length){
+    while(i<1){
       list2 = 
       list2 + `
       <div class="card horizontal">
         <div class="card-image">
-          <img src="photograper1.jpg" width="200px" height="200px"> 
+          <img src="photographer1.jpg" width="200px" height="200px"> 
         </div>
         <div class="card-stacked">
           <div class="card-content">
-            <p><a>${topics[i].pname}</a></p>
+            <p><a>현근창</a></p>
           </div>
           <div class="card-action">
-            <a href="/chat?id=${topics[i].room}&user=${topics[i].uid}">채팅하기</a>
+            <a href="/chat?id=egoing777@gmail.comdpdls0603@naver.com&user=dpdls0603@naver.com">채팅하기</a>
+          </div>
+        </div>
+      </div>
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="cat1.jpg" width="200px" height="200px"> 
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <p><a>애플주니</a></p>
+          </div>
+          <div class="card-action">
+            <a href="/chat?id=dauern2016@naver.comdpdls0603@naver.com&user=dpdls0603@naver.com">채팅하기</a>
           </div>
         </div>
       </div>

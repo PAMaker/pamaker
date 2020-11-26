@@ -4,7 +4,10 @@
     <title></title>
     <meta charset="utf-8" />
     <script src="includeHTML.js"></script>
-    <script type="text/JavaScript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      type="text/JavaScript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+    ></script>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -16,183 +19,192 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
 
-   
     <link rel="stylesheet" href="first.css" />
-    <link rel="stylesheet" type="text/css" href="nav.css">
+    <link rel="stylesheet" type="text/css" href="nav.css" />
+    <link rel="stylesheet" type="text/css" href="font.css" />
 
     <style>
-#best > img{
-    width: 150px;
-    height: 150px;
-}
+      #best > img {
+        width: 150px;
+        height: 150px;
+      }
 
-.best>.col s4{
-    padding:5px;
-}
-section{
-    background-color: lightslategray;
-}
-
+      .best > .col s4 {
+        padding: 5px;
+      }
+      section {
+        background-color: lightslategray;
+      }
     </style>
-
   </head>
 
   <body>
-       <!--<header include-html="header.html"></header>-->
-       <header>
-          <nav>
-              <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
-          </nav>
-      </header>
-      
-      <div class="row">
-        <div class="col s6 offset-s5">
+    <!--<header include-html="header.html"></header>-->
+    <header>
+      <nav>
+        <a href="" class="brand-logo black-text"
+          ><img src="logo_background.png" style="width: 80px" alt=""
+        /></a>
+      </nav>
+    </header>
+
+    <div class="row">
+      <div class="col s6 offset-s5">
         <h2>GOODS</h2>
-        </div>
+      </div>
     </div>
-        <div class='row'>
-        <div class="col s8 offset-s2">
-          <ul class="tabs">
-            <li class="tab col s3"><a href="#best" >BEST</a></li>
-            <li class="tab col s3"><a href="#digital">디지털/핸드폰</a></li>
-            <li class="tab col s3"><a  href="#photo">사진/앨범</a></li>
-            <li class="tab col s3"><a href="upload.html">배경 합성하기</a></li>
-          </ul>
-        </div>
-        <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!">핸드폰 케이스</a></li>
-            <li><a href="#!">그립톡 </a></li>
-            <li><a href="#!">에어팟 케이스 </a></li>
-          </ul>
-        </div>
-        <!-- <div id="test1" class="col s12">Test 1</div>
+    <div class="row">
+      <div class="col s8 offset-s2">
+        <ul class="tabs">
+          <li class="tab col s3">
+            <a href="#best"><p>BEST</p></a>
+          </li>
+          <li class="tab col s3">
+            <a href="#digital"><p>디지털 / 핸드폰</p></a>
+          </li>
+          <li class="tab col s3">
+            <a href="#photo"><p>사진 / 앨범</p></a>
+          </li>
+          <li class="tab col s3">
+            <a href="upload.html"><p>배경 합성하기</p></a>
+          </li>
+        </ul>
+      </div>
+      <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!">핸드폰 케이스</a></li>
+        <li><a href="#!">그립톡 </a></li>
+        <li><a href="#!">에어팟 케이스 </a></li>
+      </ul>
+    </div>
+    <!-- <div id="test1" class="col s12">Test 1</div>
         <div id="test2" class="col s12">Test 2</div>
         <div id="test3" class="col s12">Test 3</div>
         <div id="test4" class="col s12">Test 4</div> -->
 
     <div class="container">
-        <div class="row" id="best">
-            <h3>BEST</h3>
-            <hr>
-            <div class="col s3">
-                <img src="mong.png" style="width: 250px; height:250px"/>
-                <p>증멍사진</p>
-                <p>9,000원</p>
-            </div>
-            <div class="col s3">
-                <img src="grip.png" style="width: 250px; height:250px"/>
-                <p>그립톡 기본</p>
-                <p>20,000원</p>
-            </div>
-            <div class="col s3">
-                <img src="case1.png" style="width: 250px; height:250px"/>
-                <p>핸드폰 하드 케이스</p>
-                <p>20,000원</p>
-            </div>
-            <div class="col s3">
-                <img src="mong.png" style="width: 250px; height:250px"/>
-                <p>견생사진</p>
-                <p>8,000원</p>
-            </div>
-
+      <div class="row" id="best">
+        <h3>BEST</h3>
+        <hr />
+        <div class="col s3">
+          <img src="mong.png" style="width: 250px; height: 250px" />
+          <p>증멍사진</p>
+          <p>9,000원</p>
         </div>
-        <div class="row" >
-            <div class="col s5" style="padding:100px">
-                <h6>더 멋진 사진으로 나만의 핸드폰케이스를 가지고 싶다면?!</h6>
-                <h5>지금 당장 스냅촬영을 예약하세요!!</h5>
-                <a href="snap1" class="waves-effect waves-light btn">촬영 예약 하기</a>
-            </div>
-            <div class="col s7">
-                <img src="main4.jpg" style="width: 650px;"/>
-            </div>
+        <div class="col s3">
+          <img src="grip.png" style="width: 250px; height: 250px" />
+          <p>그립톡 기본</p>
+          <p>20,000원</p>
         </div>
-<br>
-        <div class="row" id="digital">
+        <div class="col s3">
+          <img src="case1.png" style="width: 250px; height: 250px" />
+          <p>핸드폰 하드 케이스</p>
+          <p>20,000원</p>
+        </div>
+        <div class="col s3">
+          <img src="mong.png" style="width: 250px; height: 250px" />
+          <p>견생사진</p>
+          <p>8,000원</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s5" style="padding: 100px">
+          <h6>더 멋진 사진으로 나만의 핸드폰케이스를 가지고 싶다면?!</h6>
+          <h5>지금 당장 스냅촬영을 예약하세요!!</h5>
+          <a href="snap1" class="waves-effect waves-light btn"
+            >촬영 예약 하기</a
+          >
+        </div>
+        <div class="col s7">
+          <img src="main4.jpg" style="width: 650px" />
+        </div>
+      </div>
+      <br />
+      <div class="row" id="digital">
         <h5>디지털/핸드폰</h5>
         <div class="col s6">
-            <a href="">
-                <img src="hhcase.png" style="width: 600px; height:300px"/>
-                <h5>케이스</h5>
-            </a>
+          <a href="">
+            <img src="hhcase.png" style="width: 600px; height: 300px" />
+            <h5>케이스</h5>
+          </a>
         </div>
         <div class="col s3">
-            <a href="">
-                <img src="grip.png" style="width: 300px; height:300px"/>
-                <h5>그립톡</h5>
-            </a>
+          <a href="">
+            <img src="grip.png" style="width: 300px; height: 300px" />
+            <h5>그립톡</h5>
+          </a>
         </div>
         <div class="col s3">
-            <a href="">
-                <img src="acase.png" style="width: 300px; height:300px"/>
-                <h5>에어팟 케이스</h5>
-            </a>
+          <a href="">
+            <img src="acase.png" style="width: 300px; height: 300px" />
+            <h5>에어팟 케이스</h5>
+          </a>
         </div>
       </div>
-      <br>
+      <br />
       <div class="row" id="photo">
-        <hr>
+        <hr />
         <h4>사진/앨범</h4>
-       
-      <div class="col s3">
-          <a href="">
-              <img src="mong.png" style="width: 300px; height:300px"/>
-              <h5>증멍사진(+원본사진)</h5>
-          </a>
-      </div>
-      <div class="col s6">
-        <a href="">
-            <img src="photobookk.png" style="width: 600px; height:300px"/>
-            <h5>포토북 </h5>
-        </a>
-    </div>
-      <div class="col s3" style="margin-bottom:70px;">
-          <a href="">
-              <img src="mong.png" style="width: 300px; height:300px"/>
-              <h5>견생네컷</h5>
-          </a>
-      </div>
-    </div>
-</div>
-    
-<footer>
-      <nav>
-        <div class="nav-wrapper">
-          <ul id="nav-mobile" class="center">
-            <li><a class="material-icons" href="first.html">home</a></li>
 
-            <li>
-              <a class="material-icons" href="fav">favorite_border</a>
-            </li>
-          </ul>
+        <div class="col s3">
+          <a href="">
+            <img src="mong.png" style="width: 300px; height: 300px" />
+            <h5>증멍사진(+원본사진)</h5>
+          </a>
         </div>
-      </nav>
-    </footer>
+        <div class="col s6">
+          <a href="">
+            <img src="photobookk.png" style="width: 600px; height: 300px" />
+            <h5>포토북</h5>
+          </a>
+        </div>
+        <div class="col s3" style="margin-bottom: 70px">
+          <a href="">
+            <img src="mong.png" style="width: 300px; height: 300px" />
+            <h5>견생네컷</h5>
+          </a>
+        </div>
+      </div>
+    </div>
+<footer>
+<nav>
+  <div class="nav-wrapper">
+      <ul id="nav-mobile" class="center">
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html">home</a></li>
+        <li><a class="material-icons" href="fav">favorite_border</a></li>
+        <li><a class="material-icons" href="chat">chat</a></li>
+        <li><a class="material-icons" href="mypage">account_circle</a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+        <li><a class="material-icons" href="first.html"></a></li>
+      </ul>
+    </div>
+  </nav>
+  </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="slider.js"></script>
+    <script src="navbarLink.js"></script>
   </body>
-<script>
-  var instance = M.Tabs.init(el, options);
+  <script>
+    var instance = M.Tabs.init(el, options)
 
-// Or with jQuery
+    // Or with jQuery
 
-$(document).ready(function(){
-  $('.tabs').tabs();
-});
+    $(document).ready(function () {
+      $('.tabs').tabs()
+    })
 
+    document.addEventListener('DOMContentLoaded', function () {
+      var elems = document.querySelectorAll('.dropdown-trigger')
+      var instances = M.Dropdown.init(elems, options)
+    })
 
-document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.dropdown-trigger');
-    var instances = M.Dropdown.init(elems, options);
-  });
+    // Or with jQuery
 
-  // Or with jQuery
-
-  $('.dropdown-trigger').dropdown();
-        
-</script>
-  
+    $('.dropdown-trigger').dropdown()
+  </script>
 </html>
-

@@ -21,7 +21,7 @@ exports.home = function(request,response){
 
         var photographername = customer[0].pname;
         console.log(photographername);
-        var title = '대화 방을 골라보세요!';
+        var title = '작가님과 대화방';
         var description = '';
         var list1 = template2.list1(customer);//회원정보 리스트로 나열
         var html = template2.HTML(title,``, list1,

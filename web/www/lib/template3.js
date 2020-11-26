@@ -32,11 +32,11 @@ module.exports = {
     </style>
 </head>
 <body>
-<header>
-<nav>
-  <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
-</nav>
-</header>
+  <header>
+    <nav>
+      <a href="/" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+    </nav>
+  </header>
   
      
       <div class="container">
@@ -117,8 +117,8 @@ module.exports = {
       <div class="conatiner" style="margin-top:100px">
         <div class="row">
           <div class="col s12 l4 push-l1">
-            <a>${mainphoto}</a>
-            <img src="${mainphoto}" alt="" class="responsive-img materialboxed"/>
+            <a></a>
+            <img src="photographer1.jpg" alt="" class="responsive-img materialboxed"/>
           </div>
           <div class="col s12 l6 offset-l2 left-align">
             <h4 style="font-weight: 600">${maindesc}</h4>

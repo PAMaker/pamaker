@@ -22,7 +22,7 @@ module.exports = {
             <div class="chat-container">
               <header class="chat-header">
                 <h1><i class="fas fa-smile"></i> 멍칵</h1>
-                <a href="/" class="btn">나가기</a>
+                <a href="/chat" class="btn">채팅방나가기</a>
               </header>
               <main class="chat-main">
                 <div class="chat-sidebar">

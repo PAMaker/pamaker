@@ -19,6 +19,7 @@ module.exports = {
         <link rel="stylesheet" type="text/css" href="first.css">
         <link rel="stylesheet" type="text/css" href="nav.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+       
     <style>
     html,body{
       width:100%;
@@ -34,7 +35,14 @@ module.exports = {
 <body>
 <header>
 <nav>
-  <a href="" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+  <div class="nav-wrapper">
+  <a href="/" class="brand-logo black-text"><img src="logo_background.png" style="width: 80px" alt="" /></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="/snap1">서비스둘러보기</a></li>
+        <li><a href="/goods.html">Goods 판매</a></li>
+        <li><a href="/"></a></li>
+      </ul>
+    </div>
 </nav>
 </header>
 
@@ -156,6 +164,6 @@ module.exports = {
 
 </body>
 </html>
-      `;
-    }
-  }
+      `
+    },
+}

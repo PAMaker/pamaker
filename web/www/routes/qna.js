@@ -41,7 +41,8 @@ router.get('/question', function (request, response) {
           </tr> 
         </table>
         <p>
-          <input type="submit">
+          <input type="submit" class ="waves-effect waves-light btn main_btn" value="제출하기">
+          <div class="col"><a href="/mypage" class ="waves-effect waves-light btn main_btn"> ◁&nbsp;&nbsp;뒤로가기</a></div>
         </p>
       </form>
     `,list2,body
