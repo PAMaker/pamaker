@@ -51,7 +51,7 @@ router.get('/',function(request,response){
 
           var list = template3.list(topic);
           var control = template3.control(mainphoto,maindesc,sevdesc,price,photographer,customer); // 사용자의 id db에서 가져오기
-          var html = template3.HTML('',control);
+          var html = template3.HTML('','',control);
           
             response.send(html);
           });

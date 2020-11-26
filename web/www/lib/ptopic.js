@@ -11,10 +11,10 @@ exports.home = function (request, response) {
 
       var description = ''
 
-      console.log(topic) //해당 이메일을 가진 작가의 서비스 테이블만 나옴
-      console.log(topic[0].maindesc)
-      console.log(topic[0].sevdesc)
-      console.log(topic[0].price)
+      // console.log(topic) //해당 이메일을 가진 작가의 서비스 테이블만 나옴
+      // console.log(topic[0].maindesc)
+      // console.log(topic[0].sevdesc)
+      // console.log(topic[0].price)
 
       var plist =
         '<table class="css-serial"><thead><tr><th>No.</th><th>제목</th></tr></thead><tbody>'
@@ -31,8 +31,9 @@ exports.home = function (request, response) {
         title,
         plist,
         `<hr><p>${description}</p><br>`,
-        `<a class="waves-effect waves-light btn main_btn" href="/ser/create" style="margin-bottom:80px ;">등록하기</a>
-          <a class="waves-effect waves-light btn main_btn" href="photoobucket/upload" style="margin-bottom:80px ;">사진업로드</a>
+        `<a class="waves-effect waves-light btn main_btn" href="/ser/create" style="margin-bottom:40px ;">등록하기</a>
+          <a class="waves-effect waves-light btn main_btn" href="photoobucket/upload" style="margin-bottom:40px ;">사진업로드</a>
+          <div class="col"><a href="/pmypage" class ="waves-effect waves-light btn main_btn"> ◁&nbsp;&nbsp;뒤로가기</a></div>
           `,``
       )
 

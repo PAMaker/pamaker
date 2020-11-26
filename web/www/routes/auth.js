@@ -323,7 +323,7 @@ router.get('/changemyinfo', function (request, response) {
   <head>
     <title></title>
     <meta charset = "utf-8">
-    <link rel="stylesheet" href="/first.css" />
+    <link rel="stylesheet" type="text/css" href="/first.css">
     <link rel="stylesheet" type="text/css" href="/nav.css">
   
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -363,6 +363,11 @@ router.get('/changemyinfo', function (request, response) {
           padding: 10px;
           font-size: 16px;
         }
+        
+        .btn {
+            background-color: rgb(58, 58, 58);
+        }
+
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -384,7 +389,8 @@ router.get('/changemyinfo', function (request, response) {
   <p><input type="password" name="pwd" placeholder="pwd" value=""></p>
   <p><input type="password" name="pwd2" placeholder="pwd2" value=""></p>
   <p>
-    <input type="submit" value="변경">
+  <input type="submit" class ="waves-effect waves-light btn main_btn" value="변경하기">
+  <div class="col"><a href="/mypage" class ="waves-effect waves-light btn main_btn"> ◁&nbsp;&nbsp;뒤로가기</a></div>
   </p>
 
 </form>
@@ -420,6 +426,7 @@ router.get('/changemyinfo', function (request, response) {
 router.post('/changemyinfo_process', function (request, response) {
   var post = request.body
   var email = post.email
+  var name = post.name
   var pwd = post.pwd
   var pwd2 = post.pwd2
   mail = request.user.email
@@ -431,7 +438,7 @@ router.post('/changemyinfo_process', function (request, response) {
     //db에 삽입해주는 쿼리
     db2.query(
       'UPDATE customer SET name=?, email=?, password=? WHERE email=?',
-      [post.name, post.email, post.password, request.user.email],
+      [name, email, pwd, request.user.email],
       function (error, result) {
         response.end()
       }
@@ -441,27 +448,3 @@ router.post('/changemyinfo_process', function (request, response) {
   return response.redirect('/mypage')
 })
 
-// router.post('/changemyinfo_process', function (request, response) {
-//   var post = request.body
-//   var name = post.name;
-//   var email = post.email;
-//   var pwd = post.pwd
-//   var pwd2 = post.pwd2
-//   if (pwd !== pwd2) {
-//     request.flash('error', 'Password must same!')
-//     response.redirect('/auth/changemyinfo')
-//   } else {
-//     //db에 변경해주는 쿼리
-//     var sql =
-//        db.query(`SELECT * FROM topic LEFT JOIN author ON topic.author_id=author.id WHERE topic.id=?`,[queryData.id], function(error2, topic){
-
-//     db2.query(sql, [name,email,pwd], function (
-//       err,
-//       rows
-//     ) {
-//       if (err) console.log('err : ' + err)
-//       console.log(rows)
-//       return response.redirect('/mypage')
-//     })
-//   }
-// })

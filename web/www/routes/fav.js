@@ -40,9 +40,11 @@ router.get('/', function (request, response) {
             console.log(topic)
             var title = topic[0].title //topic 테이블에서 가져옴
             var description = topic[0].description //topic 테이블에서 가져옴
+            var author = topic[0].author //topic 테이블에서 가져옴
+            var created = topic[0].created //topic 테이블에서 가져옴
             var list = template2.list(topic)
             var html = template2.HTML(
-              `후기`,
+              `스냅 후기`,
               ``,
               `
               <div class="row" id="content">
@@ -51,8 +53,10 @@ router.get('/', function (request, response) {
                   <ul class="collection">
                       <li class="collection-item avatar">
                       <h5>${title}</h5>
-                        <img src="main2.jpg" style="width: auto; height: 500px; padding-right:80px">
-                        
+                        <img src="후기 (1).jpg" style="width: auto; height: 500px; padding-right:80px">
+                        <img src="후기 (2).jpg" style="width: auto; height: 500px; padding-right:80px">
+                        <img src="후기 (3).jpg" style="width: auto; height: 500px; padding-right:80px">
+                        <img src="후기 (4).jpg" style="width: auto; height: 500px; padding-right:80px">
                         </p>
           
                       </li>
@@ -89,9 +93,9 @@ router.get('/', function (request, response) {
               <div class="col s3">
               <br>
               <br>
-                  <p>작성자 :${topic[0].name}</p>
+                  <p>작성자 :${author}</p>
                   <hr>
-                  <p>작성시간 :${topic[0].created}</p>
+                  <p>작성시간 :${created}</p>
               </div>
           </div>`
             )
