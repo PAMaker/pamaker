@@ -127,7 +127,10 @@ function renderCalendar(m, y) {
   let r_pm = d_pm - firstDay + 1
   //eventsToday 가 json 에 있는지 확인
       let storedEvents = JSON.parse(localStorage.getItem('events'));
-      //console.log(storedEvents.length);
+      if(storedEvents == undefined){
+        localStorage.setItem('events','[]')
+      }
+      console.log(storedEvents.length); 
       var arrNumber = new Array();//배열
       for(var i = 0;i<storedEvents.length;i++){
         arrNumber[i] = storedEvents[i].eventDate;
