@@ -72,49 +72,74 @@ module.exports = {
       `
   },
   list: function (topics) {
-    var list =
-      '<nav style="background-color: #a8a4a4;"><div class="nav-wrapper"><ul class="left hide-on-med-and-down"><li><a href="#">photo</a></li><li><a href="badges.html">phone case</a></li><li class="active"><a href="collapsible.html">grip tok</a></li></ul></div></nav>'
+    var bestList ='<h5>Best 후기</h5> <div class="row">'
+    var photoList ='<h5>포토후기</h5> <div class="row">'
+    var textList ='<h5>일반후기</h5><div><ul class="collection">'
+    var reviewElements = ``
     var i = 0
     while (i < topics.length) {
-      list =
-        list +
-        `<table><tr>
-        <td><div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="촬영1팀(1).jpg" style="width:450px;">
-        </div>
-        <div class="card-content">
-          <span class="card-title activator grey-text text-darken-4"><a href="?id=${topics[i].id}"></a><i class="material-icons right">more_vert</i></span>
-          <p><a href="?id=${topics[i].id}">${topics[i].title}</a></p> 
-        <p id="star_grade">
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        <a href="#">★</a>
-        </p>
-        </div>
-        
-        <div class="card-reveal">
-          <span class="card-title grey-text text-darken-4">${topics[i].title}<i class="material-icons right">close</i></span>
-          <p>상세후기${topics[i].maindesc}</p>
-            <div style="position:fixed; bottom:0px; width: auto;"> 
-              <p style="text-align: left;">작성자 : ${topics[i].author}</p>
-              <p style="text-align: left; ">작성시간 : ${topics[i].created}</p>
+      if (topics[i].photo == 'y') {
+        reviewElements = `
+        <div class="col s12 m6 l4">
+          <div class="card" style="width:300px">
+            <div class="card-image">
+              <img src="촬영1팀(1).jpg">
+              <span class="card-title"><h5>${topics[i].title}</h5><h6>★★★★★</h6></span>
+              <a class="btn-floating halfway-fab waves-effect waves-light black" href="?id=${topics[i].id}"><i class="material-icons">search</i></a>
             </div>
+            <div class="card-content">
+            <p style="font-size:small"><span style="font-weight:bold">작성자&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>${topics[i].author}</p>
+            <p style="font-size:small"><span style="font-weight:bold">촬영 작가&nbsp&nbsp</span>작가1</p>
+            </div>
+          </div>
         </div>
-      </div></td>
-
-
-      
-     
-      </tr></table>
-        <!--<tr><td>&nbsp;</td><td><a href="?id=${topics[i].id}">${topics[i].title}</a></td></tr>-->`
-      i = i + 1
+      `
+      photoList = photoList + reviewElements
     }
-    list = list + '</tbody></table>'
-    return list
+      else {
+        reviewElements = `
+        <li class="collection-item avatar">
+          <span class="title">${topics[i].title}</span>
+          <p style="font-size:small; text-align:right; margin-right: 100px"><span style="font-weight:bold">작성자&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>${topics[i].author} <br>
+          <span style="font-weight:bold">촬영 작가&nbsp&nbsp</span>작가1
+          </p>
+          <a href="#!" class="secondary-content"><i class="material-icons">search</i></a>
+        </li>
+                
+        `
+      //   reviewElements = `
+      //   <div class="row">
+      //   <div class="col s12 m6">
+      //     <div class="card" style="width:300px">
+      //       <div class="card-image">
+      //         <img src="촬영1팀(1).jpg">
+      //         <span class="card-title"><h5>${topics[i].title}</h5><h6>★★★★★</h6></span>
+      //         <a class="btn-floating halfway-fab waves-effect waves-light black" href="?id=${topics[i].id}"><i class="material-icons">search</i></a>
+      //       </div>
+      //       <div class="card-content">
+      //       <p style="font-size:small"><span style="font-weight:bold">작성자&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span>${topics[i].author}</p>
+      //       <p style="font-size:small"><span style="font-weight:bold">촬영 작가&nbsp&nbsp</span>작가1</p>
+      //       </div>
+      //     </div>
+          
+      //   </div>
+      // </div>
+
+      //   `
+        textList = textList + reviewElements
+      }
+      if (topics[i].best == 'y') {
+        bestList = bestList + reviewElements
+      }
+      i = i + 1
+    } 
+    bestList = bestList + '</div>'
+    photoList = photoList + '</div>'
+    textList = textList + '</ul></div>'
+
+    return bestList + photoList + textList
   },
+
   plist: function (topic) {
     var plist =
       '<table class="css-serial"><thead><tr><th>No.</th><th>제목</th></tr></thead><tbody>'
@@ -134,6 +159,7 @@ module.exports = {
     while(i<1){
       list2 = 
       list2 + `
+      
       <div class="card horizontal">
         <div class="card-image">
           <img src="photographer1.jpg" width="200px" height="200px"> 
