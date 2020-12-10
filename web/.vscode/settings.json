@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "askForPassword": true,
+            "database": "management_tutorial",
+            "driver": "MySQL",
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "name": "managements",
+            "port": 3306,
+            "previewLimit": 50,
+            "server": "localhost",
+            "username": "user"
+        }
+    ]
+}

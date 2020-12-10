@@ -1,0 +1,4 @@
+node_modules
+/awsconfig.json
+/db2.json
+/database.json

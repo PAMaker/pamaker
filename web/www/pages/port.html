@@ -1,0 +1,299 @@
+  <!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
+  <link rel="stylesheet" type="text/css" href="css/reset.css">
+  <link rel="stylesheet" type="text/css" href="css/first.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<style>
+html,body{
+  width:100%;
+  height:100%;
+}
+#main_wrap{
+  width: 100%;
+  height:100%;
+  padding-top:200px;
+}
+
+.main_btn{
+  display: block !important;
+  width:150px;
+  height:40px;
+  line-height: 40px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo center"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      <ul id="nav-mobile" class="left">
+        <li><a class="material-icons" href="first.html">keyboard_arrow_left</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right">
+      <li><a href="sass.html"><i class="material-icons">search</i></a></li></ul>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+  <!-- album -->
+  <div class="container" style="align-items: center;">
+  <h4>Portfolio</h4>
+<ul>
+  <li>
+    <div class="album-item">
+      <div class="album-cover"></div>
+      <div class="album-info">
+        <p class="album-title">앨범1</p>
+        <p class="album-date">2017.02.16.</p>
+      </div>
+    </div>
+    
+  </li>
+  <li>
+    <div class="album-item">
+      <div class="album-cover"></div>
+      <div class="album-info">
+        <p class="album-title">앨범2</p>
+        <p class="album-date">2017.02.16.</p>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="album-item">
+      <div class="album-cover"></div>
+      <div class="album-info">
+        <p class="album-title">앨범3</p>
+        <p class="album-date">2017.02.16.</p>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="album-item">
+      <div class="album-cover"></div>
+      <div class="album-info">
+        <p class="album-title">앨범4</p>
+        <p class="album-date">2017.02.16.</p>
+      </div>
+    </div>
+  </li>
+</ul>
+</div>
+          
+
+  <!-- photo / grid -->
+  <section class="container section scrollspy" id="photos"></section>
+      <div class="row">
+          <div class="col s12 l4">
+
+          </div>
+          <div class="col s12 l6 offset-l1">
+              <h2 class="indigo-text text-darken-4">Portraits</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+          </div>
+      </div>
+      <div class="row">
+        <div class="col s12 l4 push-l7 offset-l1">
+        </div>
+        <div class="col s12 l6 pull-l5 right-align offset-l1">
+            <h2 class="indigo-text text-darken-4">Cityscapes</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 l4">
+        </div>
+        <div class="col s12 l6 offset-l1">
+            <h2 class="indigo-text text-darken-4">Nature</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+        </div>
+    </div>
+  </section>
+
+  <!-- parallax -->
+  <div class="parallax-container">
+      <div class="parallax">
+      </div>
+  </div>
+
+  <!-- services / tabs -->
+  <section class="container section scrollspy" id="services">
+    <div class="row">
+        <div class="col s12 l4">
+            <h2 class="indigo-text text-darken-4">What I do...</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+        </div>
+        <div class="col s12 l6 offset-l2">
+            <ul class="tabs">
+                <li class="tab col s6">
+                    <a href="#photography" class="indigo-text text-darken-4">Photography</a>
+                </li>
+                <li class="tab col s6">
+                    <a href="#editing" class="indigo-text text-darken-4">Editing</a>
+                </li>
+            </ul>
+            <div class="col s12" id="photography">
+                <p class="flow-text indigo-text text-darken-4">PHOTOGRAPHY
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+            </div>
+            <div class="col s12" id="editing">
+                <p class="flow-text indigo-text text-darken-4">EDITING입니다.
+                </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- parallax -->
+  <div class="parallax-container">
+    <div class="parallax">
+    </div>
+</div>
+
+  <!-- contact form -->
+  <section class="section container scrollspy" id="contact">
+      <div class="row">
+          <div class="col s12 l5">
+              <h2 class="indigo-text text-darken-4">Get In Touch</h2>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+          </div>
+          <div class="col s12 l5 offset-l2">
+              <form action="">
+                  <div class="input-field">
+                      <i class="material-icons prefix">email</i>
+                      <input type="email" id="email">
+                      <label for="email">Your Email</label>
+                  </div>
+                  <div class="input-field">
+                      <i class="material-icons prefix">message</i>
+                      <textarea id="message" class="materialize-textarea"></textarea>
+                      <label for="message">Your Message</label>
+                  </div>
+                  <div class="input-field">
+                      <input type="text" id="date" class="datepicker">
+                      <label for="date">Choose a date you need me for...</label>
+                  </div>
+                  <div class="input-field">
+                      <p>Services required...</p>
+                      <p>
+                          <label>
+                              <input type="checkbox">
+                              <span>Photography</span>
+                          </label>
+                      </p>
+                      <p>
+                        <label>
+                            <input type="checkbox">
+                            <span>Editing</span>
+                        </label>
+                    </p>
+                  </div>
+                  <div class="input-field center">
+                      <button class="btn indigo darken-4">Submit</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="page-footer grey darken-3">
+      <div class="container">
+          <div class="row">
+              <div class="col s12 l6">
+                  <h5>About Me</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum at lacus congue, suscipit elit nec, tincidunt orci.</p>  
+                </div>
+                <div class="col s12 l4 offset-l2">
+                    <h5>Connect</h5>
+                    <ul>
+                        <li><a href="#" class="grey-text text-lighten-3">Facebook</a></li>
+                        <li><a href="#" class="grey-text text-lighten-3">Twitter</a></li>
+                        <li><a href="#" class="grey-text text-lighten-3">Linked In</a></li>
+                        <li><a href="#" class="grey-text text-lighten-3">Instagram</a></li>
+                    </ul>
+                </div>
+          </div>
+      </div>
+      <div class="footer-copyright grey darken-4">
+          <div class="container center-align">&copy; 2018 Photo Ninja
+          </div>
+      </div>
+  </footer>
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script type="text/javascript" src="calendar.js"></script>
+  <script>
+    $(document).ready(function(){
+        $('.sidenav').sidenav();
+        $('.materialboxed').materialbox();
+        $('.parallax').parallax();
+        $('.tabs').tabs();
+        $('.datepicker').datepicker({
+            disableWeekends: true
+        });
+        $('.tooltipped').tooltip();
+        $('.scrollspy').scrollSpy();
+        $('.bxslider').bxSlider();
+    })
+  </script>
+  
+  <footer class="page-footer">
+    <nav>
+      <div class="nav-wrapper">
+        <ul id="nav-mobile" class="center">
+          <li><a class="material-icons" href="first.html">home</a></li>
+          <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
+          <li><a class="material-icons" href="chat/chat.html">chat</a></li>
+        </ul>
+          <ul id="nav-mobile" class="right">
+             <li><a class="material-icons" href="mypage">account_circle</a></li>
+          </ul>
+        </ul>
+      </div>
+      </nav></footer>
+  
+</body>
+</html>

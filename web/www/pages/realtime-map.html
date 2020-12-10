@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Example</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      /* 지도 크기 */
+      #map {
+        height: 400px;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="#!" class="brand-logo center"
+          ><i class="material-icons">linked_camera</i>22세기사진관</a
+        >
+
+        <ul id="nav-mobile" class="left">
+          <li>
+            <a class="material-icons" href="first.html">keyboard_arrow_left</a>
+          </li>
+        </ul>
+        <ul id="nav-mobile" class="right">
+          <li>
+            <a href="page/sass.html"><i class="material-icons">search</i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      <h4>실시간 위치 수집 중...</h4>
+      <p id="cLocation"></p>
+      <p id="listHead"></p>
+      <ul id="pLocation">
+        <!-- <ul id="pList"></ul> -->
+      </ul>
+      <div id="map"></div>
+    </div>
+
+    <footer class="page-footer">
+      <nav>
+        <div class="nav-wrapper">
+          <ul id="nav-mobile" class="center">
+            <li><a class="material-icons" href="">home</a></li>
+            <li><a class="material-icons" href="">favorite_border</a></li>
+            <li><a class="material-icons" href="">chat</a></li>
+          </ul>
+          <ul id="nav-mobile" class="right">
+            <li><a class="material-icons" href="mypage">account_circle</a></li>
+          </ul>
+        </div>
+      </nav>
+    </footer>
+
+    <script src="jquery-3.5.1.min.js"></script>
+    <script src="realtime-map.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2MkxTkYDQdwq_8eSa4RXikN_s_Yra02s&callback=initMap"
+    ></script>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2MkxTkYDQdwq_8eSa4RXikN_s_Yra02s&callback=initMap"
+    ></script>
+  </body>
+</html>

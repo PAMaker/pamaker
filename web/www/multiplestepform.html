@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset = "utf-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no", initial-scale="1.0">
+  <link rel="apple-touch-startup-image" href="startup.png">
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" type="text/css" href="first.css">
+  <link rel="stylesheet" href="multiplestepform.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+  
+
+</head>
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo"><i class="material-icons">linked_camera</i>22세기사진관</a>
+      <ul id="nav-mobile" class="left">
+        <li><a class="material-icons" href="first.html">keyboard_arrow_left</a></li>
+      </ul>
+      <ul id="nav-mobile" class="right">
+      <li><a href="sass.html"><i class="material-icons">search</i></a></li></ul>
+    </div>
+  </nav>
+
+
+    <form id="regForm" action="/action_page.php">
+        <h3 style="text-align: center;">개인 정보 수정</h3>
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">비밀번호 입력
+          <p><input placeholder="비밀번호" oninput="this.className = ''" name="password"></p>
+        </div>
+        <div class="tab">
+          <p>이메일<input placeholder="이메일" oninput="this.className = ''" name="email"></p>
+          <p>전화번호<input placeholder="전화번호" oninput="this.className = ''" name="phone"></p>
+          <p>주소<input placeholder="주소" oninput="this.className = ''" name="address"></p>
+          <p>소개글<input placeholder="소개글" oninput="this.className = ''" name="info"></p>
+        </div>
+        <div style="overflow:auto;">
+          <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          </div>
+        </div>
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+      </form>
+      <script type="text/javascript" src="multiplestepform.js"></script>
+
+      <footer class="page-footer">
+        <nav>
+          <div class="nav-wrapper">
+            <ul id="nav-mobile" class="center">
+              <li><a class="material-icons" href="first.html">home</a></li>
+              <li><a class="material-icons" href="review.html">format_align_justify
+      </a></li>
+              <li><a class="material-icons" href="favorite.html">favorite_border</a></li>
+              <li><a class="material-icons" href="chat/chat.html">chat</a></li>
+            </ul>
+              <ul id="nav-mobile" class="right">
+                 <li><a class="material-icons" href="myinfo.html">account_circle</a></li>
+              </ul>
+            </ul>
+          </div>
+          </nav></footer>
+      
+          
+      
+        
+      </body>
+      </html>
