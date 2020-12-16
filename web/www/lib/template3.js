@@ -77,22 +77,21 @@ module.exports = {
         list = list + `
     <div class="row" style="float:left">
       <div class="col s12 m7 l4 push-l2">
-        <div class="card" style="width:300px;">
-          <div class="card-image">
-            <img src="현근창10.jpg" >
+        <a href="?id=${topics[i].email}">
+          <div class="card" style="width:300px;">
+            <div class="card-image">
+              <img src="현근창10.jpg" >
+            </div>
+            <div class="card-content">
+              <h6 style="font-weight:bold">${topics[i].maindesc}</h6><p>${topics[i].service}</p
+              <br><br>
+              <p>${topics[i].name}<p>
+              <br>
+              <p><i class="material-icons" style="font-size:15px">location_on</i>&nbsp${topics[i].region}&nbsp&nbsp
+              <i class="material-icons" style="font-size:15px">payments</i>&nbsp${topics[i].price}</p>
+            </div>
           </div>
-          <div class="card-content">
-            <h6 style="font-weight:bold">${topics[i].maindesc}</h6><p>${topics[i].service}</p
-            <br><br>
-            <p>${topics[i].name}<p>
-            <br>
-            <p><i class="material-icons" style="font-size:15px">location_on</i>&nbsp${topics[i].region}&nbsp&nbsp
-            <i class="material-icons" style="font-size:15px">payments</i>&nbsp${topics[i].price}</p>
-          </div>
-          <div class="card-action" style="background-color:black">
-            <a href="?id=${topics[i].email}" style="color:white; font-size:15px; font-weight:bold">&nbsp&nbsp&nbsp자세히 보기</a>
-          </div>
-        </div>
+        </a>
       </div>
     </div>`;
     
@@ -116,7 +115,7 @@ module.exports = {
         var control = `
       <div class="conatiner" style="margin-top:100px">
         <div class="row">
-          <div class="col s12 l4 push-l1">
+          <div class="col s12 l4">
             <a></a>
             <img src="photographer1.jpg" alt="" class="responsive-img materialboxed"/>
           </div>
@@ -139,38 +138,36 @@ module.exports = {
       </div>
 
       <div class="row" style="margin-top:100px">
-        <div class="col s12 l4"><h5 style="font-weight:bold">포트폴리오</h5></div>
+        <div class="col s12"><h5 style="font-weight:bold">포트폴리오</h5></div>
         <div class="col s12 l2 push-l5"><a class="waves-effect black-text" href="portfolio.html">▶ 더보기</a></div>
       </div>
-      <hr style="width:80%; margin-bottom:50px">
+      <hr style="margin-bottom:50px">
       <div style="margin-top: 50px; margin-bottom: 200px;">
 
       <div class="row">
-      <div class="col s12 push-l1">
-        <div class="gallery">
+        <div class="col s12 l2 gallery">
           <a target="_blank" href="현근창1.jpg"/>
             <img src="현근창1.jpg" alt="photo1">
           </a>
         </div>
         
-        <div class="gallery">
+        <div class="col s12 l2 gallery">
           <a target="_blank" href="현근창2.jpg">
             <img src="현근창2.jpg" alt="photo2"/>
           </a>
         </div>
 
-        <div class="gallery">
+        <div class="col s12 l2 gallery">
           <a target="_blank" href="현근창3.jpg">
             <img src="현근창3.jpg" alt="photo3"/>
           </a>
         </div>
         
-        <div class="gallery">
+        <div class="col s12 l2 gallery">
           <a target="_blank" href="현근창4.jpg">
             <img src="현근창4.jpg" alt="photo4"/>
           </a>
         </div>
-      </div>
       </div>
 
           

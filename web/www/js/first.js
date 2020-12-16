@@ -1,6 +1,5 @@
 var http = require('http');
 
-
 var app = http.createServer(function(request,response){
   var template = `<!DOCTYPE html>
 <html>

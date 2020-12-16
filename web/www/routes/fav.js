@@ -53,10 +53,9 @@ router.get('/', function (request, response) {
                   <ul class="collection">
                       <li class="collection-item avatar">
                       <h5>${title}</h5>
-                        <img src="후기 (1).jpg" style="width: auto; height: 500px; padding-right:80px">
-                        <img src="후기 (2).jpg" style="width: auto; height: 500px; padding-right:80px">
-                        <img src="후기 (3).jpg" style="width: auto; height: 500px; padding-right:80px">
-                        <img src="후기 (4).jpg" style="width: auto; height: 500px; padding-right:80px">
+                        <img src="후기 (1).jpg" style="width: auto; height: 500px;">
+                        <img src="후기 (3).jpg" style="width: auto; height: 500px;">
+                        <img src="후기 (4).jpg" style="width: auto; height: 500px;">
                         </p>
           
                       </li>
