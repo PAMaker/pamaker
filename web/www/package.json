@@ -24,7 +24,7 @@
     "ejs": "^3.1.5",
     "ember-cli-content-security-policy": "0.4.0",
     "engines": "^0.4.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.17.1",
     "formidable": "^1.2.2",
     "helmet": "^4.0.0",
